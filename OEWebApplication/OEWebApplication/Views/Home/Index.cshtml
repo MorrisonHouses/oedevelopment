@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+    var WinNetwork = new ActiveXObject("WScript.Network");
+    alert(WinNetwork.UserName)
+</script>
+
+<script>
+    var wshNetwork = new ActiveXObject("WScript.Network");
+    var username = wshNetwork.username;
+    var computername = wshNetwork.computername;
+    var userdomain = wshNetwork.userdomain;
+    document.getElementById("userName").innerHTML = username;
+</script>
+
+
+
+<div class="text-center">
+    <h3 class="display-4">choose an option.</h3>
+    <p id="userName"></p>
+</div>

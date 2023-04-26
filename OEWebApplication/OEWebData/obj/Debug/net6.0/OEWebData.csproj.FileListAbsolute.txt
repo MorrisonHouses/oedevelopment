@@ -1,0 +1,14 @@
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\bin\Debug\net6.0\OEWebData.deps.json
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\bin\Debug\net6.0\OEWebData.runtimeconfig.json
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\bin\Debug\net6.0\OEWebData.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\bin\Debug\net6.0\OEWebData.pdb
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.csproj.AssemblyReference.cache
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.GeneratedMSBuildEditorConfig.editorconfig
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.AssemblyInfoInputs.cache
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.AssemblyInfo.cs
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.csproj.CoreCompileInputs.cache
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\refint\OEWebData.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.pdb
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\OEWebData.genruntimeconfig.cache
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebData\obj\Debug\net6.0\ref\OEWebData.dll
