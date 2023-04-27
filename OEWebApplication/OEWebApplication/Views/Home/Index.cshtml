@@ -1,23 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<script>
-    var WinNetwork = new ActiveXObject("WScript.Network");
-    alert(WinNetwork.UserName)
-</script>
-
-<script>
-    var wshNetwork = new ActiveXObject("WScript.Network");
-    var username = wshNetwork.username;
-    var computername = wshNetwork.computername;
-    var userdomain = wshNetwork.userdomain;
-    document.getElementById("userName").innerHTML = username;
-</script>
-
-
-
-<div class="text-center">
-    <h3 class="display-4">choose an option.</h3>
-    <p id="userName"></p>
+<h4>Home Page</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <a class="" asp-area="" asp-controller="Approval" asp-action="Index"><h4>Approvals</h4></a>
+        </div>
+        <div class="col-4">
+            <a class="" asp-area="" asp-controller="Request" asp-action="Index"><h4>Requests</h4></a>
+        </div>
+        <div class="col-4">
+            <a class="" asp-area="" asp-controller="Settings" asp-action="Index"><h4>Settings</h4></a>
+        </div>
+    </div>
 </div>

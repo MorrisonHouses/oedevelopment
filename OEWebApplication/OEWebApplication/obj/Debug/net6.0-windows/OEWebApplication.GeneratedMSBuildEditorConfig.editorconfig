@@ -16,8 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplication\OEWebApplication
 build_property._RazorSourceGeneratorDebug = 
 
+[//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplication/OEWebApplication/Views/Approval/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcm92YWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplication/OEWebApplication/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplication/OEWebApplication/Views/Request/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplication/OEWebApplication/Views/Settings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplication/OEWebApplication/Views/Shared/Error.cshtml]

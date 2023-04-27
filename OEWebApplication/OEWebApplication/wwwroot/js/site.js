@@ -3,8 +3,3 @@
 
 // Write your JavaScript code.
 
-var wshNetwork = new ActiveXObject("WScript.Network");
-var username = wshNetwork.username;
-var computername = wshNetwork.computername;
-var userdomain = wshNetwork.userdomain;
-document.getElementById("userName").innerHTML = username;

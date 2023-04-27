@@ -22,18 +22,19 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="https://www.morrisonhomes.ca/">www.morrisonhomes.ca</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Requests</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Request" asp-action="Index">Requests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Approvals</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Approval" asp-action="Index">Approvals</a>
                         </li>
                     </ul>
+                    <a class="nav-link text-light" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                    <h5><label class:="text-light">User: @ViewBag.UserName </label></h5>
+                    <h5><label class:="text-light"> / @ViewBag.DateTime </label></h5>
+                    </div>
                 </div>
             </div>
         </nav>

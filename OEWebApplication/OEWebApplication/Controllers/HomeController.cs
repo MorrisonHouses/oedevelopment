@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OEWebApplication.Models;
+using OEWebData;
 using System.Diagnostics;
 
 namespace OEWebApplication.Controllers
@@ -15,9 +16,14 @@ namespace OEWebApplication.Controllers
 
         public IActionResult Index()
         {
-            
+            /*calls username*/
+            Functions function = new();
+            ConfigClass configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
