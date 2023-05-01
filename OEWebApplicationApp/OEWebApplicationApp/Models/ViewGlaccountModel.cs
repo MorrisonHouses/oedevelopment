@@ -4,7 +4,7 @@ namespace OEWebApplicationApp.Models
 {
     public class ViewGlaccountModel
     {
-        [Route]
+
         public string Account { get; set; }
         public string AccountTitle { get; set; }
         public string? GateKeeper { get; set; }

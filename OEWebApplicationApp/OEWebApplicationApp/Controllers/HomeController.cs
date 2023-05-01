@@ -26,6 +26,11 @@ namespace OEWebApplicationApp.Controllers
             return View();
         }
 
+        public IActionResult UnderConstruction()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

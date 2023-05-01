@@ -6,28 +6,41 @@
 <div class="container-fluid justify-content-center">
     <div class="row">
         <div class="col-4">
-            <a class="m-4 p-2" asp-area="approver_button" asp-controller="Approval" asp-action="Index" onkeyup="manage(this)"><h4>Approvals</h4></a>
+            <a class="m-4 p-2" asp-area="" asp-controller="Approval" asp-action="Index" onkeyup="manage(this)"><h4>Operating Expense Approver</h4></a>
             <h5 class="" id="">Requester:  @ViewBag.ApproverBool</h5>
         </div>
         <div class="col-4">
-            <a class="m-4 p-2" asp-area="requester_button" asp-controller="Request" asp-action="GetRequest"><h4>Requests</h4></a>
+            <a class="m-4 p-2" asp-area="" asp-controller="Request" asp-action="GetRequest"><h4>Operating Expense Requester</h4></a>
             <h5 class="" id="">Requester:  @ViewBag.RequesterBool</h5>
         </div>
         <div class="col-4">
-            <a class="m-4 p-2" asp-area="" asp-controller="Settings" asp-action="Index"><h4>Settings</h4></a>
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Document Manager</h4></a>
         </div>
     </div>
 </div>
 <div class="container-fluid justify-content-center">
     <div class="row">
         <div class="col-4">
-            <a class="m-4 p-2" asp-area="" asp-controller="Approval" asp-action="Index"><h4>Other Button</h4></a>
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Customer Letters</h4></a>
         </div>
         <div class="col-4">
-            <a class="m-4 p-2" asp-area="" asp-controller="Request" asp-action="Index"><h4>Other Button</h4></a>
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Scheduling</h4></a>
         </div>
         <div class="col-4">
-            <a class="m-4 p-2" asp-area="" asp-controller="Settings" asp-action="Index"><h4>Other Button</h4></a>
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Schedule Lookup</h4></a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid justify-content-center">
+    <div class="row">
+        <div class="col-4">
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Trade List</h4></a>
+        </div>
+        <div class="col-4">
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Vendor Reporting</h4></a>
+        </div>
+        <div class="col-4">
+            <a class="m-4 p-2" asp-area="" asp-controller="Home" asp-action="UnderConstruction"><h4>Zero Dollar PO</h4></a>
         </div>
     </div>
 </div>
