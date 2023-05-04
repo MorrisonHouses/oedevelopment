@@ -1,60 +1,67 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OEWebApplicationApp.Models;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
+using Microsoft.EntityFrameworkCore.Update;
+using Microsoft.Identity.Client;
+using Azure.Core;
+using OEWebApplicationApp;
+using Microsoft.Web.Administration;
+using System.Security.Principal;
+using System.Drawing;
+using NuGet.Packaging.Signing;
+using System.Collections.Generic;
+using System.Linq;
+using System.Collections;
 
 namespace OEWebApplicationApp.Controllers
 {
     public class RequestController : Controller
     {
-        //instace of helper classes======================================================
+//instace of helper classes======================================================
         ClassFunctions function = new();
         ClassConfig configclass = new();
+        TblCgyoeManager tblCgyoeManager = new();
 
-
-        /// <summary>
-        /// pulls from the vmort swl express table and filters list by name of user
-        /// </summary>
-        /// <returns>list</returns>
-        public IActionResult GetRequest()
-        {
-            ViewBag.UserName = configclass.username();
-            ViewBag.DateTime = function.dateTime();
-            ViewBag.RequesterBool = ViewGLaccountManager.GetRequestBool();
-
-            ClassConfig classConfig = new ClassConfig();
-            List<ViewGlaccount> viewGlaccounts = ViewGLaccountManager.GetViewGlaccounts();
-
-            List<ViewGlaccountModel> listing = (
-                from ViewGlaccount in viewGlaccounts where ViewGlaccount.GateKeeper == classConfig.username()
-                select new ViewGlaccountModel
-                {
-                    Account = ViewGlaccount.Account,
-                    AccountTitle = ViewGlaccount.AccountTitle,
-                    GateKeeper = ViewGlaccount.GateKeeper,
-                    ApprovalThreshold = ViewGlaccount.ApprovalThreshold,
-                    ApprovalGateKeeper = ViewGlaccount.ApprovalGateKeeper,
-                }
-                ).ToList();
-            return View(listing);
-        }
-
-
-        // GET: RequestController
+ // GET: =========================================================================
         public ActionResult Index()
         {
-            return View();
+            ClassFunctions function = new();
+            ClassConfig configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            var OElist = tblCgyoeManager.GetViewOERequest();
+            return View(OElist);
         }
-
-        // GET: RequestController/Details/5
+// Details: =====================================================================
         public ActionResult Details(int id)
         {
+            ClassFunctions function = new();
+            ClassConfig configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            var OElist = tblCgyoeManager.GetViewOERequest();
             return View();
         }
 
-        // GET: RequestController/Create
+// Create: =====================================================================
         public ActionResult Create()
         {
+            //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MORSQLCONN"].ConnectionString);
+            //SqlCommand cmd = new SqlCommand("", con);
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("@", username);
+
+            //con.Open();
+            //int i = cmd.ExecuteNonQuery();
+            //con.Close();
+
+            //return View();
             return View();
         }
 

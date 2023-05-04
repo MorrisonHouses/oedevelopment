@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using OEWebApplicationApp.Models;
 
 namespace OEWebApplicationApp;
 
@@ -59,16 +60,6 @@ public partial class MorrisonHomesContext : DbContext
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
         });
 
-        modelBuilder.Entity<TblCgyoe>(entity =>
-        {
-            entity.Property(e => e.RequestId).ValueGeneratedOnAdd();
-        });
-
-        modelBuilder.Entity<TblEdmoe>(entity =>
-        {
-            entity.Property(e => e.RequestId).ValueGeneratedOnAdd();
-        });
-
         modelBuilder.Entity<VendorExclusion>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_VendorException");
@@ -108,4 +99,6 @@ public partial class MorrisonHomesContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public DbSet<OEWebApplicationApp.Models.TblCgyoeModel>? TblCgyoeModel { get; set; }
 }

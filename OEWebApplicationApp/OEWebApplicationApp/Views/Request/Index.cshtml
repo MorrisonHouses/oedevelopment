@@ -1,0 +1,141 @@
+﻿@model IEnumerable<OEWebApplicationApp.TblCgyoe>
+
+@{
+    ViewData["Title"] = "OERequest";
+}
+<p>
+    <a asp-action="Create"><h2>Create New</h2></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glaccount)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.AutoApproveThreshold)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gstamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.Gstincluded)
+            </th>*@
+@*            <th>
+                @Html.DisplayNameFor(model => model.Budgeted)
+            </th>*@
+@*            <th>
+                @Html.DisplayNameFor(model => model.AutoApproved)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Request)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovedBy)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.ApprovedDate)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.Attachment)
+            </th>*@
+@*            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glaccount)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.AutoApproveThreshold)
+            </td>*@
+            <td>
+                $@Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gstamount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Gstincluded)
+            </td>*@
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Budgeted)
+            </td>*@
+@*            <td>
+                @Html.DisplayFor(modelItem => item.AutoApproved)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Request)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedBy)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedDate)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Attachment)
+            </td>*@
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

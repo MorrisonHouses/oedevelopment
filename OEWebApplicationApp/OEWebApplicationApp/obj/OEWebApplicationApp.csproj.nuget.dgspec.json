@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[6.0.13, )"
             },
+            "Microsoft.Web.Administration": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"

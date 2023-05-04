@@ -28,8 +28,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVbmRlckNvbnN0cnVjdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplicationApp/OEWebApplicationApp/Views/Request/GetRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxHZXRSZXF1ZXN0LmNzaHRtbA==
+[//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplicationApp/OEWebApplicationApp/Views/Request/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplicationApp/OEWebApplicationApp/Views/Request/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [//Morfsdc1/Users/edoucett/GitHub/oedevelopment/OEWebApplicationApp/OEWebApplicationApp/Views/Settings/Index.cshtml]

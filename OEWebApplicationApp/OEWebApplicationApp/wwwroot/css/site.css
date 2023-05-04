@@ -25,3 +25,8 @@ body {
 label {
     color: white;
 }
+.nav-link:hover{
+    background: gray;
+    border-radius: 25px;
+    animation: ease-in-out 100ms;
+}

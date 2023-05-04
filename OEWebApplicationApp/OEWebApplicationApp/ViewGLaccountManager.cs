@@ -4,6 +4,7 @@ namespace OEWebApplicationApp
 {
     public class ViewGLaccountManager
     {
+
         /// <summary>
         /// view all accounts
         /// </summary>

@@ -286,3 +286,7 @@
 \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\web.config
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\Microsoft.Web.Administration.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\runtimes\unix\lib\netstandard1.5\System.ServiceProcess.ServiceController.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\runtimes\win\lib\netstandard1.5\System.ServiceProcess.ServiceController.dll
