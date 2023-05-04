@@ -10,6 +10,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.RequestId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Vendor)
             </th>
             <th>
@@ -57,9 +60,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>
+@*            <th>
                 @Html.DisplayNameFor(model => model.Reason)
-            </th>
+            </th>*@
 @*            <th>
                 @Html.DisplayNameFor(model => model.Attachment)
             </th>*@
@@ -72,6 +75,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Vendor)
             </td>
@@ -120,9 +126,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.Reason)
-            </td>
+            </td>*@
 @*            <td>
                 @Html.DisplayFor(modelItem => item.Attachment)
             </td>*@
@@ -130,12 +136,13 @@
                 @Html.DisplayFor(modelItem => item.Timestamp)
             </td>*@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
+                <a asp-controller="Request" asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
+                <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" >Details</a> |
+                <a asp-controller="Request" asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<a href="#top"><h3>TOP</h3></a>
 

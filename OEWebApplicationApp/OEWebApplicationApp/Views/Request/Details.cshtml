@@ -1,154 +1,151 @@
-﻿@model OEWebApplicationApp.TblCgyoe
+﻿@model IEnumerable<OEWebApplicationApp.TblCgyoe>
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = null;
 }
 
-<div>
-    <h4>Details</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Vendor)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VendorName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VendorName)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RequestedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RequestedBy)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Glaccount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Glaccount)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AutoApproveThreshold)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AutoApproveThreshold)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Amount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Amount)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gstamount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gstamount)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalAmount)
-        </dd>
-        <hr />
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.Gstincluded)
-        </dt>
-        <dd class = "col-sm-8">
-            @Html.DisplayFor(model => model.Gstincluded)
-        </dd>
-        <hr />
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.Budgeted)
-        </dt>
-        <dd class = "col-sm-8">
-            @Html.DisplayFor(model => model.Budgeted)
-        </dd>
-        <hr />
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.AutoApproved)
-        </dt>
-        <dd class = "col-sm-8">
-            @Html.DisplayFor(model => model.AutoApproved)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Request)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Request)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PurchaseDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PurchaseDate)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ApprovedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ApprovedBy)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ApprovedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ApprovedDate)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Reason)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Reason)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Attachment)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Attachment)
-        </dd>
-        <hr />
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Timestamp)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Timestamp)
-        </dd>
-        <hr />
-    </dl>
-</div>
-<div class="container row">
-    <div class="col-3">
-    <a asp-action="Edit" asp-route-id="@Model?.RequestId"><h2>Edit</h2></a>
-    </div>
-    <div class="col-3">
-    <a asp-action="Index"><h2>Back to List</h2></a>
-    </div>
-</div>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glaccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoApproveThreshold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gstamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gstincluded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Budgeted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoApproved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Request)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attachment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glaccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoApproveThreshold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gstamount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gstincluded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budgeted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Request)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attachment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

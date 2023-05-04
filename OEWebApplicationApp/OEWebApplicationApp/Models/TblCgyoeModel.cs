@@ -30,5 +30,6 @@ namespace OEWebApplicationApp.Models
         public string? Reason { get; set; }
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
+
     }
 }

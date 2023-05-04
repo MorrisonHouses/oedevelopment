@@ -73,7 +73,7 @@ namespace OEWebApplicationApp.Models
         }//GetViewOERequest
 
         /*get request by id===========================================================================================================================*/
-        public List<TblCgyoe> GetViewOERequestById(int requestId)
+        public List<TblCgyoe> GetViewOERequestById(int id)
         {
             ClassConfig classConfig = new ClassConfig();
             List<TblCgyoe> listOfOERequest = new List<TblCgyoe>();
@@ -83,8 +83,8 @@ namespace OEWebApplicationApp.Models
             {
                 SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "spr_CGYGetRequesterOE";
-                command.Parameters.AddWithValue("@RequestId", username);
+                command.CommandText = "spr_CGYGetRequestOEById";
+                command.Parameters.AddWithValue("@RequestId", id);
                 SqlDataAdapter sqlda = new SqlDataAdapter(command);
                 DataTable dtOE = new DataTable();
 

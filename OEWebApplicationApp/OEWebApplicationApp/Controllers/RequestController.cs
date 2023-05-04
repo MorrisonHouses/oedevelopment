@@ -45,8 +45,8 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = tblCgyoeManager.GetViewOERequest();
-            return View();
+            var OElist = tblCgyoeManager.GetViewOERequestById(id);
+            return View(OElist);
         }
 
 // Create: =====================================================================

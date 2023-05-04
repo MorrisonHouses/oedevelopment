@@ -30,3 +30,6 @@ label {
     border-radius: 25px;
     animation: ease-in-out 100ms;
 }
+.nav-link{
+    margin: 3px;
+}
