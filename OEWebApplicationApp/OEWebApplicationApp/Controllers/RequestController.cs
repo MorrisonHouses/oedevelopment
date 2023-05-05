@@ -28,7 +28,7 @@ namespace OEWebApplicationApp.Controllers
         ClassConfig configclass = new();
         TblCgyoeManager tblCgyoeManager = new();
 
- // GET: =========================================================================
+        // GET: =========================================================================
         public ActionResult Index()
         {
             ClassFunctions function = new();
@@ -83,25 +83,52 @@ namespace OEWebApplicationApp.Controllers
         // GET: RequestController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ClassFunctions function = new();
+            ClassConfig configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();
+            if (OElist == null)
+            {
+                TempData["Info Message"] = "No item available" + id.ToString();
+                return RedirectToAction("Index");
+            }
+            return View(OElist);
         }
 
-        // POST: RequestController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        //[HttpPost]
+        [ActionName("Edit")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edit(TblCgyoe tblCgyoe)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    bool IsUpdated = tblCgyoeManager.UpdateRequest(tblCgyoe);
+                    if (IsUpdated)
+                    {
+                        TempData["Info Message"] = "updated success";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["Info Message"] = "updated was not success";
+                        return RedirectToAction("Index");
+                    }
+                }
+                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+
+                TempData["Info Message"] = ex.Message;
                 return View();
             }
+
         }
 
-        // GET: RequestController/Delete/5
+        // EDIT: =====================================================================
         public ActionResult Delete(int id)
         {
             return View();

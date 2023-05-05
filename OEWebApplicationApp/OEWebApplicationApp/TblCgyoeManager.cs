@@ -123,7 +123,71 @@ namespace OEWebApplicationApp.Models
         }//GetViewOERequest
 
 
-        /*new request===========================================================================================================================*/
+        /*update request===========================================================================================================================*/
+        public bool UpdateRequest(TblCgyoe request)
+        {
+            ClassConfig configclass = new();
+            int i = 0;
+            ClassConfig classConfig = new ClassConfig();
+            List<TblCgyoe> listOfOERequest = new List<TblCgyoe>();
+            string username = configclass.username();
+            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            using (SqlConnection connection = new SqlConnection(config))
+            {
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spr_CGYUpdateOE";
+                //command.Parameters.AddWithValue("@RequestId", request.RequestId);
+                //if (request.Vendor != null) { command.Parameters.AddWithValue("@Vendor", request.Vendor); } else { command.Parameters.AddWithValue("@Vendor", DBNull.Value); };
+                //if (request.VendorName != null) { command.Parameters.AddWithValue("@VendorName", request.VendorName); } else { command.Parameters.AddWithValue("@VendorName", DBNull.Value); };
+                //command.Parameters.AddWithValue("@RequestedBy", username);
+                //if (request.Glaccount != null) { command.Parameters.AddWithValue("@GLAccount", request.Glaccount); } else { command.Parameters.AddWithValue("@GLAccount", DBNull.Value); };
+                //if (request.AutoApproveThreshold != null) { command.Parameters.AddWithValue("@AutoApproveThreshold", request.AutoApproveThreshold); } else { command.Parameters.AddWithValue("@AutoApproveThreshold", DBNull.Value); };
+                //if (request.Amount != null) { command.Parameters.AddWithValue("@Amount", request.Amount); } else { command.Parameters.AddWithValue("@Amount", DBNull.Value); };
+                //if (request.Gstamount != null) { command.Parameters.AddWithValue("@GSTAmount", request.Gstamount); } else { command.Parameters.AddWithValue("@GSTAmount", DBNull.Value); };
+                //if (request.TotalAmount != null) { command.Parameters.AddWithValue("@TotalAmount", request.TotalAmount); } else { command.Parameters.AddWithValue("@TotalAmount", DBNull.Value); };
+                //if (request.Gstincluded != null) { command.Parameters.AddWithValue("@GSTIncluded", request.Gstincluded); } else { command.Parameters.AddWithValue("@GSTIncluded", DBNull.Value); };
+                //if (request.Budgeted != null) { command.Parameters.AddWithValue("@Budgeted", request.Budgeted); } else { command.Parameters.AddWithValue("@Budgeted", DBNull.Value); };
+                //if (request.AutoApproved != null) { command.Parameters.AddWithValue("@AutoApproved", request.AutoApproved); } else { command.Parameters.AddWithValue("@AutoApproved", DBNull.Value); };
+                //if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
+                //if (request.PurchaseDate != null) { command.Parameters.AddWithValue("@PurchaseDate", request.PurchaseDate); } else { command.Parameters.AddWithValue("@PurchaseDate", DBNull.Value); };
+                //if (request.ApprovedBy != null) { command.Parameters.AddWithValue("@ApprovedBy", request.ApprovedBy); } else { command.Parameters.AddWithValue("@ApprovedBy", DBNull.Value); };
+                //if (request.ApprovedDate != null) { command.Parameters.AddWithValue("@ApprovedDate", request.ApprovedDate); } else { command.Parameters.AddWithValue("@ApprovedDate", DBNull.Value); };
+                //if (request.Status != null) { command.Parameters.AddWithValue("@Status", request.Status); } else { command.Parameters.AddWithValue("@Status", DBNull.Value); };
+                //if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); } else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
+                //command.Parameters.AddWithValue("@Reason", request.Reason);
+                //if (request.Attachment != null) { command.Parameters.AddWithValue("@Attachment", request.Attachment); } else { command.Parameters.AddWithValue("@Attachment", DBNull.Value); };
+                //if (request.Attachment != null) { command.Parameters.AddWithValue("@Attachment", request.Attachment); } else { command.Parameters.Add("@Attachment", SqlDbType.VarBinary, -1).Value = DBNull.Value; };
+                //if (request.Timestamp != null) { command.Parameters.AddWithValue("@Timestamp", request.Timestamp); } else { command.Parameters.AddWithValue("@Timestamp", DBNull.Value); };
+                command.Parameters.AddWithValue("@RequestId", request.RequestId);
+                command.Parameters.AddWithValue("@Vendor", request.Vendor);
+                command.Parameters.AddWithValue("@VendorName", request.VendorName);
+                command.Parameters.AddWithValue("@RequestedBy", username);
+                command.Parameters.AddWithValue("@GLAccount", request.Glaccount);
+                command.Parameters.AddWithValue("@AutoApproveThreshold", request.AutoApproveThreshold);
+                command.Parameters.AddWithValue("@Amount", request.Amount);
+                command.Parameters.AddWithValue("@GSTAmount", request.Gstamount);
+                command.Parameters.AddWithValue("@TotalAmount", request.TotalAmount);
+                command.Parameters.AddWithValue("@GSTIncluded", request.Gstincluded);
+                command.Parameters.AddWithValue("@Budgeted", request.Budgeted);
+                command.Parameters.AddWithValue("@AutoApproved", request.AutoApproved);
+                command.Parameters.AddWithValue("@Request", request.Request);
+                command.Parameters.AddWithValue("@PurchaseDate", request.PurchaseDate);
+                command.Parameters.AddWithValue("@ApprovedBy", request.ApprovedBy);
+                command.Parameters.AddWithValue("@ApprovedDate", request.ApprovedDate);
+                command.Parameters.AddWithValue("@Status", request.Status);
+                command.Parameters.AddWithValue("@Reason", request.Reason);
+                command.Parameters.AddWithValue("@Attachment", request.Attachment);
+                command.Parameters.AddWithValue("@Timestamp", request.Timestamp);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }//using
+            if (i > 0)
+            { return true; }
+            else { return false; }
+        }//updateRequestOE
 
     }//class
 }//namespace

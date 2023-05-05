@@ -17,13 +17,20 @@ body {
   margin-bottom: 60px;
 }
 :root {
-    --clr__text_white: #FFFFFF;
+    --clr_text_white: #FFFFFF;
+    --clr_text_black: #000000;
 }
 .text-white {
-    color: var(--clr__text_white);
+    color: var(--clr_text_white);
 }
-label {
+.text-black {
+    color: var(--clr_text_black);
+}
+.label.white{
     color: white;
+}
+.label.black {
+    color: black;
 }
 .nav-link:hover{
     background: gray;
