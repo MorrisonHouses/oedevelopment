@@ -23,7 +23,7 @@ namespace OEWebApplicationApp
         {
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             string name = userName.Remove(0, 14);
-            name = "mconrad";
+            name = "1";
             return name;
         }//username
         /*=======================================================================================================================================*/

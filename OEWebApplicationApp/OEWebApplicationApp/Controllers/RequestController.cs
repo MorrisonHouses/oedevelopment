@@ -18,6 +18,7 @@ using NuGet.Packaging.Signing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -38,7 +39,7 @@ namespace OEWebApplicationApp.Controllers
             var OElist = tblCgyoeManager.GetViewOERequest();
             return View(OElist);
         }
-// Details: =====================================================================
+        // Details: =====================================================================
         public ActionResult Details(int id)
         {
             ClassFunctions function = new();
@@ -49,38 +50,38 @@ namespace OEWebApplicationApp.Controllers
             return View(OElist);
         }
 
-// Create: =====================================================================
+        // Create: =====================================================================
         public ActionResult Create()
         {
-            //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MORSQLCONN"].ConnectionString);
-            //SqlCommand cmd = new SqlCommand("", con);
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@", username);
+            List<SelectListItem> Items = new List<SelectListItem>();
+            SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
+            SelectListItem item2 = new SelectListItem() { Text = "Budgeted", Value = "true", Selected = false };
+            Items.Add(item1);
+            Items.Add(item2);
+            ViewBag.Budgeted = Items;
 
-            //con.Open();
-            //int i = cmd.ExecuteNonQuery();
-            //con.Close();
+            List<SelectListItem> autoApproved = new List<SelectListItem>();
+            SelectListItem autoApproved1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
+            SelectListItem autoApproved2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
+            autoApproved.Add(autoApproved1);
+            autoApproved.Add(autoApproved2);
+            ViewBag.autoApproved = autoApproved;
 
-            //return View();
             return View();
         }
 
         // POST: RequestController/Create
         [HttpPost]
+        [ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TblCgyoe tblCgyoe)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            bool IsUpdated = tblCgyoeManager.createProduct(tblCgyoe);
+            return RedirectToAction("Index");
+
         }
 
-        // GET: RequestController/Edit/5
+        // edit: =====================================================================
         public ActionResult Edit(int id)
         {
             ClassFunctions function = new();
@@ -88,65 +89,62 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();
-            if (OElist == null)
-            {
-                TempData["Info Message"] = "No item available" + id.ToString();
-                return RedirectToAction("Index");
-            }
             return View(OElist);
         }
 
-        //[HttpPost]
+        [HttpPost]
         [ActionName("Edit")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Edit(TblCgyoe tblCgyoe)
+        public ActionResult Edit(int id, TblCgyoe tblCgyoe)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    bool IsUpdated = tblCgyoeManager.UpdateRequest(tblCgyoe);
-                    if (IsUpdated)
-                    {
-                        TempData["Info Message"] = "updated success";
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        TempData["Info Message"] = "updated was not success";
-                        return RedirectToAction("Index");
-                    }
-                }
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
+            bool IsUpdated = tblCgyoeManager.UpdateRequest(id, tblCgyoe);
+            return RedirectToAction("Index");
 
-                TempData["Info Message"] = ex.Message;
-                return View();
-            }
+
+            //try
+            //{
+            //    if (ModelState.IsValid)
+            //    {
+            //        bool IsUpdated = tblCgyoeManager.UpdateRequest(tblCgyoe);
+            //        if (IsUpdated)
+            //        {
+            //            TempData["Info Message"] = "updated success";
+            //            return RedirectToAction("Index");
+            //        }
+            //        else
+            //        {
+            //            TempData["Info Message"] = "updated was not success";
+            //            return RedirectToAction("Index");
+            //        }
+            //    }
+            //    return RedirectToAction("Index");
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    TempData["Info Message"] = ex.Message;
+            //    return View();
+            //}
 
         }
 
-        // EDIT: =====================================================================
+        // Delete: =====================================================================
         public ActionResult Delete(int id)
         {
-            return View();
+            var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();
+            return View(OElist);
         }
 
         // POST: RequestController/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [ActionName("Delete")]
+        public ActionResult Delete(int id, TblCgyoe tblCgyoe)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            string result = tblCgyoeManager.Delete(id);
+            return RedirectToAction("Index");
+
+
         }
-    }
-}
+
+
+    }//class
+}//namespace

@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Details";
 }
-<hr/>
 <table class="table">
     <tbody>
 @foreach (var item in Model) {
+            <h3>Details</h3>
          <hr />
         <tr>
             <td>@Html.DisplayNameFor(model => model.RequestId)</td>
@@ -94,8 +94,8 @@
                 <div class="col-sm-4"></div>
                 <div class=" col-sm-4">
                     <a asp-controller="Request" asp-action="Edit" asp-route-id="@item.RequestId"><h4>Edit</h4></a>
-                    <a asp-action="Create"><h4>Create New</h4></a>
-                    <a asp-area="" asp-controller="Request" asp-action="Index"><h4>Back</h4></a>
+                        <a asp-action="Create"><h4>Create New Operating Expense</h4></a>
+                    <a asp-area="" asp-controller="Request" asp-action="Index"><h4>Back to List</h4></a>
                 </div>
             </div>
         </div>
