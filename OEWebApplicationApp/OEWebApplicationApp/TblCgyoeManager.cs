@@ -213,7 +213,9 @@ namespace OEWebApplicationApp.Models
                 command.Parameters.AddWithValue("@Amount", request.@Amount);
                 command.Parameters.AddWithValue("@GSTAmount", request.Gstamount);
                 command.Parameters.AddWithValue("@TotalAmount", request.TotalAmount);
+                command.Parameters.AddWithValue("@GSTIncluded", request.Gstincluded);
                 command.Parameters.AddWithValue("@Budgeted", request.Budgeted);
+                command.Parameters.AddWithValue("@AutoApproved", request.AutoApproved);
                 command.Parameters.AddWithValue("@Request", request.Request);
                 command.Parameters.AddWithValue("@PurchaseDate", request.PurchaseDate);
                 command.Parameters.AddWithValue("@Status", request.Status);
@@ -232,6 +234,15 @@ namespace OEWebApplicationApp.Models
             }
         }//createProduct
 
+        public double valueUpdate(double value)
+        {
+            ClassConfig classConfig = new ClassConfig();
+            double amount = value;
+            double gst = Convert.ToDouble(classConfig.ConfigGST());
+
+            double totalAmount = amount + gst;
+            return totalAmount;
+        }//valueUpdate
 
 
 

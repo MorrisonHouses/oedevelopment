@@ -28,8 +28,10 @@ namespace OEWebApplicationApp.Controllers
         ClassFunctions function = new();
         ClassConfig configclass = new();
         TblCgyoeManager tblCgyoeManager = new();
+        ApmMasterVendorManager apmMasterVendorManager = new();
 
         // GET: =========================================================================
+        [Route("RequestedItemUser")]
         public ActionResult Index()
         {
             ClassFunctions function = new();
@@ -40,6 +42,7 @@ namespace OEWebApplicationApp.Controllers
             return View(OElist);
         }
         // Details: =====================================================================
+        [Route("DetailsItem/{id}")]
         public ActionResult Details(int id)
         {
             ClassFunctions function = new();
@@ -51,8 +54,13 @@ namespace OEWebApplicationApp.Controllers
         }
 
         // Create: =====================================================================
+        [Route("CreateItem")]
         public ActionResult Create()
         {
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            ViewBag.GstValue = configclass.ConfigGST();
+
             List<SelectListItem> Items = new List<SelectListItem>();
             SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
             SelectListItem item2 = new SelectListItem() { Text = "Budgeted", Value = "true", Selected = false };
@@ -66,6 +74,25 @@ namespace OEWebApplicationApp.Controllers
             autoApproved.Add(autoApproved1);
             autoApproved.Add(autoApproved2);
             ViewBag.autoApproved = autoApproved;
+
+            List<SelectListItem> status = new List<SelectListItem>();
+            SelectListItem status1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
+            SelectListItem status2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
+            status.Add(status1);
+            status.Add(status2);
+            ViewBag.status = status;
+
+            List<SelectListItem> gstInc = new List<SelectListItem>();
+            SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
+            SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
+            gstInc.Add(gstInc1);
+            gstInc.Add(gstInc1);
+            ViewBag.gstInc = gstInc;
+
+            ApmMasterVendor apmMasterVendor = new ApmMasterVendor();
+            List<ApmMasterVendor> masterVendors = apmMasterVendorManager.GetViewVendor();
+            var list = new SelectList(masterVendors, "vendor", "name");
+            ViewBag.masterVendor = list;
 
             return View();
         }
@@ -82,6 +109,7 @@ namespace OEWebApplicationApp.Controllers
         }
 
         // edit: =====================================================================
+        [Route("EditItem/{id}")]
         public ActionResult Edit(int id)
         {
             ClassFunctions function = new();
@@ -128,6 +156,7 @@ namespace OEWebApplicationApp.Controllers
         }
 
         // Delete: =====================================================================
+        [Route("DeleteItem/{id}")]
         public ActionResult Delete(int id)
         {
             var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();

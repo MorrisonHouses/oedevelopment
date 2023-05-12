@@ -22,5 +22,5 @@ namespace OEWebApplicationApp
         }//datetime
 
 
-    }//Functions
+    }//class
 }//OEWebData

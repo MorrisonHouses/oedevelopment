@@ -111,13 +111,13 @@
                 @Html.DisplayFor(modelItem => item.AutoApproveThreshold)
             </td>*@
             <td>
-                $@Html.DisplayFor(modelItem => item.Amount)
+                @string.Format("{0:C}", item.Amount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gstamount)
+                @string.Format("{0:C}", item.Gstamount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
+                @string.Format("{0:C}", item.TotalAmount)
             </td>
 @*            <td>
                 @Html.DisplayFor(modelItem => item.Gstincluded)
