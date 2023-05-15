@@ -1,7 +1,5 @@
-﻿function totalAmount() {
-
-    var amount = document.getElementById("amountValue");
-    var GST = document.getElementById("gstValue");
-    var total = amount + GST;
-    document.getElementById("totalValue").innerHTML = total;
-}
+﻿
+    function amount {
+            var amount = document.getElementById("Amount");
+    document.getElementById("TotalAmount").innerHTML = amount;
+        };

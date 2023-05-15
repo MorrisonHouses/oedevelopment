@@ -24,23 +24,26 @@ namespace OEWebApplicationApp.Controllers
 {
     public class RequestController : Controller
     {
-//instace of helper classes======================================================
+        //instace of helper classes======================================================
         ClassFunctions function = new();
         ClassConfig configclass = new();
         TblCgyoeManager tblCgyoeManager = new();
         ApmMasterVendorManager apmMasterVendorManager = new();
+        private TblCgyoe tblCGYoe;
 
         // GET: =========================================================================
         [Route("RequestedItemUser")]
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             ClassFunctions function = new();
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = tblCgyoeManager.GetViewOERequest();
+            var OElist = tblCgyoeManager.GetViewOERequest(id);
             return View(OElist);
         }
+
+
         // Details: =====================================================================
         [Route("DetailsItem/{id}")]
         public ActionResult Details(int id)
@@ -54,7 +57,7 @@ namespace OEWebApplicationApp.Controllers
         }
 
         // Create: =====================================================================
-        [Route("CreateItem")]
+        //[Route("CreateItem")]
         public ActionResult Create()
         {
             ViewBag.UserName = configclass.username();
@@ -76,8 +79,8 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.autoApproved = autoApproved;
 
             List<SelectListItem> status = new List<SelectListItem>();
-            SelectListItem status1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
-            SelectListItem status2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
+            SelectListItem status1 = new SelectListItem() { Text = "Not Approved", Value = "Not Approved", Selected = true };
+            SelectListItem status2 = new SelectListItem() { Text = "Approved", Value = "Approved", Selected = false };
             status.Add(status1);
             status.Add(status2);
             ViewBag.status = status;
@@ -88,11 +91,6 @@ namespace OEWebApplicationApp.Controllers
             gstInc.Add(gstInc1);
             gstInc.Add(gstInc1);
             ViewBag.gstInc = gstInc;
-
-            ApmMasterVendor apmMasterVendor = new ApmMasterVendor();
-            List<ApmMasterVendor> masterVendors = apmMasterVendorManager.GetViewVendor();
-            var list = new SelectList(masterVendors, "vendor", "name");
-            ViewBag.masterVendor = list;
 
             return View();
         }
@@ -109,7 +107,7 @@ namespace OEWebApplicationApp.Controllers
         }
 
         // edit: =====================================================================
-        [Route("EditItem/{id}")]
+        //[Route("EditItem/{id}")]
         public ActionResult Edit(int id)
         {
             ClassFunctions function = new();
@@ -156,12 +154,16 @@ namespace OEWebApplicationApp.Controllers
         }
 
         // Delete: =====================================================================
-        [Route("DeleteItem/{id}")]
+       // [Route("DeleteItem/{id}")]
         public ActionResult Delete(int id)
         {
+            ClassFunctions function = new();
+            ClassConfig configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
             var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();
             return View(OElist);
-        }
+        }//Delete
 
         // POST: RequestController/Delete/5
         [HttpPost]
@@ -170,9 +172,18 @@ namespace OEWebApplicationApp.Controllers
         {
             string result = tblCgyoeManager.Delete(id);
             return RedirectToAction("Index");
+            //try
+            //{
+            //    string result = tblCgyoeManager.Delete(id);
+            //    return RedirectToAction("Index", new {id = "All"});
+            //}
+            //catch (Exception ex)
+            //{
 
-
-        }
+            //    TempData["Info Message"] = ex.Message;
+            //    return View();
+            //    }
+        }//Delete
 
 
     }//class

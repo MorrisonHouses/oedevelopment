@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 
 namespace OEWebApplicationApp.Models
 {
@@ -23,21 +24,22 @@ namespace OEWebApplicationApp.Models
 
 
         /*GET REQUEST=================================================================================================================*/
-        public List<TblCgyoe> GetViewOERequest()
+        public List<TblCgyoe> GetViewOERequest(string id)
             {
                 ClassConfig classConfig = new ClassConfig();
                 List<TblCgyoe> listOfOERequest = new List<TblCgyoe>();
                 string username = configclass.username();
+                if (id == null) { id = "All"; };
                 string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
                 using (SqlConnection connection = new SqlConnection(config))
                 {
                     SqlCommand command = connection.CreateCommand();
                     command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "spr_CGYGetRequesterOE";
+                    command.CommandText = "spr_CGYGetRequesterOEStatus";
                     command.Parameters.AddWithValue("@RequestedBy", username);
-                    SqlDataAdapter sqlda = new SqlDataAdapter(command);
+                    command.Parameters.AddWithValue("@Status", id);
+                SqlDataAdapter sqlda = new SqlDataAdapter(command);
                     DataTable dtOE = new DataTable();
-
                     connection.Open();
                     sqlda.Fill(dtOE);
                     connection.Close();

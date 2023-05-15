@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace OEWebApplicationApp
@@ -9,11 +10,11 @@ namespace OEWebApplicationApp
         ClassConfig configclass = new();
         public List<ApmMasterVendor> GetViewVendor()
         {
-            ApmMasterVendor apmMasterVendor = new ApmMasterVendor();
+
             ClassConfig classConfig = new ClassConfig();
             TimberlineLinkContext context = new TimberlineLinkContext();
             List<ApmMasterVendor> apmMasterVendors = context.ApmMasterVendors.ToList();
-            
+
             //List<ApmMasterVendor> listOfVendors = new List<ApmMasterVendor>();
             //string username = configclass.username();
             //string config = @"Data Source=VMORTL\SQLEXPRESS;Initial Catalog=TimberlineLink;User Id=ITMain;Password=M0rr1s0n1961; TrustServerCertificate=True";
@@ -39,6 +40,7 @@ namespace OEWebApplicationApp
             //        }); //list
             //    }//foreach
             //}//using
+            //return new SelectList(listOfVendors, "Vendor");
             return apmMasterVendors;
         }//GetViewVendor
 

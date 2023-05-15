@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using OEWebApplicationApp.Models;
+using OEWebApplicationApp;
 
 namespace OEWebApplicationApp;
 
@@ -101,4 +102,6 @@ public partial class MorrisonHomesContext : DbContext
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
     public DbSet<OEWebApplicationApp.Models.TblCgyoeModel>? TblCgyoeModel { get; set; }
+
+    public DbSet<OEWebApplicationApp.ApmMasterVendor>? ApmMasterVendor { get; set; }
 }
