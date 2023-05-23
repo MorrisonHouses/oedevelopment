@@ -104,4 +104,8 @@ public partial class MorrisonHomesContext : DbContext
     public DbSet<OEWebApplicationApp.Models.TblCgyoeModel>? TblCgyoeModel { get; set; }
 
     public DbSet<OEWebApplicationApp.ApmMasterVendor>? ApmMasterVendor { get; set; }
+
+    public DbSet<OEWebApplicationApp.Models.ViewGlaccountModel>? ViewGlaccountModel { get; set; }
+
+    public DbSet<OEWebApplicationApp.Models.VendorModel>? VendorModel { get; set; }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OEWebApplicationApp.Models
 {
@@ -25,8 +26,9 @@ namespace OEWebApplicationApp.Models
         [DisplayName("Amount")]
         public double? Amount { get; set; }
         [DisplayName("GST")]
+        [DataType(DataType.Currency)]
         public double? Gstamount { get; set; }
-        [UIHint("Currency")]
+        //[UIHint("Currency")]
         [DisplayName("TTl Amt")]
         public double? TotalAmount { get; set; }
         public bool? Gstincluded { get; set; }
@@ -43,5 +45,18 @@ namespace OEWebApplicationApp.Models
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
 
-    }
-}
+        //Create page =================================================================
+        //calculation on the create page
+        public double? CalculateTotalValue()
+        {
+            if (Gstincluded == false)
+            {
+                double? totalAmount = Math.Round((double)((Amount * (Gstamount / 100)) + Amount),2);
+                return totalAmount;
+            }
+            else { return Amount; }
+        }
+
+
+        }//class
+}//namespace

@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OEWebApplicationApp;
 
-[Keyless]
+//[Keyless]
 public partial class ApmMasterInvoice
 {
+    [Key]
     [StringLength(10)]
     [Unicode(false)]
     public string Vendor { get; set; } = null!;

@@ -56,6 +56,7 @@ namespace OEWebApplicationApp.Controllers
             return View(OElist);
         }
 
+
         // Create: =====================================================================
         //[Route("CreateItem")]
         public ActionResult Create()
@@ -89,17 +90,75 @@ namespace OEWebApplicationApp.Controllers
             SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
             SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
             gstInc.Add(gstInc1);
-            gstInc.Add(gstInc1);
+            gstInc.Add(gstInc2);
             ViewBag.gstInc = gstInc;
+            ViewBag.ttlamt = 0;
+            ViewBag.amount = 0;
+            ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+
 
             return View();
         }
 
-        // POST: RequestController/Create
+        //Calculations: ===============================================================
         [HttpPost]
         [ActionName("Create")]
+        public IActionResult Createcalc(TblCgyoeModel tblCgyoeModel)
+        {
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            ViewBag.GstValue = configclass.ConfigGST();
+
+            List<SelectListItem> Items = new List<SelectListItem>();
+            SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
+            SelectListItem item2 = new SelectListItem() { Text = "Budgeted", Value = "true", Selected = false };
+            Items.Add(item1);
+            Items.Add(item2);
+            ViewBag.Budgeted = Items;
+
+            List<SelectListItem> autoApproved = new List<SelectListItem>();
+            SelectListItem autoApproved1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
+            SelectListItem autoApproved2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
+            autoApproved.Add(autoApproved1);
+            autoApproved.Add(autoApproved2);
+            ViewBag.autoApproved = autoApproved;
+
+            List<SelectListItem> status = new List<SelectListItem>();
+            SelectListItem status1 = new SelectListItem() { Text = "Not Approved", Value = "Not Approved", Selected = true };
+            SelectListItem status2 = new SelectListItem() { Text = "Approved", Value = "Approved", Selected = false };
+            status.Add(status1);
+            status.Add(status2);
+            ViewBag.status = status;
+
+            List<SelectListItem> gstInc = new List<SelectListItem>();
+            SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
+            SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
+            gstInc.Add(gstInc1);
+            gstInc.Add(gstInc2);
+            ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+            ViewBag.amount = tblCgyoeModel.Amount;
+            ViewBag.gstInc = gstInc;
+
+            if (ModelState.IsValid)
+            {
+                ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
+            }
+            else
+            {
+                ViewBag.ttlamt = 0;
+            }
+
+
+           // ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
+            return View(tblCgyoeModel);
+        }
+
+        //Createnew: ==================================================================
+        // POST: RequestController/Create
+        [HttpPost]
+        [ActionName("CreateNew")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(TblCgyoe tblCgyoe)
+        public ActionResult Createupdate(TblCgyoe tblCgyoe)
         {
             bool IsUpdated = tblCgyoeManager.createProduct(tblCgyoe);
             return RedirectToAction("Index");
@@ -184,7 +243,18 @@ namespace OEWebApplicationApp.Controllers
             //    return View();
             //    }
         }//Delete
+        // TEST: =====================================================================
+        public IActionResult apm()
+        {
+            ClassFunctions function = new();
+            ClassConfig configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            var OElist = apmMasterVendorManager.GetViewVendor();
+            ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+            return View(OElist);
 
+        }
 
     }//class
 }//namespace

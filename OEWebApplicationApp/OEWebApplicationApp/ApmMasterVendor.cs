@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OEWebApplicationApp;
 
-[Keyless]
+//[Keyless]
 public partial class ApmMasterVendor
 {
+    [Key]
     [StringLength(10)]
     [Unicode(false)]
     public string Vendor { get; set; } = null!;
@@ -463,4 +464,5 @@ public partial class ApmMasterVendor
     [Column("Time_Stamp")]
     [Precision(0)]
     public TimeSpan? TimeStamp { get; set; }
+
 }

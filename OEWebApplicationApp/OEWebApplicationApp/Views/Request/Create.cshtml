@@ -9,15 +9,22 @@
     <h4>Create an Operating Expense</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-12">
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Vendor" class="control-label"></label>
-                <select asp-for="Vendor" asp-items=@ViewBag.masterVendor  class="form-control"></select>
-@*                <input asp-for="Vendor" class="form-control" />*@
-                <span asp-validation-for="Vendor" class="text-danger"></span>
+                <select asp-for="Vendor" class="form-control">
+                    <option value"">
+                        --Select a Vendor--
+                    </option>"
+                    @foreach (VendorModel a in ViewBag.vendors)
+                    {
+                        <option value="@a.Vendor" id="@a.Name" >@a.Vendor / @a.Name</option>
+                    }
+                </select>
             </div>
+
             <div class="form-group">
                 <label asp-for="VendorName" class="control-label"></label>
                 <input asp-for="VendorName" class="form-control" />
@@ -40,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" id="Amount" value="0.00" />
+                <input asp-for="Amount" class="form-control" id="Amount" value="@ViewBag.amount"  />
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -53,13 +60,15 @@
                 <input asp-for="Gstamount" class="form-control" id="gstValue" value="@ViewBag.GstValue" readonly />
                 <span asp-validation-for="Gstamount" class="text-danger"></span>
             </div>
+
+            <button class="col-md-3" type="submit" asp-action="Create" >Calculate</button>
+
+
             <div class="form-group">
                 <label asp-for="TotalAmount" class="control-label"></label>
-                <input asp-for="TotalAmount" class="form-control" id="TotalAmount" value="0.00" />
+                <input asp-for="TotalAmount" class="form-control" value="@ViewBag.ttlamt.ToString()" readonly />
                 <span asp-validation-for="TotalAmount" class="text-danger"></span>
             </div>
-
-            <button id="btnFilterData" type="button" value="myBtn" class="btn btn-success">calc</button>
 
             <div class="form-group">
                 <label asp-for="Budgeted" class="control-label">Budgeted Option</label>
@@ -113,7 +122,7 @@
                 <span asp-validation-for="Timestamp" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" asp-action="CreateNew" />
             </div>
         </form>
     </div>
@@ -122,4 +131,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-}
