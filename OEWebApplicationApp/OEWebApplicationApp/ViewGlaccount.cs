@@ -10,6 +10,8 @@ namespace OEWebApplicationApp;
 [Keyless]
 public partial class ViewGlaccount
 {
+
+    //[Key]
     [StringLength(25)]
     [Unicode(false)]
     public string Account { get; set; } = null!;

@@ -22,15 +22,19 @@ namespace OEWebApplicationApp.Models
         [DisplayName("GL")]
         public string? Glaccount { get; set; }
         public int? AutoApproveThreshold { get; set; }
-        [DataType(DataType.Currency)]
+
         [DisplayName("Amount")]
         public double? Amount { get; set; }
-        [DisplayName("GST")]
+        [DisplayName("GST %")]
         [DataType(DataType.Currency)]
+        public double? Gstvalue{get; set;}
+        [DisplayName("GST Amt")]
         public double? Gstamount { get; set; }
         //[UIHint("Currency")]
-        [DisplayName("TTl Amt")]
+        [DataType(DataType.Currency)]
+        [DisplayName("Total Amt")]
         public double? TotalAmount { get; set; }
+        [DisplayName("GST Included")]
         public bool? Gstincluded { get; set; }
         public bool? Budgeted { get; set; }
         public bool? AutoApproved { get; set; }
@@ -45,18 +49,62 @@ namespace OEWebApplicationApp.Models
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
 
+
         //Create page =================================================================
-        //calculation on the create page
+
+        public string? GetVendorName()
+        {
+            if (Vendor == null)
+            {
+                return "null";
+            }
+            else
+            {
+                return Vendor;
+            }
+        }
+
+        //calculation on the create page GST/AMOUNT/TOTAL AMOUNT=======================
         public double? CalculateTotalValue()
         {
             if (Gstincluded == false)
             {
-                double? totalAmount = Math.Round((double)((Amount * (Gstamount / 100)) + Amount),2);
+                double? totalAmount = Math.Round((double)((Amount * (Gstvalue / 100)) + Amount),2);
                 return totalAmount;
             }
-            else { return Amount; }
+            else 
+            {
+                double? totalAmount = Math.Round((double)((((100 - Gstvalue) * Amount) / 100) + Gstamount),2);
+                return totalAmount; 
+            }
+        }//CalculateTotalValue
+        public double? CalculateGST()
+        {
+            if (Gstincluded == false)
+            {
+                double? gstAmount = Math.Round((double)((Amount * Gstvalue) / 100)   ,2) ;
+                return gstAmount;
+            }
+            else 
+            {
+                double? gstAmount = Math.Round((double)(Amount-(Amount / (Gstvalue + 100)*100) ),2);
+                return gstAmount;
+            }
+        }
+        public double? CalculateAmount()
+        {
+            if (Gstincluded == false)
+            {
+                double? newAmount = Amount;
+                return newAmount;
+            }
+            else
+            {
+                double? newAmount = Math.Round((double)((Amount / (Gstvalue + 100) * 100)) ,2)  ;
+                return newAmount;
+            }
+                
         }
 
-
-        }//class
+    }//class
 }//namespace

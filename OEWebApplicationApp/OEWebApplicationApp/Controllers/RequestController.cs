@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -29,6 +30,7 @@ namespace OEWebApplicationApp.Controllers
         ClassConfig configclass = new();
         TblCgyoeManager tblCgyoeManager = new();
         ApmMasterVendorManager apmMasterVendorManager = new();
+        ViewGLaccountManager viewGLaccountManager = new();
         private TblCgyoe tblCGYoe;
 
         // GET: =========================================================================
@@ -61,41 +63,22 @@ namespace OEWebApplicationApp.Controllers
         //[Route("CreateItem")]
         public ActionResult Create()
         {
+            //values from file==================================================
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             ViewBag.GstValue = configclass.ConfigGST();
-
-            List<SelectListItem> Items = new List<SelectListItem>();
-            SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
-            SelectListItem item2 = new SelectListItem() { Text = "Budgeted", Value = "true", Selected = false };
-            Items.Add(item1);
-            Items.Add(item2);
-            ViewBag.Budgeted = Items;
-
-            List<SelectListItem> autoApproved = new List<SelectListItem>();
-            SelectListItem autoApproved1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
-            SelectListItem autoApproved2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
-            autoApproved.Add(autoApproved1);
-            autoApproved.Add(autoApproved2);
-            ViewBag.autoApproved = autoApproved;
-
-            List<SelectListItem> status = new List<SelectListItem>();
-            SelectListItem status1 = new SelectListItem() { Text = "Not Approved", Value = "Not Approved", Selected = true };
-            SelectListItem status2 = new SelectListItem() { Text = "Approved", Value = "Approved", Selected = false };
-            status.Add(status1);
-            status.Add(status2);
-            ViewBag.status = status;
-
-            List<SelectListItem> gstInc = new List<SelectListItem>();
-            SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
-            SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
-            gstInc.Add(gstInc1);
-            gstInc.Add(gstInc2);
-            ViewBag.gstInc = gstInc;
+            //dropdown list==================================================
+            ViewBag.Budgeted = tblCgyoeManager.budgetList();
+            ViewBag.autoApproved = tblCgyoeManager.autoApproveList();
+            ViewBag.status = tblCgyoeManager.statusList();
+            ViewBag.gstInc = tblCgyoeManager.gstList();
+            //total var======================================================
             ViewBag.ttlamt = 0;
             ViewBag.amount = 0;
+            //select database lists==========================================
             ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
-
+            ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
+            ViewBag.vendName = "";
 
             return View();
         }
@@ -105,51 +88,35 @@ namespace OEWebApplicationApp.Controllers
         [ActionName("Create")]
         public IActionResult Createcalc(TblCgyoeModel tblCgyoeModel)
         {
+            //values from file==================================================
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             ViewBag.GstValue = configclass.ConfigGST();
+            //dropdown list==================================================
+            ViewBag.Budgeted = tblCgyoeManager.budgetList();
+            ViewBag.autoApproved = tblCgyoeManager.autoApproveList();
+            ViewBag.status = tblCgyoeManager.statusList();
+            ViewBag.gstInc = tblCgyoeManager.gstList();
 
-            List<SelectListItem> Items = new List<SelectListItem>();
-            SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
-            SelectListItem item2 = new SelectListItem() { Text = "Budgeted", Value = "true", Selected = false };
-            Items.Add(item1);
-            Items.Add(item2);
-            ViewBag.Budgeted = Items;
-
-            List<SelectListItem> autoApproved = new List<SelectListItem>();
-            SelectListItem autoApproved1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
-            SelectListItem autoApproved2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
-            autoApproved.Add(autoApproved1);
-            autoApproved.Add(autoApproved2);
-            ViewBag.autoApproved = autoApproved;
-
-            List<SelectListItem> status = new List<SelectListItem>();
-            SelectListItem status1 = new SelectListItem() { Text = "Not Approved", Value = "Not Approved", Selected = true };
-            SelectListItem status2 = new SelectListItem() { Text = "Approved", Value = "Approved", Selected = false };
-            status.Add(status1);
-            status.Add(status2);
-            ViewBag.status = status;
-
-            List<SelectListItem> gstInc = new List<SelectListItem>();
-            SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
-            SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
-            gstInc.Add(gstInc1);
-            gstInc.Add(gstInc2);
-            ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
-            ViewBag.amount = tblCgyoeModel.Amount;
-            ViewBag.gstInc = gstInc;
+            string name = tblCgyoeModel.GetVendorName();
 
             if (ModelState.IsValid)
             {
                 ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
+                ViewBag.gstamt = tblCgyoeModel.CalculateGST();
+                ViewBag.newAmt = tblCgyoeModel.CalculateAmount();
+                ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
+                ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+                ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
             }
             else
             {
                 ViewBag.ttlamt = 0;
+                ViewBag.gstamt = 0;
+                ViewBag.newAmt = 0;
+                ViewBag.vendName = "";
             }
 
-
-           // ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
             return View(tblCgyoeModel);
         }
 
@@ -250,8 +217,14 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = apmMasterVendorManager.GetViewVendor();
-            ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+            var OElist = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == "AC002");
+            //ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == "AC002");
+            return View(OElist);
+
+        }
+        public IActionResult gls()
+        {
+            var OElist = viewGLaccountManager.GetAllGlAccounts();
             return View(OElist);
 
         }

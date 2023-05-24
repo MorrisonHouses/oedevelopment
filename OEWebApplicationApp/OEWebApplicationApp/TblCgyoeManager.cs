@@ -13,6 +13,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OEWebApplicationApp.Models
 {
@@ -245,6 +246,44 @@ namespace OEWebApplicationApp.Models
             double totalAmount = amount + gst;
             return totalAmount;
         }//valueUpdate
+
+        public List<SelectListItem> budgetList()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
+            SelectListItem item2 = new SelectListItem() { Text = "Budgeted", Value = "true", Selected = false };
+            Items.Add(item1);
+            Items.Add(item2);
+            return Items;
+        }
+        public List<SelectListItem> autoApproveList()
+        {
+            List<SelectListItem> autoApproved = new List<SelectListItem>();
+            SelectListItem autoApproved1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
+            SelectListItem autoApproved2 = new SelectListItem() { Text = "AutoApproved", Value = "true", Selected = false };
+            autoApproved.Add(autoApproved1);
+            autoApproved.Add(autoApproved2);
+            return autoApproved;
+        }
+        public List<SelectListItem> statusList()
+        {
+            List<SelectListItem> status = new List<SelectListItem>();
+            SelectListItem status1 = new SelectListItem() { Text = "Not Approved", Value = "Not Approved", Selected = true };
+            SelectListItem status2 = new SelectListItem() { Text = "Approved", Value = "Approved", Selected = false };
+            status.Add(status1);
+            status.Add(status2);
+            return status;
+        }
+
+        public List<SelectListItem> gstList()
+        {
+            List<SelectListItem> gstInc = new List<SelectListItem>();
+            SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
+            SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
+            gstInc.Add(gstInc1);
+            gstInc.Add(gstInc2);
+            return gstInc;
+        }
 
 
 

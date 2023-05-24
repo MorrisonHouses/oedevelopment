@@ -9,15 +9,13 @@
     <h4>Create an Operating Expense</h4>
 <hr />
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Vendor" class="control-label"></label>
-                <select asp-for="Vendor" class="form-control">
-                    <option value"">
-                        --Select a Vendor--
-                    </option>"
+                <select asp-for="Vendor" class="form-control" >
+                    <option value"">--Select a Vendor--</option>"
                     @foreach (VendorModel a in ViewBag.vendors)
                     {
                         <option value="@a.Vendor" id="@a.Name" >@a.Vendor / @a.Name</option>
@@ -27,18 +25,35 @@
 
             <div class="form-group">
                 <label asp-for="VendorName" class="control-label"></label>
-                <input asp-for="VendorName" class="form-control" />
-                <span asp-validation-for="VendorName" class="text-danger"></span>
+                <select asp-for="VendorName" class="form-control">
+                    @*<option value"">--Select a Vendor--</option>"*@
+                    @foreach (VendorModel a in ViewBag.vendName)
+                    {
+                        <option value="@a.Name">@a.Name</option>
+                    }
+                </select>
             </div>
+
             <div class="form-group">
                 <label asp-for="RequestedBy" class="control-label"></label>
                 <input asp-for="RequestedBy" class="form-control" value="@ViewBag.UserName" readonly/>
                 <span asp-validation-for="RequestedBy" class="text-danger"></span>
             </div>
-            <div class="form-group">
+@*            <div class="form-group">
                 <label asp-for="Glaccount" class="control-label"></label>
                 <input asp-for="Glaccount" class="form-control" />
                 <span asp-validation-for="Glaccount" class="text-danger"></span>
+            </div>*@
+
+            <div class="form-group">
+                <label asp-for="Glaccount" class="control-label"></label>
+                <select asp-for="Glaccount" class="form-control">
+                    <option value"">--Select a GL Account--</option>"
+                    @foreach (ViewGlaccountModel a in ViewBag.glAccounts)
+                    {
+                        <option value="@a.AccountCustomField">@a.AccountCustomField / @a.AccountTitle</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="AutoApproveThreshold" class="control-label"></label>
@@ -47,7 +62,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" id="Amount" value="@ViewBag.amount"  />
+                <input asp-for="Amount" class="form-control" id="Amount" value="@ViewBag.newAmt" />
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -56,8 +71,14 @@
                 <span asp-validation-for="Gstincluded" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Gstvalue" class="control-label"></label>
+                <input asp-for="Gstvalue" class="form-control" id="gstValue" value="@ViewBag.GstValue" readonly />
+                <span asp-validation-for="Gstamount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="Gstamount" class="control-label"></label>
-                <input asp-for="Gstamount" class="form-control" id="gstValue" value="@ViewBag.GstValue" readonly />
+                <input asp-for="Gstamount" class="form-control" id="gstValue" value="@ViewBag.gstamt" readonly   />
                 <span asp-validation-for="Gstamount" class="text-danger"></span>
             </div>
 

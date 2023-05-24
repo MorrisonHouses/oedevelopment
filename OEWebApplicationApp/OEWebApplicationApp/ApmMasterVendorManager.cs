@@ -42,6 +42,5 @@ namespace OEWebApplicationApp
             // return VendorModel;
         }//GetViewVendor
 
-        //GET ONE VENDOR =======================================================================
     }//class
 }//namespace
