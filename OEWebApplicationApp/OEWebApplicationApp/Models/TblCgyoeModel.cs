@@ -7,23 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OEWebApplicationApp.Models
 {
+    [Table("tblCGYOE")]
     public class TblCgyoeModel
     {
         [Key]
         [Column("RequestID")]
         [DisplayName("ID")]
         public int? RequestId { get; set; }
-        [DisplayName("Ven ID")]
+        [Required(ErrorMessage = "Please enter a value")]
+        [DisplayName("Vendor ID")]
         public string? Vendor { get; set; }
         [DisplayName("Vendor")]
         public string? VendorName { get; set; }
         [DisplayName("Created By")]
         public string? RequestedBy { get; set; }
+        [Required(ErrorMessage = "Please enter a value")]
         [DisplayName("GL")]
         public string? Glaccount { get; set; }
         public int? AutoApproveThreshold { get; set; }
 
         [DisplayName("Amount")]
+        [Required(ErrorMessage ="Please enter a value")]
+        [Range(1,100000, ErrorMessage ="Enter a number between 1 and 100000")]
         public double? Amount { get; set; }
         [DisplayName("GST %")]
         [DataType(DataType.Currency)]
@@ -33,11 +38,13 @@ namespace OEWebApplicationApp.Models
         //[UIHint("Currency")]
         [DataType(DataType.Currency)]
         [DisplayName("Total Amt")]
+
         public double? TotalAmount { get; set; }
         [DisplayName("GST Included")]
         public bool? Gstincluded { get; set; }
         public bool? Budgeted { get; set; }
         public bool? AutoApproved { get; set; }
+        [StringLength(1000)]
         public string? Request { get; set; }
         [DisplayName("Purchase Date")]
         public DateTime? PurchaseDate { get; set; }
@@ -45,13 +52,14 @@ namespace OEWebApplicationApp.Models
         public string? ApprovedBy { get; set; }
         public DateTime? ApprovedDate { get; set; }
         public string? Status { get; set; }
+        [StringLength(1000)]
         public string? Reason { get; set; }
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
 
 
         //Create page =================================================================
-
+        //get vendor name 
         public string? GetVendorName()
         {
             if (Vendor == null)
@@ -62,7 +70,45 @@ namespace OEWebApplicationApp.Models
             {
                 return Vendor;
             }
-        }
+        }//GetVendorName
+        //get gl account
+        public string? GetGlAccount()
+        {
+            if (Glaccount == null)
+            {
+                return "null";
+            }
+            else
+            {
+                return Glaccount;
+            }
+        }//GetGlAccount
+        public int? GetThreashold()
+        {
+            if (AutoApproveThreshold == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return AutoApproveThreshold;
+            }
+        }//GetGlAccount
+        public string? GetStatus()
+        {
+            string value;
+            if (Status == "Approved")
+            {
+                value = "hidden";
+                return value;
+            }
+            else
+            {
+                value = "visible";
+                return value;
+            }
+        }//GetGlAccount
+
 
         //calculation on the create page GST/AMOUNT/TOTAL AMOUNT=======================
         public double? CalculateTotalValue()
@@ -90,7 +136,7 @@ namespace OEWebApplicationApp.Models
                 double? gstAmount = Math.Round((double)(Amount-(Amount / (Gstvalue + 100)*100) ),2);
                 return gstAmount;
             }
-        }
+        }//CalculateGST
         public double? CalculateAmount()
         {
             if (Gstincluded == false)
@@ -103,8 +149,8 @@ namespace OEWebApplicationApp.Models
                 double? newAmount = Math.Round((double)((Amount / (Gstvalue + 100) * 100)) ,2)  ;
                 return newAmount;
             }
-                
-        }
+
+        }//CalculateAmount
 
     }//class
 }//namespace

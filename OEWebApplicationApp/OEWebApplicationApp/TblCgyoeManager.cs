@@ -247,7 +247,7 @@ namespace OEWebApplicationApp.Models
             return totalAmount;
         }//valueUpdate
 
-        public List<SelectListItem> budgetList()
+        public List<SelectListItem> BudgetList()
         {
             List<SelectListItem> Items = new List<SelectListItem>();
             SelectListItem item1 = new SelectListItem() { Text = "Not Budgeted", Value = "false", Selected = true };
@@ -256,7 +256,7 @@ namespace OEWebApplicationApp.Models
             Items.Add(item2);
             return Items;
         }
-        public List<SelectListItem> autoApproveList()
+        public List<SelectListItem> AutoApproveList()
         {
             List<SelectListItem> autoApproved = new List<SelectListItem>();
             SelectListItem autoApproved1 = new SelectListItem() { Text = "Not AutoApproved", Value = "false", Selected = true };
@@ -265,7 +265,7 @@ namespace OEWebApplicationApp.Models
             autoApproved.Add(autoApproved2);
             return autoApproved;
         }
-        public List<SelectListItem> statusList()
+        public List<SelectListItem> StatusList()
         {
             List<SelectListItem> status = new List<SelectListItem>();
             SelectListItem status1 = new SelectListItem() { Text = "Not Approved", Value = "Not Approved", Selected = true };
@@ -275,7 +275,7 @@ namespace OEWebApplicationApp.Models
             return status;
         }
 
-        public List<SelectListItem> gstList()
+        public List<SelectListItem> GstList()
         {
             List<SelectListItem> gstInc = new List<SelectListItem>();
             SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };

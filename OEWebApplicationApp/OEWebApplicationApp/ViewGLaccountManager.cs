@@ -92,7 +92,7 @@ namespace OEWebApplicationApp
                     {
                         AccountCustomField = dr["Account_Custom_Field"].ToString(),
                         AccountTitle = dr["Account_Title"].ToString(),
-                        ApprovalGateKeeper = dr["Approval_Gate_Keeper"].ToString(),
+                        ApprovalGateKeeper = (string)dr["Approval_Gate_Keeper"],
                         ApprovalThreshold = (double?)dr["Approval_Threshold"],
                         GateKeeper = dr["Gate_Keeper"].ToString(),
                     }); //list

@@ -20,6 +20,7 @@ using System.Linq;
 using System.Collections;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -31,7 +32,7 @@ namespace OEWebApplicationApp.Controllers
         TblCgyoeManager tblCgyoeManager = new();
         ApmMasterVendorManager apmMasterVendorManager = new();
         ViewGLaccountManager viewGLaccountManager = new();
-        private TblCgyoe tblCGYoe;
+        private readonly TblCgyoe? tblCGYoe;
 
         // GET: =========================================================================
         [Route("RequestedItemUser")]
@@ -68,17 +69,23 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.DateTime = function.dateTime();
             ViewBag.GstValue = configclass.ConfigGST();
             //dropdown list==================================================
-            ViewBag.Budgeted = tblCgyoeManager.budgetList();
-            ViewBag.autoApproved = tblCgyoeManager.autoApproveList();
-            ViewBag.status = tblCgyoeManager.statusList();
-            ViewBag.gstInc = tblCgyoeManager.gstList();
+            ViewBag.Budgeted = tblCgyoeManager.BudgetList();
+            ViewBag.autoApproved = tblCgyoeManager.AutoApproveList();
+            ViewBag.status = tblCgyoeManager.StatusList();
+            ViewBag.gstInc = tblCgyoeManager.GstList();
             //total var======================================================
             ViewBag.ttlamt = 0;
             ViewBag.amount = 0;
+            //ViewBag.threashold = 0;
             //select database lists==========================================
+            TblCgyoeModel tblCgyoeModel = new TblCgyoeModel();
+            string name = tblCgyoeModel.GetVendorName();
+            string threashold = tblCgyoeModel.GetGlAccount();
             ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
             ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
-            ViewBag.vendName = "";
+            ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
+            ViewBag.approverGK = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
+            ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == "1-0-1150");
 
             return View();
         }
@@ -92,31 +99,38 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             ViewBag.GstValue = configclass.ConfigGST();
-            //dropdown list==================================================
-            ViewBag.Budgeted = tblCgyoeManager.budgetList();
-            ViewBag.autoApproved = tblCgyoeManager.autoApproveList();
-            ViewBag.status = tblCgyoeManager.statusList();
-            ViewBag.gstInc = tblCgyoeManager.gstList();
+            //dropdown list=====================================================
+            ViewBag.Budgeted = tblCgyoeManager.BudgetList();
+            ViewBag.autoApproved = tblCgyoeManager.AutoApproveList();
+            ViewBag.status = tblCgyoeManager.StatusList();
+            ViewBag.gstInc = tblCgyoeManager.GstList();
+            //ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == "1-0-1150");
 
             string name = tblCgyoeModel.GetVendorName();
+            string threashold = tblCgyoeModel.GetGlAccount();
 
             if (ModelState.IsValid)
             {
+                ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+                ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
+                ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
+                //ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
+                ViewBag.approverGK = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
                 ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
                 ViewBag.gstamt = tblCgyoeModel.CalculateGST();
                 ViewBag.newAmt = tblCgyoeModel.CalculateAmount();
-                ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
-                ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
-                ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
             }
             else
             {
                 ViewBag.ttlamt = 0;
                 ViewBag.gstamt = 0;
                 ViewBag.newAmt = 0;
+                ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
+                ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
+                //ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
                 ViewBag.vendName = "";
+                ViewBag.approverGK = "";
             }
-
             return View(tblCgyoeModel);
         }
 
@@ -185,6 +199,8 @@ namespace OEWebApplicationApp.Controllers
         {
             ClassFunctions function = new();
             ClassConfig configclass = new();
+
+            TblCgyoeModel model = new TblCgyoeModel();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();
@@ -224,6 +240,8 @@ namespace OEWebApplicationApp.Controllers
         }
         public IActionResult gls()
         {
+            TblCgyoeModel model = new TblCgyoeModel();
+            string threashold = model.GetGlAccount();
             var OElist = viewGLaccountManager.GetAllGlAccounts();
             return View(OElist);
 

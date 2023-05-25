@@ -12,20 +12,18 @@ namespace OEWebApplicationApp.Models
         [Key]
         public string? Account { get; set; }
 
-        [Column("Account_Custom_Field")]
-        [StringLength(25)]
-        [Unicode(false)]
-        public string AccountCustomField { get; set; } = null!;
-        [Column("Gate_Keeper")]
-        [StringLength(15)]
-        [Unicode(false)]
+        //[Column("Account_Custom_Field")]
+        //[StringLength(25)]
+        //[Unicode(false)]
+        public string? AccountCustomField { get; set; }
+        //[Column("Gate_Keeper")]
+        //[StringLength(15)]
+        //[Unicode(false)]
         public string? GateKeeper { get; set; }
-        [Column("Approval_Threshold")]
+        //[Column("Approval_Threshold")]
         public double? ApprovalThreshold { get; set; }
         public string? ApprovalGateKeeper { get; set; }
         public string? AccountTitle { get; set; }
-
-
 
 
     }//class

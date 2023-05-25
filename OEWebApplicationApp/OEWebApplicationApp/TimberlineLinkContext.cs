@@ -20,8 +20,6 @@ public partial class TimberlineLinkContext : DbContext
 
     public virtual DbSet<ApmMasterInvoice> ApmMasterInvoices { get; set; }
 
-    public virtual DbSet<ApmMasterInvoice1> ApmMasterInvoices1 { get; set; }
-
     public virtual DbSet<ApmMasterInvoicePayment> ApmMasterInvoicePayments { get; set; }
 
     public virtual DbSet<ApmMasterVendor> ApmMasterVendors { get; set; }
@@ -78,11 +76,6 @@ public partial class TimberlineLinkContext : DbContext
         modelBuilder.Entity<ApmMasterInvoice>(entity =>
         {
             entity.ToView("APM_MASTER__INVOICE");
-        });
-
-        modelBuilder.Entity<ApmMasterInvoice1>(entity =>
-        {
-            entity.ToView("APM_Master_Invoice");
         });
 
         modelBuilder.Entity<ApmMasterInvoicePayment>(entity =>
