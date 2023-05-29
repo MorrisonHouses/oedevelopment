@@ -14,14 +14,18 @@ namespace OEWebApplicationApp.Models
         [Column("RequestID")]
         [DisplayName("ID")]
         public int? RequestId { get; set; }
-        [Required(ErrorMessage = "Please enter a value")]
+
+        [Required(ErrorMessage = "Please select a Vendor Id")]
         [DisplayName("Vendor ID")]
         public string? Vendor { get; set; }
+
         [DisplayName("Vendor")]
         public string? VendorName { get; set; }
+
         [DisplayName("Created By")]
         public string? RequestedBy { get; set; }
-        [Required(ErrorMessage = "Please enter a value")]
+
+        [Required(ErrorMessage = "Please select a GL")]
         [DisplayName("GL")]
         public string? Glaccount { get; set; }
         public int? AutoApproveThreshold { get; set; }
@@ -46,6 +50,7 @@ namespace OEWebApplicationApp.Models
         public bool? AutoApproved { get; set; }
         [StringLength(1000)]
         public string? Request { get; set; }
+        [Required(ErrorMessage = "Please enter a Purchase Date")]
         [DisplayName("Purchase Date")]
         public DateTime? PurchaseDate { get; set; }
         [DisplayName("Approver")]
@@ -58,7 +63,7 @@ namespace OEWebApplicationApp.Models
         public DateTime? Timestamp { get; set; }
 
 
-        //Create page =================================================================
+        //Create page var's =================================================================
         //get vendor name 
         public string? GetVendorName()
         {
@@ -120,7 +125,7 @@ namespace OEWebApplicationApp.Models
             }
             else 
             {
-                double? totalAmount = Math.Round((double)((((100 - Gstvalue) * Amount) / 100) + Gstamount),2);
+                double? totalAmount = Math.Round((double)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))), 2);
                 return totalAmount; 
             }
         }//CalculateTotalValue

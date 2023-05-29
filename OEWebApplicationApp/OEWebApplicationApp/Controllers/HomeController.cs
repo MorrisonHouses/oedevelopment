@@ -17,12 +17,13 @@ namespace OEWebApplicationApp.Controllers
         public IActionResult Index()
         {
             /*calls username*/
+            ViewGLaccountManager viewGLaccountManager = new ViewGLaccountManager();
             ClassFunctions function = new();
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            ViewBag.ApproverBool = ViewGLaccountManager.GetApprovalBool();
-            ViewBag.RequesterBool = ViewGLaccountManager.GetRequestBool();
+            ViewBag.ApproverBool = viewGLaccountManager.GetApprovalBool();
+            ViewBag.RequesterBool = viewGLaccountManager.GetRequestBool();
             return View();
         }
 

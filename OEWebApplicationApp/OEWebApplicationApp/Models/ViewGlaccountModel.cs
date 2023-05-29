@@ -16,6 +16,7 @@ namespace OEWebApplicationApp.Models
         //[StringLength(25)]
         //[Unicode(false)]
         public string? AccountCustomField { get; set; }
+
         //[Column("Gate_Keeper")]
         //[StringLength(15)]
         //[Unicode(false)]

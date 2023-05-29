@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+            <div class="container-fluid p-2">
                 <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Morrison Homes </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -52,32 +52,37 @@
                         </li>
                     </ul>
                     <a class="nav-link text-light" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                    <label><span> User: @ViewBag.UserName / @ViewBag.DateTime </span> </label>
+                    <label><span class="text-light"> User: @ViewBag.UserName / @ViewBag.DateTime </span> </label>
 
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-2">
+    <div class="container-fluid">
+        <main role="main" class="pb-1">
             @RenderBody()
         </main>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"><h3 class="text-white"></h3></div>
+            <div class="col-sm-4"> </div>
+            <div class="col-sm-4"><a href="#top"><h3 class="text-black">TOP</h3></a></div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted bg-primary">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4"><h3 class="text-white">Footer</h3></div>
-                <div class="col-sm-4"> </div>
-                <div class="col-sm-4"><a href="#top"><h3 class="text-white">TOP</h3></a></div>
+                <div class="col-sm-4" id="bottom"> </div>
             </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

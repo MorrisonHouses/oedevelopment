@@ -10,13 +10,14 @@ namespace OEWebApplicationApp.Models
         [Key]
         [StringLength(10)]
         [Unicode(false)]
-        public string Vendor { get; set; } = null!;
+        [Required(ErrorMessage = "Please select a Vendor Id")]
+        public string? Vendor { get; set; }
 
         [StringLength(30)]
         [Unicode(false)]
         public string Name { get; set; } = null!;
 
-        public List<SelectListItem> vendorsList { get; set; }
+        //public List<SelectListItem>? vendorsList { get; set; }
 
         //[Column("Address_1")]
         //[StringLength(33)]

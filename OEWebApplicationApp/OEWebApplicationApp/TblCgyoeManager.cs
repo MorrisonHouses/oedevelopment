@@ -168,12 +168,18 @@ namespace OEWebApplicationApp.Models
                 //if (request.Timestamp != null) { command.Parameters.AddWithValue("@Timestamp", request.Timestamp); } else { command.Parameters.AddWithValue("@Timestamp", DBNull.Value); };
 
                 connection.Open();
-                command.ExecuteNonQuery();
+                i = command.ExecuteNonQuery();
                 connection.Close();
+                if (i > 0)
+                { 
+                    return true; 
+                }
+                else 
+                { 
+                    return false; 
+                }
             }//using
-            if (i > 0)
-            { return true; }
-            else { return false; }
+
         }//UpdateRequest
 
         /*DELETE===========================================================================================================================*/
@@ -219,34 +225,29 @@ namespace OEWebApplicationApp.Models
                 command.Parameters.AddWithValue("@GSTIncluded", request.Gstincluded);
                 command.Parameters.AddWithValue("@Budgeted", request.Budgeted);
                 command.Parameters.AddWithValue("@AutoApproved", request.AutoApproved);
-                command.Parameters.AddWithValue("@Request", request.Request);
+                //command.Parameters.AddWithValue("@Request", request.Request);
+                if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
                 command.Parameters.AddWithValue("@PurchaseDate", request.PurchaseDate);
                 command.Parameters.AddWithValue("@Status", request.Status);
-                command.Parameters.AddWithValue("@Reason", request.Reason);
+                //command.Parameters.AddWithValue("@Reason", request.Reason);
+                if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); } else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
                 connection.Open();
                 i = command.ExecuteNonQuery();
                 connection.Close();
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }//using
-            if (i > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }//createProduct
 
-        public double valueUpdate(double value)
-        {
-            ClassConfig classConfig = new ClassConfig();
-            double amount = value;
-            double gst = Convert.ToDouble(classConfig.ConfigGST());
 
-            double totalAmount = amount + gst;
-            return totalAmount;
-        }//valueUpdate
 
+        /*DROP DOWN LISTS ===========================================================================================================================*/
         public List<SelectListItem> BudgetList()
         {
             List<SelectListItem> Items = new List<SelectListItem>();
@@ -274,7 +275,6 @@ namespace OEWebApplicationApp.Models
             status.Add(status2);
             return status;
         }
-
         public List<SelectListItem> GstList()
         {
             List<SelectListItem> gstInc = new List<SelectListItem>();

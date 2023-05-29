@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
+
 namespace OEWebApplicationApp.Controllers
 {
     public class RequestController : Controller
@@ -76,7 +77,7 @@ namespace OEWebApplicationApp.Controllers
             //total var======================================================
             ViewBag.ttlamt = 0;
             ViewBag.amount = 0;
-            //ViewBag.threashold = 0;
+            ViewBag.gstamt = 0;
             //select database lists==========================================
             TblCgyoeModel tblCgyoeModel = new TblCgyoeModel();
             string name = tblCgyoeModel.GetVendorName();
@@ -85,7 +86,7 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
             ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
             ViewBag.approverGK = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
-            ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == "1-0-1150");
+
 
             return View();
         }
@@ -104,7 +105,6 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.autoApproved = tblCgyoeManager.AutoApproveList();
             ViewBag.status = tblCgyoeManager.StatusList();
             ViewBag.gstInc = tblCgyoeManager.GstList();
-            //ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == "1-0-1150");
 
             string name = tblCgyoeModel.GetVendorName();
             string threashold = tblCgyoeModel.GetGlAccount();
@@ -114,11 +114,12 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
                 ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
                 ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
-                //ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
+                ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
                 ViewBag.approverGK = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
-                ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
                 ViewBag.gstamt = tblCgyoeModel.CalculateGST();
+                ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
                 ViewBag.newAmt = tblCgyoeModel.CalculateAmount();
+
             }
             else
             {
@@ -127,7 +128,6 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.newAmt = 0;
                 ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
                 ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
-                //ViewBag.threashold = viewGLaccountManager.GetAllGlAccounts().ToList().Where(x => x.AccountCustomField == threashold);
                 ViewBag.vendName = "";
                 ViewBag.approverGK = "";
             }
@@ -135,16 +135,35 @@ namespace OEWebApplicationApp.Controllers
         }
 
         //Createnew: ==================================================================
-        // POST: RequestController/Create
         [HttpPost]
         [ActionName("CreateNew")]
         [ValidateAntiForgeryToken]
         public ActionResult Createupdate(TblCgyoe tblCgyoe)
         {
-            bool IsUpdated = tblCgyoeManager.createProduct(tblCgyoe);
-            return RedirectToAction("Index");
-
-        }
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    bool IsUpdated = tblCgyoeManager.createProduct(tblCgyoe);
+                    if (IsUpdated)
+                    {
+                        TempData["Info Message"] = "--Message Center: Creation Successfull--";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["Info Message"] = "--Message Center: Creation NOT Successfull--";
+                        return RedirectToAction("Index");
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+        }//Createupdate
 
         // edit: =====================================================================
         //[Route("EditItem/{id}")]
@@ -156,45 +175,40 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.DateTime = function.dateTime();
             var OElist = tblCgyoeManager.GetViewOERequestById(id).FirstOrDefault();
             return View(OElist);
-        }
+        }//Edit
 
         [HttpPost]
         [ActionName("Edit")]
         public ActionResult Edit(int id, TblCgyoe tblCgyoe)
         {
-            bool IsUpdated = tblCgyoeManager.UpdateRequest(id, tblCgyoe);
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    bool IsUpdated = tblCgyoeManager.UpdateRequest(id, tblCgyoe);
+                    if (IsUpdated)
+                    {
+                        TempData["Info Message"] = "--Message Center: Updated Success--";
+                        return RedirectToAction("Index", new { id = "notApproved" });
+                    }
+                    else
+                    {
+                        TempData["Info Message"] = "--Message Center: Updated was NOT Success--";
+                        return RedirectToAction("Index", new { id = "notApproved" });
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
 
-
-            //try
-            //{
-            //    if (ModelState.IsValid)
-            //    {
-            //        bool IsUpdated = tblCgyoeManager.UpdateRequest(tblCgyoe);
-            //        if (IsUpdated)
-            //        {
-            //            TempData["Info Message"] = "updated success";
-            //            return RedirectToAction("Index");
-            //        }
-            //        else
-            //        {
-            //            TempData["Info Message"] = "updated was not success";
-            //            return RedirectToAction("Index");
-            //        }
-            //    }
-            //    return RedirectToAction("Index");
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    TempData["Info Message"] = ex.Message;
-            //    return View();
-            //}
-
-        }
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+        }//Edit
 
         // Delete: =====================================================================
-       // [Route("DeleteItem/{id}")]
+        // [Route("DeleteItem/{id}")]
         public ActionResult Delete(int id)
         {
             ClassFunctions function = new();
@@ -212,19 +226,20 @@ namespace OEWebApplicationApp.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id, TblCgyoe tblCgyoe)
         {
-            string result = tblCgyoeManager.Delete(id);
-            return RedirectToAction("Index");
-            //try
-            //{
-            //    string result = tblCgyoeManager.Delete(id);
-            //    return RedirectToAction("Index", new {id = "All"});
-            //}
-            //catch (Exception ex)
-            //{
+            //string result = tblCgyoeManager.Delete(id);
+            //return RedirectToAction("Index");
+            try
+            {
+                string result = tblCgyoeManager.Delete(id);
+                TempData["Info Message"] = "--Message Center: Delete was Success--";
+                return RedirectToAction("Index", new { id = "notApproved" });
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
 
-            //    TempData["Info Message"] = ex.Message;
-            //    return View();
-            //    }
         }//Delete
         // TEST: =====================================================================
         public IActionResult apm()
