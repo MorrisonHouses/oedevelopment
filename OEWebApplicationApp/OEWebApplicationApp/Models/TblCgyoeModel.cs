@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Runtime.Serialization;
 
 namespace OEWebApplicationApp.Models
 {
@@ -61,7 +62,6 @@ namespace OEWebApplicationApp.Models
         public string? Reason { get; set; }
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
-
 
         //Create page var's =================================================================
         //get vendor name 

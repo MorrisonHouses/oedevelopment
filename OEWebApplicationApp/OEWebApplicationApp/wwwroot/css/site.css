@@ -64,7 +64,16 @@ td {
 }*/
 .form-group-create {
     margin: 0 auto 0.1rem auto;
-    display: flex;
-    align-items: center;
+    display: inline-flex;
+    align-items: start;
     flex-wrap: wrap;
+}
+hr {
+    border: 3px solid brown;
+}
+.boxShadow {
+    box-shadow: 2px 2px 5px lightblue;
+}
+.boxHover:hover {
+    background-color: #e6ffff;
 }

@@ -9,10 +9,7 @@ namespace OEWebApplicationApp
         ClassFunctions function = new();
         ClassConfig configclass = new();
 
-        /// <summary>
-        /// insures that the person loggin in is a requester based on the GateKeeper field====================================
-        /// </summary>
-        /// <returns>bool</returns>
+        // insures that the person loggin in is a requester based on the GateKeeper field======================================================
         public  Boolean GetRequestBool()
         {
             ClassConfig classConfig = new ClassConfig();
@@ -22,10 +19,7 @@ namespace OEWebApplicationApp
             return check;
         }//GetRequestBool
 
-        /// <summary>
-        /// checks if the person loggin in is an approver based on the ApprovalGateKeeper field===================================================
-        /// </summary>
-        /// <returns></returns>
+        // checks if the person loggin in is an approver based on the ApprovalGateKeeper field=================================================
         public Boolean GetApprovalBool()
         {
             ClassConfig classConfig = new ClassConfig();

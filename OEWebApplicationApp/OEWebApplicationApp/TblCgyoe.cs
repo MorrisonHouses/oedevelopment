@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OEWebApplicationApp;
 
-//[Table("tblCGYOE")]
 public partial class TblCgyoe
 {
     [Key]
