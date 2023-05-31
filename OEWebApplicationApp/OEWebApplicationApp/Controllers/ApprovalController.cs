@@ -60,13 +60,13 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.DateTime = function.dateTime();
             ViewBag.status = tblCgyoeManager.StatusList();
             var OElist = tblCgyoeManager.GetViewOEById(id).FirstOrDefault();
-
             return View(OElist);
         }
 
         // POST: ApprovalController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ActionName("Edit")]
         public ActionResult Edit(int id, TblCgyoeModel TblCgyoeModel)
         {
             try
@@ -76,13 +76,15 @@ namespace OEWebApplicationApp.Controllers
                     bool IsUpdated = tblCgyoeManager.ApproveRequest(id, TblCgyoeModel);
                     if (IsUpdated)
                     {
-                        TempData["Info Message"] = "--Message Center: Updated Success--";
-                        return RedirectToAction("Index", new { id = "notApproved" });
+                        TempData["Info Message"] = "--Message Center: Approval Success--";
+                        //return RedirectToAction("Index", new { id = "notApproved" });
+                        return RedirectToAction("Index");
                     }
                     else
                     {
-                        TempData["Info Message"] = "--Message Center: Updated was NOT Success--";
-                        return RedirectToAction("Index", new { id = "notApproved" });
+                        TempData["Info Message"] = "--Message Center: Approval was NOT Success--";
+                        //return RedirectToAction("Index", new { id = "notApproved" });
+                        return RedirectToAction("Index");
                     }
                 }
                 return RedirectToAction("Index");
@@ -91,7 +93,7 @@ namespace OEWebApplicationApp.Controllers
             {
 
                 TempData["Info Message"] = ex.Message;
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

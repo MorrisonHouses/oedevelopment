@@ -21,7 +21,10 @@ using System.Collections;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System.Reflection.Emit;
+using CrystalDecisions.ReportAppServer;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -30,6 +33,7 @@ namespace OEWebApplicationApp.Controllers
         //instace of helper classes======================================================
         ClassFunctions function = new();
         ClassConfig configclass = new();
+        ClassReport report = new();
         TblCgyoeManager tblCgyoeManager = new();
         ApmMasterVendorManager apmMasterVendorManager = new();
         ViewGLaccountManager viewGLaccountManager = new();
@@ -241,6 +245,30 @@ namespace OEWebApplicationApp.Controllers
             }
 
         }//Delete
+
+        // PRINT: =====================================================================
+        [ActionName("Print")]
+        public ActionResult Print(int id)
+        {
+            string reportPath = "C:/Users/edoucett/Desktop/OperatingExpense/MorrisonOEPO.rpt";
+
+            //ReportDocument reportDocument = new();
+            //reportDocument.Load(reportPath);
+            //reportDocument.SetParameterValue("@RequestID", id);
+            //reportDocument.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "MorrisonOEPO");
+            ////Stream stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            ////stream.Seek(0, SeekOrigin.Begin);
+            //reportDocument.Close();
+            //return View(stream);
+
+            ReportDocument myDataReport = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            myDataReport.Load(reportPath);
+            myDataReport.SetParameterValue("@RequestId", id);
+            return View(myDataReport);
+        }
+
+
+
         // TEST: =====================================================================
         public IActionResult apm()
         {
@@ -261,6 +289,7 @@ namespace OEWebApplicationApp.Controllers
             return View(OElist);
 
         }
+
 
     }//class
 }//namespace

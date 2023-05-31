@@ -2,9 +2,18 @@
 @{
     ViewData["Title"] = "Settings";
 }
+<div class="container boxShadow">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            <h4 class="">Current Settings Page</h4>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<hr />
 
-<h3>Current Settings Page</h3>
-<div class="container-fluid d-inline-flex">
+<div class="container-fluid d-inline-flex boxShadow">
     <div class="text-left col-12">
         <h5 class="border">User:  @ViewBag.UserName</h5>
         <h5 class="border">User Address: @ViewBag.Address</h5>

@@ -54,26 +54,46 @@ body {
     line-height: 25px;
     margin:3px;
 }
-/*th {
-    align-content: center;
-    width: 3rem;
-}
-td {
-    align-content: center;
-    width: 3rem;
-}*/
 .form-group-create {
     margin: 0 auto 0.1rem auto;
     display: inline-flex;
     align-items: start;
     flex-wrap: wrap;
+    background-color: white;
+}
+.form-group-approve {
+    margin: 0 auto 0.6rem auto;
+    display: inline-flex;
+    align-items: start;
+    flex-wrap: wrap;
+    background-color: white;
 }
 hr {
-    border: 3px solid brown;
+    border: 3px solid ;
+    background: linear-gradient(90deg, rgba(0,14,22,1) 1%, rgba(0,102,159,1) 48%, rgba(0,41,62,1) 92%);
 }
 .boxShadow {
-    box-shadow: 2px 2px 5px lightblue;
+    box-shadow: 2px 2px 5px #00293E;
+    background-color: white;
 }
 .boxHover:hover {
     background-color: #e6ffff;
+}
+html, body {
+    background-color: #F1F1F1;
+}
+container {
+    background-color: white;
+}
+.corners{
+    border-radius: 25px;
+}
+footer {
+    background: linear-gradient(90deg, rgba(255,239,239,1) 0%, rgba(212,212,212,1) 99%);
+}
+header {
+    background: linear-gradient(90deg, rgba(0,41,62,1) 0%, rgba(255,255,255,1) 99%);
+}
+.bg-yellow{
+    background-color: lightyellow;
 }

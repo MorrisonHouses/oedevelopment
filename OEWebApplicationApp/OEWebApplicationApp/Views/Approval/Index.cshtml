@@ -4,10 +4,10 @@
     ViewData["Title"] = "ApproveOEApprovals";
 }
 
-<div class="container">
+<div class="container-fluid boxShadow">
     <div class="row">
         <div class="col-4"></div>
-        <div class="col-4 justify-content-center"><h3>Approve OE Request</h3></div>
+        <div class="col-4 justify-content-center text-center"><h3>Approve OE Request</h3></div>
         <div class="col-4 justify-content-end">
             <p>
                 <a asp-area="" asp-controller="Home" asp-action="Index"><h4>Back to Index</h4></a>
@@ -19,7 +19,7 @@
 <hr />
 @if (TempData["Info Message"] != null)
 {
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center boxShadow">
         <div class="row">
             <div class="" id="top">
                 <h2 class="bg-info"><strong>@TempData["Info Message"]</strong></h2>
@@ -168,7 +168,7 @@
 
                 @if (item.Status != "Approved")
                 {
-                        <a asp-controller="Approval" asp-action="Edit" asp-route-id="@item.RequestId" class="text-black">Approve</a>
+                        <a asp-controller="Approval" asp-action="Edit" asp-route-id="@item.RequestId" class="text-danger">Approve</a>
                         <a asp-controller="Approval" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
                 }
                 else

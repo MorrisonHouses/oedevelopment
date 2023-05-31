@@ -406,7 +406,7 @@ namespace OEWebApplicationApp.Models
                 command.Parameters.AddWithValue("@RequestId", request.RequestId);
                 if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
                 if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); } else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
-                if (request.ApprovedDate != null) { command.Parameters.AddWithValue("@ApprovedDate", request.ApprovedDate); } else { command.Parameters.AddWithValue("@ApprovedDate", DBNull.Value); };
+                //if (request.ApprovedDate != null) { command.Parameters.AddWithValue("@ApprovedDate", request.ApprovedDate); } else { command.Parameters.AddWithValue("@ApprovedDate", DBNull.Value); };
                 if (request.Status != null) { command.Parameters.AddWithValue("@Status", request.Status); } else { command.Parameters.AddWithValue("@Status", DBNull.Value); };
                 
                 connection.Open();
