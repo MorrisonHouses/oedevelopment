@@ -1,4 +1,4 @@
-﻿@model OEWebApplicationApp.TblCgyoe
+﻿@model OEWebApplicationApp.Models.TblCgyoeModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -12,6 +12,7 @@
 </div>
 @if (TempData["Info Message"] != null)
 {
+    <hr />
     <strong>@TempData["Info Message"]</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="close" onclick="close"><span>&times;</span></button>
 

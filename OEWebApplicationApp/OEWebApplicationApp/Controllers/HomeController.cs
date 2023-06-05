@@ -17,7 +17,7 @@ namespace OEWebApplicationApp.Controllers
         public IActionResult Index()
         {
             /*calls username*/
-            ViewGLaccountManager viewGLaccountManager = new ViewGLaccountManager();
+            ManagerViewGLaccount viewGLaccountManager = new ManagerViewGLaccount();
             ClassFunctions function = new();
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();

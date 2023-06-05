@@ -27,7 +27,7 @@ namespace OEWebApplicationApp.Controllers
     public class ApprovalController : Controller
     {
         //instace of helper classes======================================================
-        TblCgyoeManager tblCgyoeManager = new();
+        ManagerTblCgyoe tblCgyoeManager = new();
 
         // GET: =========================================================================
         public ActionResult Index(string id)

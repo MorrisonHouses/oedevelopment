@@ -1,4 +1,4 @@
-﻿@model OEWebApplicationApp.TblCgyoe
+﻿@model OEWebApplicationApp.Models.TblCgyoeModel
 
 @{
     ViewData["Title"] = "Request Edit";
@@ -15,7 +15,18 @@
         </div>
     </div>
 </div>
-
+@if (TempData["Info Message"] != null)
+{
+    <hr />
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="" id="top">
+                <h2 class="bg-info"><strong>@TempData["Info Message"]</strong></h2>
+            </div>
+        </div>
+    </div>
+    <hr />
+}
 <hr />
 <div class="container-fluid ">
     <div class="row">

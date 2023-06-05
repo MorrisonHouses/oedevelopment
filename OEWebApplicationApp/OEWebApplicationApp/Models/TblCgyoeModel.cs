@@ -49,8 +49,11 @@ namespace OEWebApplicationApp.Models
         public bool? Gstincluded { get; set; }
         public bool? Budgeted { get; set; }
         public bool? AutoApproved { get; set; }
+
+        [RegularExpression("^[a-zA-Z0-9 ]+$", ErrorMessage = "Please remove all special characters: !@#$%^&*(),.<>?/:;")]
         [StringLength(1000)]
         public string? Request { get; set; }
+
         [Required(ErrorMessage = "Please enter a Purchase Date")]
         [DisplayName("Purchase Date")]
         public DateTime? PurchaseDate { get; set; }
@@ -58,8 +61,11 @@ namespace OEWebApplicationApp.Models
         public string? ApprovedBy { get; set; }
         public DateTime? ApprovedDate { get; set; }
         public string? Status { get; set; }
+
+        [RegularExpression("^[a-zA-Z0-9 ]+$", ErrorMessage = "Please remove all special characters: !@#$%^&*(),.<>?/:;")]
         [StringLength(1000)]
         public string? Reason { get; set; }
+
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
 
