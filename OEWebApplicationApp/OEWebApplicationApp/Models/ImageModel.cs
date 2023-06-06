@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using static OEWebApplicationApp.ManagerImage;
 
+
 namespace OEWebApplicationApp.Models
 {
     public class ImageModel
@@ -16,10 +17,21 @@ namespace OEWebApplicationApp.Models
         [Column("RequestID")]
         [DisplayName("ID")]
         public int? RequestId { get; set; }
+        public DateTime InsertDate { get; set; }
+        [DisplayName("Location")]
+        public string? Location { get; set; }
+        [DisplayName("Upload File")]
+        public string? ImageData { get; set; }
+        public IFormFile ? ImageFile { get; set; }
+        public string? Message { get; set; }
+        public bool IsResponse { get; set; }
+        public bool IsSuccess { get; set; }
 
-        public string? Name { get; set; }
-        public int? Size { get; set; }
-        public byte[]? ImageData { get; set; }
+        [Required(ErrorMessage = "Please enter file name")]
+        public string FileName { get; set; }
+        [Required(ErrorMessage = "Please select file")]
+        public IFormFile File { get; set; }
+
 
 
     }//class

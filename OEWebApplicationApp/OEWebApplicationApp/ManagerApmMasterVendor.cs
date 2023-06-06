@@ -5,6 +5,7 @@ using System.Data;
 
 namespace OEWebApplicationApp
 {
+    // TODO: insert proper connection string
     public class ManagerApmMasterVendor
     {
         ClassFunctions function = new();

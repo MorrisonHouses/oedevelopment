@@ -26,6 +26,10 @@ namespace OEWebApplicationApp
             name = "yclement";
             return name;
         }//username
+
+        // TODO: gnicholls name error
+
+
         /*=======================================================================================================================================*/
         /// <summary>
         /// pulls the current user address

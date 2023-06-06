@@ -7,6 +7,7 @@ namespace OEWebApplicationApp.Controllers
 {
     public class HomeController : Controller
     {
+        //TODO: remove extra boxes
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -22,6 +23,7 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
+            //TODO: try catch for bool
             ViewBag.ApproverBool = viewGLaccountManager.GetApprovalBool();
             ViewBag.RequesterBool = viewGLaccountManager.GetRequestBool();
             return View();
@@ -29,6 +31,7 @@ namespace OEWebApplicationApp.Controllers
 
         public IActionResult UnderConstruction()
         {
+            //TODO: better images
             return View();
         }
 

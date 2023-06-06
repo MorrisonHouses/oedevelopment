@@ -17,7 +17,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace OEWebApplicationApp.Models
 {
-
+    // TODO: insert proper connection string
     public partial class ManagerTblCgyoe
     {
         ClassFunctions function = new();
@@ -65,7 +65,7 @@ namespace OEWebApplicationApp.Models
                             ApprovedDate = (dr["ApprovedDate"] is not DBNull) ? Convert.ToDateTime(dr["ApprovedDate"]) : null,
                             Status = (dr["Status"] is not DBNull) ? dr["Status"].ToString() : null,
                             Reason = (dr["Reason"] is not DBNull) ? dr["Reason"].ToString() : null,
-                            Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
+                            //Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
                             Timestamp = (dr["Timestamp"] is not DBNull) ? Convert.ToDateTime(dr["Timestamp"]) : null,
 
                         });//list
@@ -115,7 +115,7 @@ namespace OEWebApplicationApp.Models
                         ApprovedDate = (dr["ApprovedDate"] is not DBNull) ? Convert.ToDateTime(dr["ApprovedDate"]) : null,
                         Status = (dr["Status"] is not DBNull) ? dr["Status"].ToString() : null,
                         Reason = (dr["Reason"] is not DBNull) ? dr["Reason"].ToString() : null,
-                        Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
+                        //Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
                         Timestamp = (dr["Timestamp"] is not DBNull) ? Convert.ToDateTime(dr["Timestamp"]) : null,
 
                     });//list
@@ -307,7 +307,7 @@ namespace OEWebApplicationApp.Models
                         ApprovedDate = (dr["ApprovedDate"] is not DBNull) ? Convert.ToDateTime(dr["ApprovedDate"]) : null,
                         Status = (dr["Status"] is not DBNull) ? dr["Status"].ToString() : null,
                         Reason = (dr["Reason"] is not DBNull) ? dr["Reason"].ToString() : null,
-                        Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
+                        //Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
                         Timestamp = (dr["Timestamp"] is not DBNull) ? Convert.ToDateTime(dr["Timestamp"]) : null,
 
                     });//list
@@ -357,7 +357,7 @@ namespace OEWebApplicationApp.Models
                         ApprovedDate = (dr["ApprovedDate"] is not DBNull) ? Convert.ToDateTime(dr["ApprovedDate"]) : null,
                         Status = (dr["Status"] is not DBNull) ? dr["Status"].ToString() : null,
                         Reason = (dr["Reason"] is not DBNull) ? dr["Reason"].ToString() : null,
-                        Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
+                        //Attachment = (dr["Attachment"] is not DBNull) ? (byte[])dr["Attachment"] : null,
                         Timestamp = (dr["Timestamp"] is not DBNull) ? Convert.ToDateTime(dr["Timestamp"]) : null,
 
                     });//list

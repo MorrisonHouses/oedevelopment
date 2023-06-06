@@ -4,6 +4,7 @@ using System.Data;
 
 namespace OEWebApplicationApp
 {
+    // TODO: insert proper connection string
     public class ManagerViewGLaccount
     {
         ClassFunctions function = new();
@@ -23,7 +24,7 @@ namespace OEWebApplicationApp
         public Boolean GetApprovalBool()
         {
             ClassConfig classConfig = new ClassConfig();
-            int count = GetAllGlAccounts().Where(x => x.ApprovalGateKeeper == classConfig.username()).Count();
+            int count = GetAllGlAccounts().Where(x => x.ApprovalGateKeeper.Trim() == classConfig.username()).Count();
             bool check = false;
             if (count > 0) { check = true; } else { check = false; };
             return check;

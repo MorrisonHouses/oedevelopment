@@ -20,19 +20,19 @@
             @if (@ViewBag.ApproverBool == true && @ViewBag.RequesterBool == true)
             {
                 <a class="m-4 p-2 text-center" asp-area="" asp-controller="Approval" asp-action="Index" asp-route-id="all"><h5>Operating Expense Approver</h5></a>
-@*                <h5 class="" id="">1 Requester:  @ViewBag.ApproverBool</h5>*@
+@*                <h5 class="" id="">Requester:  @ViewBag.ApproverBool</h5>*@
                 <a class="m-4 p-2 text-center" asp-area="" asp-controller="Request" asp-action="Index" asp-route-id="all"><h5>Operating Expense Requester</h5></a>
 @*                <h5 class="" id="">Requester:  @ViewBag.RequesterBool</h5>*@
             }
-            else if (@ViewBag.ApproverBool == true)
+            else if (@ViewBag.ApproverBool == true && @ViewBag.RequesterBool == false)
             {
                 <a class="m-4 p-2 text-center" asp-area="" asp-controller="Approval" asp-action="Index"><h5>Operating Expense Approver</h5></a>
-@*                <h5 class="" id="">2 Requester:  @ViewBag.ApproverBool</h5>*@
+@*                <h5 class="" id="">Requester:  @ViewBag.ApproverBool</h5>*@
             }
-            else if (@ViewBag.RequesterBool == true)
+            else if (@ViewBag.RequesterBool == true && @ViewBag.ApproverBool == false)
             {
                 <a class="m-4 p-2 text-center" asp-area="" asp-controller="Request" asp-action="Index" asp-route-id="all"><h5>Operating Expense Requester</h5></a>
-@*                <h5 class="" id="">3 Requester:  @ViewBag.RequesterBool</h5>*@
+@*                <h5 class="" id="">Requester:  @ViewBag.RequesterBool</h5>*@
             }
         </div>
         <div class="col-3 border boxShadow m-2 boxHover ">

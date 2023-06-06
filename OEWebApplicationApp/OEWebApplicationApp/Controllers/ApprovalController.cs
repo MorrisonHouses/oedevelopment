@@ -36,8 +36,28 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = tblCgyoeManager.GetViewApproverOERequest(id);
-            return View(OElist);
+            try
+            {
+                var OElist = tblCgyoeManager.GetViewApproverOERequest(id);
+                if (!OElist.Any() )
+                {
+                    OElist = tblCgyoeManager.GetViewApproverOERequest(id);
+                    TempData["Info Message"] = "-- Message Center: You do not have any approvals --";
+                    return View(OElist);
+                }
+                else
+                {
+                    OElist = tblCgyoeManager.GetViewApproverOERequest(id);
+                    return View(OElist);
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+           // var OElist = tblCgyoeManager.GetViewApproverOERequest(id);
+            //return View(OElist);
         }
 
         // DETAILS: =========================================================================
@@ -47,8 +67,18 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = tblCgyoeManager.GetViewOEById(id);
-            return View(OElist);
+            try
+            {
+                var OElist = tblCgyoeManager.GetViewOEById(id);
+                return View(OElist);
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+            //var OElist = tblCgyoeManager.GetViewOEById(id);
+            //return View(OElist);
         }
 
         // EDIT: =========================================================================
@@ -59,8 +89,16 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             ViewBag.status = tblCgyoeManager.StatusList();
-            var OElist = tblCgyoeManager.GetViewOEById(id).FirstOrDefault();
-            return View(OElist);
+            try
+            {
+                var OElist = tblCgyoeManager.GetViewOEById(id).FirstOrDefault();
+                return View(OElist);
+            }catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+
         }
 
         // POST: ApprovalController/Edit/5
@@ -110,10 +148,12 @@ namespace OEWebApplicationApp.Controllers
         {
             try
             {
+                TempData["Info Message"] = "--Message Center: Delete was success--";
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
+                TempData["Info Message"] = "--Message Center: Delete was NOT success--";
                 return View();
             }
         }

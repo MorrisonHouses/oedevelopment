@@ -44,9 +44,26 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = tblCgyoeManager.GetViewOERequest(id);
-            return View(OElist);
-        }
+            try
+            {
+                var OElist = tblCgyoeManager.GetViewOERequest(id);
+                if (!OElist.Any())
+                {
+                    TempData["Info Message"] = "-- Message Center: You do not have any request --";
+                    OElist = tblCgyoeManager.GetViewOERequest(id);
+                    return View(OElist);
+                }
+                else
+                {
+                    OElist = tblCgyoeManager.GetViewOERequest(id);
+                    return View(OElist);
+                }
+            }catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+        }//Index
 
 
         // Details: =====================================================================
@@ -57,8 +74,18 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            var OElist = tblCgyoeManager.GetViewOERequestById(id);
-            return View(OElist);
+            try
+            {
+                var OElist = tblCgyoeManager.GetViewOERequestById(id);
+                return View(OElist);
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+            //var OElist = tblCgyoeManager.GetViewOERequestById(id);
+            //return View(OElist);
         }
 
 
