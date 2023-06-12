@@ -14,6 +14,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc;
 
 namespace OEWebApplicationApp.Models
 {
@@ -164,7 +165,7 @@ namespace OEWebApplicationApp.Models
         {
             string username = configclass.username();
             string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
-            string result = "";
+            string ? result = "";
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();

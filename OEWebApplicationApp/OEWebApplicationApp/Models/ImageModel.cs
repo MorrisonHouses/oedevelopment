@@ -21,16 +21,19 @@ namespace OEWebApplicationApp.Models
         [DisplayName("Location")]
         public string? Location { get; set; }
         [DisplayName("Upload File")]
-        public string? ImageData { get; set; }
-        public IFormFile ? ImageFile { get; set; }
-        public string? Message { get; set; }
-        public bool IsResponse { get; set; }
-        public bool IsSuccess { get; set; }
+        public string? Path { get; set; }
 
-        [Required(ErrorMessage = "Please enter file name")]
-        public string FileName { get; set; }
+        //NOT MAPPED GETTERS AND SETTERS=======================================
+        [FileExtensions(Extensions = "pdf, PDF")]
         [Required(ErrorMessage = "Please select file")]
-        public IFormFile File { get; set; }
+        [NotMapped]
+        public IFormFile ? File { get; set; }
+        [NotMapped]
+        public bool IsSuccess { get; set; }
+        [NotMapped]
+        public bool IsResponse { get; set; }
+        [NotMapped]
+        public string ? Message { get; set; }
 
 
 

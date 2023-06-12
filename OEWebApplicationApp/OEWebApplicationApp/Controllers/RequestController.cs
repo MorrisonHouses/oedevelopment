@@ -108,8 +108,8 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.gstamt = 0;
             //select database lists==========================================
             TblCgyoeModel tblCgyoeModel = new TblCgyoeModel();
-            string name = tblCgyoeModel.GetVendorName();
-            string threashold = tblCgyoeModel.GetGlAccount();
+            string ? name = tblCgyoeModel.GetVendorName();
+            string ? threashold = tblCgyoeModel.GetGlAccount();
             ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList();
             ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
             ViewBag.vendName = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == name);
@@ -134,8 +134,8 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.status = tblCgyoeManager.StatusList();
             ViewBag.gstInc = tblCgyoeManager.GstList();
 
-            string name = tblCgyoeModel.GetVendorName();
-            string threashold = tblCgyoeModel.GetGlAccount();
+            string ? name = tblCgyoeModel.GetVendorName();
+            string ? threashold = tblCgyoeModel.GetGlAccount();
 
             if (ModelState.IsValid)
             {
@@ -231,7 +231,7 @@ namespace OEWebApplicationApp.Controllers
                     TempData["Info Message"] = "--Message Center: Edit was NOT successful, remove all special characters--";
                     return RedirectToAction("Edit", new { id = id });
                     }
-                return RedirectToAction("Index", new { id = "notApproved" });
+                //return RedirectToAction("Index", new { id = "notApproved" });
             }
             catch (Exception ex)
             {
@@ -314,7 +314,7 @@ namespace OEWebApplicationApp.Controllers
         public IActionResult gls()
         {
             TblCgyoeModel model = new TblCgyoeModel();
-            string threashold = model.GetGlAccount();
+            string ? threashold = model.GetGlAccount();
             var OElist = viewGLaccountManager.GetAllGlAccounts();
             return View(OElist);
 

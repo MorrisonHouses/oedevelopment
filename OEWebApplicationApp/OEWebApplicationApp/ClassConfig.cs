@@ -51,8 +51,6 @@ namespace OEWebApplicationApp
             StringBuilder sbText = new StringBuilder();
             using (var reader = new System.IO.StreamReader("C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
             {
-                Int32 lineItem = 1;
-                Int32 ctn = 0;
                 foreach (string line in File.ReadLines(@"C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
                 {
                     if (line.Contains(GST))
@@ -74,8 +72,6 @@ namespace OEWebApplicationApp
             StringBuilder sbText = new StringBuilder();
             using (var reader = new System.IO.StreamReader("C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
             {
-                Int32 lineItem = 2;
-                Int32 ctn = 0;
                 foreach (string line in File.ReadLines(@"C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
                 {
                     if (line.Contains(ConfigLocation))
@@ -97,8 +93,6 @@ namespace OEWebApplicationApp
             StringBuilder sbText = new StringBuilder();
             using (var reader = new System.IO.StreamReader("C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
             {
-                Int32 lineItem = 3;
-                Int32 ctn = 0;
                 foreach (string line in File.ReadLines(@"C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
                 {
                     if (line.Contains(ConfigLocation))

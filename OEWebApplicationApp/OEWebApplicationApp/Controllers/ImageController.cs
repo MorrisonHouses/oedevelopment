@@ -7,6 +7,9 @@ using System.IO;
 using System.Web;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.AspNetCore.Hosting.Server;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -16,41 +19,85 @@ namespace OEWebApplicationApp.Controllers
         ClassConfig configclass = new();
         ManagerImage ManagerImage = new();
 
-        [HttpGet]
-        public IActionResult Add()
+        //IMAGE pull by request id================================================================================================
+        public ActionResult Index(string id)
         {
-            return View();
+            ClassFunctions function = new();
+            ClassConfig configclass = new();
+            ViewBag.UserName = configclass.username();
+            ViewBag.DateTime = function.dateTime();
+            try
+            {
+                var OElist = ManagerImage.GetImages(id);
+                if (!OElist.Any())
+                {
+                    TempData["Info Message"] = "-- Message Center: There are no images uploaded for this document " + id + " --";
+                    OElist = ManagerImage.GetImages(id);
+                    ViewData["MyRequestId"] = id;
+                    return View(OElist);
+                }
+                else
+                {
+                    OElist = ManagerImage.GetImages(id);
+                    ViewData["MyRequestId"] = id;
+                    return View(OElist);
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                ViewData["MyRequestId"] = id;
+                return View();
+            }
+        }//Index
 
-        }//Add
-        public IActionResult ProfileController(IWebHostEnvironment environment)
+        //create image by id=====================================================================================================
+        public IActionResult Create(string id)
         {
-            _hostingEnvironment = environment;
-            return View();
+            ViewData["MyRequestId"] = id;
+            ImageModel model = new();
+            return View(model);
         }
-        private IWebHostEnvironment _hostingEnvironment;
+
 
         [HttpPost]
-        public IActionResult Add(ImageModel imageModel)
+        public IActionResult Create(ImageModel model)
         {
-            string serverImages = "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Images\\";
+            model.IsResponse = true;
+            //File Path=========================================================================
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
 
-            //string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);
-            string fileName = Path.GetFileName(imageModel.ImageFile.FileName);
-            //string fileExtension = Path.GetExtension(imageModel.ImageFile.FileName);
-            //fileName = fileName + DateTime.Now.ToString("g") + fileExtension;
+            //create directory if not exist=====================================================
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
 
-            imageModel.ImageData = "~//wwwroot//Images//+fileName";
-            var filepath = Path.Combine(_hostingEnvironment.WebRootPath, fileName);
-            using (var stream = new FileStream(filepath, FileMode.Create))
+            FileInfo fileInfo = new FileInfo(model.File.FileName);
+
+            if (!fileInfo.Exists)
             {
-                imageModel.ImageFile.CopyTo(stream);
+            //create a file name: requestid location (CGY EDM) DDMMYYYYHHMM=====================
+                string dateTime = DateTime.Now.ToString("ddMMyyyyhhmm");
+                string fileName = model.RequestId + model.Location + dateTime  + fileInfo.Extension;
+                string fileNameWithPath = Path.Combine(path, fileName);
+                ViewData["MyPath"] = fileNameWithPath;
+            //Copy file to the local system=====================================================
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    model.File.CopyTo(stream);
+                    TempData["Info Message"] = "--Message Center: File upload successfull--";
+                }
+                model.IsSuccess = true;
+            //update the database with location=================================================
+                ManagerImage.UpdateImageTbl(fileNameWithPath, model);
+
+                return RedirectToAction("Index", new { id = model.RequestId });
             }
-            
-            //imageModel.ImageFile.CopyTo(filepath);
-            return View("Add", imageModel);
-
-        }//index
-
+            else
+            {
+                TempData["Info Message"] = "--Message Center: File upload NOT successfull--";
+                return View("Index", new { id = model.RequestId });
+            }
+        }//Create
 
     }//class
 }//namespace
