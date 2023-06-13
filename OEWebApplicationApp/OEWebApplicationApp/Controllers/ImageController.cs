@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting.Server;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -64,10 +65,10 @@ namespace OEWebApplicationApp.Controllers
         public IActionResult Create(ImageModel model)
         {
             model.IsResponse = true;
-            //File Path=========================================================================
+            //File Path============================================================================
             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
 
-            //create directory if not exist=====================================================
+            //create directory if not exist========================================================
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
@@ -75,29 +76,68 @@ namespace OEWebApplicationApp.Controllers
 
             if (!fileInfo.Exists)
             {
-            //create a file name: requestid location (CGY EDM) DDMMYYYYHHMM=====================
-                string dateTime = DateTime.Now.ToString("ddMMyyyyhhmm");
+            //create a file name: requestid location (CGY EDM) DDMMYYYYHHMM=========================
+                string dateTime = DateTime.Now.ToString("ddMMyyyyhhmmss");
+                string extentsion = fileInfo.Extension;
                 string fileName = model.RequestId + model.Location + dateTime  + fileInfo.Extension;
                 string fileNameWithPath = Path.Combine(path, fileName);
                 ViewData["MyPath"] = fileNameWithPath;
-            //Copy file to the local system=====================================================
-                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                {
-                    model.File.CopyTo(stream);
-                    TempData["Info Message"] = "--Message Center: File upload successfull--";
-                }
-                model.IsSuccess = true;
-            //update the database with location=================================================
-                ManagerImage.UpdateImageTbl(fileNameWithPath, model);
-
-                return RedirectToAction("Index", new { id = model.RequestId });
+            //Copy file to the local system and check for pdf=======================================
+                if(extentsion.ToLower() == ".pdf")
+                    {
+                        using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                        {
+                            model.File.CopyTo(stream);
+                            TempData["Info Message"] = "-- Message Center: File upload successfull --";
+                        }
+                        model.IsSuccess = true;
+                        //update the database with location=================================================
+                        ManagerImage.UpdateImageTbl(fileName, fileNameWithPath, model);
+                        return RedirectToAction("Index", new { id = model.RequestId });
+                    }
+                    else
+                    {
+                        TempData["Info Message"] = "-- Message Center: Upload Failed - PDF only --";
+                        return RedirectToAction("Index", new { id = model.RequestId });
+                    }
             }
             else
             {
-                TempData["Info Message"] = "--Message Center: File upload NOT successfull--";
+                TempData["Info Message"] = "-- Message Center: File upload NOT successfull --";
                 return View("Index", new { id = model.RequestId });
             }
         }//Create
 
+        //DELETE====================================================================================
+        public IActionResult Delete(string id)
+        {
+            var OElist = ManagerImage.GetImage(id).FirstOrDefault();
+            return View(OElist);
+        }
+        [HttpPost]
+        public IActionResult Delete(string id, ImageModel imageModel)
+        {
+            try
+            {
+                string result = ManagerImage.DeleteImage(id, imageModel);
+                if (result == "Success")
+                {
+                    TempData["Info Message"] = "-- Message Center: Image delete was Success --";
+                    return RedirectToAction("Index", "Request");
+                }
+                else
+                {
+                    TempData["Info Message"] = "-- Message Center: Image Delete was NOT success --";
+                    return RedirectToAction("Index","Request");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+
+
+        }
     }//class
 }//namespace

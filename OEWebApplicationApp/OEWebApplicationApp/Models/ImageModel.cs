@@ -10,10 +10,9 @@ namespace OEWebApplicationApp.Models
 {
     public class ImageModel
     {
-
+        //MAPPED GETTERS AND SETTERS==========================================
         [Key]
         public int Id { get; set; }
-
         [Column("RequestID")]
         [DisplayName("ID")]
         public int? RequestId { get; set; }
@@ -22,10 +21,14 @@ namespace OEWebApplicationApp.Models
         public string? Location { get; set; }
         [DisplayName("Upload File")]
         public string? Path { get; set; }
+        public string? FileName { get; set; }
+
+
 
         //NOT MAPPED GETTERS AND SETTERS=======================================
         [FileExtensions(Extensions = "pdf, PDF")]
         [Required(ErrorMessage = "Please select file")]
+        [DisplayName("File (pdf only)")]
         [NotMapped]
         public IFormFile ? File { get; set; }
         [NotMapped]

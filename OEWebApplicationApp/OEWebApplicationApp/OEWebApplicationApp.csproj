@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CrystalDecisions.CrystalReports.Engine" Version="1.0.0" />
+    <PackageReference Include="CrystalDecisions.Shared" Version="1.0.0" />
+    <PackageReference Include="CrystalReports.Engine" Version="13.0.4003" />
+    <PackageReference Include="CrystalReports.Shared" Version="13.0.4003" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
@@ -14,15 +18,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.WebForms" Version="150.1576.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
     <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" />
-    <PackageReference Include="popper.js" Version="1.16.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\Images\" />
     <Folder Include="wwwroot\Files\" />
+    <Folder Include="wwwroot\Report\" />
   </ItemGroup>
 
 </Project>

@@ -46,6 +46,345 @@
           }
         }
       },
+      "CrystalDecisions.CrystalReports.Engine/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/CrystalDecisions.CrystalReports.Engine.dll": {}
+        },
+        "runtime": {
+          "lib/CrystalDecisions.CrystalReports.Engine.dll": {}
+        }
+      },
+      "CrystalDecisions.Shared/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/CrystalDecisions.Shared.dll": {}
+        },
+        "runtime": {
+          "lib/CrystalDecisions.Shared.dll": {}
+        }
+      },
+      "CrystalReports.Engine/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.ClientDoc": "13.0.4003",
+          "CrystalReports.ReportAppServer.CommLayer": "13.0.4003",
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.Controllers": "13.0.4003",
+          "CrystalReports.ReportAppServer.CubeDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataSetConversion": "13.0.4003",
+          "CrystalReports.ReportAppServer.ObjectFactory": "13.0.4003",
+          "CrystalReports.ReportAppServer.Prompting": "13.0.4003",
+          "CrystalReports.ReportAppServer.ReportDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.XmlSerialize": "13.0.4003",
+          "CrystalReports.Shared": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.CrystalReports.Engine.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.CrystalReports.Engine.dll": {}
+        },
+        "resource": {
+          "lib/net40/cs/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net40/da/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net40/de/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/en/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "en"
+          },
+          "lib/net40/es/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fi/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net40/fr/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/hu/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net40/it/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/nb-NO/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/net40/nl/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net40/pl/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net40/pt/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/ru/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/sk/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net40/sv/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net40/th/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net40/tr/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net40/zh-CHS/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHT/CrystalDecisions.CrystalReports.Engine.resources.dll": {
+            "locale": "zh-CHT"
+          }
+        }
+      },
+      "CrystalReports.ReportAppServer.ClientDoc/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.CommLayer": "13.0.4003",
+          "CrystalReports.ReportAppServer.CommonControls": "13.0.4003",
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.Controllers": "13.0.4003",
+          "CrystalReports.ReportAppServer.CubeDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.ReportDefModel": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.ClientDoc.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.ClientDoc.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.CommLayer/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CommLayer.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CommLayer.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.CommonControls/13.0.4003": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CommonControls.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CommonControls.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.CommonObjectModel/13.0.4003": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CommonObjectModel.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CommonObjectModel.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.Controllers/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.CommLayer": "13.0.4003",
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.CubeDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.ReportDefModel": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.Controllers.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.Controllers.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.CubeDefModel/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CubeDefModel.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.CubeDefModel.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.DataDefModel/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.DataDefModel.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.DataDefModel.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.DataSetConversion/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.ClientDoc": "13.0.4003",
+          "CrystalReports.ReportAppServer.Controllers": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.ObjectFactory": "13.0.4003",
+          "CrystalReports.ReportAppServer.ReportDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.XmlSerialize": "13.0.4003",
+          "CrystalReports.Shared": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.DataSetConversion.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.DataSetConversion.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.ObjectFactory/13.0.4003": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.ObjectFactory.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.ObjectFactory.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.Prompting/13.0.4003": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.Prompting.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.Prompting.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.ReportDefModel/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.CommonObjectModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.CubeDefModel": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.ReportDefModel.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.ReportDefModel.dll": {}
+        }
+      },
+      "CrystalReports.ReportAppServer.XmlSerialize/13.0.4003": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CrystalDecisions.ReportAppServer.XmlSerialize.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.ReportAppServer.XmlSerialize.dll": {}
+        }
+      },
+      "CrystalReports.Shared/13.0.4003": {
+        "type": "package",
+        "dependencies": {
+          "CrystalReports.ReportAppServer.Controllers": "13.0.4003",
+          "CrystalReports.ReportAppServer.DataDefModel": "13.0.4003",
+          "log4net": "2.0.12"
+        },
+        "compile": {
+          "lib/net40/CrystalDecisions.Shared.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CrystalDecisions.Shared.dll": {}
+        },
+        "resource": {
+          "lib/net40/cs/CrystalDecisions.Shared.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net40/da/CrystalDecisions.Shared.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net40/de/CrystalDecisions.Shared.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/en/CrystalDecisions.Shared.resources.dll": {
+            "locale": "en"
+          },
+          "lib/net40/es/CrystalDecisions.Shared.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fi/CrystalDecisions.Shared.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net40/fr/CrystalDecisions.Shared.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/hu/CrystalDecisions.Shared.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net40/it/CrystalDecisions.Shared.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/CrystalDecisions.Shared.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/CrystalDecisions.Shared.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/nb-NO/CrystalDecisions.Shared.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/net40/nl/CrystalDecisions.Shared.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net40/pl/CrystalDecisions.Shared.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net40/pt/CrystalDecisions.Shared.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/ru/CrystalDecisions.Shared.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/sk/CrystalDecisions.Shared.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net40/sv/CrystalDecisions.Shared.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net40/th/CrystalDecisions.Shared.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net40/tr/CrystalDecisions.Shared.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net40/zh-CHS/CrystalDecisions.Shared.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHT/CrystalDecisions.Shared.resources.dll": {
+            "locale": "zh-CHT"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -55,6 +394,22 @@
         },
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "log4net/2.0.12": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
             "related": ".xml"
           }
         }
@@ -1499,6 +1854,210 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.ReportingServices.ReportViewerControl.WebForms/150.1576.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.SqlServer.Types": "14.0.0"
+        },
+        "compile": {
+          "lib/net40/Microsoft.ReportViewer.Common.dll": {},
+          "lib/net40/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/net40/Microsoft.ReportViewer.Design.dll": {},
+          "lib/net40/Microsoft.ReportViewer.ProcessingObjectModel.dll": {},
+          "lib/net40/Microsoft.ReportViewer.WebDesign.dll": {},
+          "lib/net40/Microsoft.ReportViewer.WebForms.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.ReportViewer.Common.dll": {},
+          "lib/net40/Microsoft.ReportViewer.DataVisualization.dll": {},
+          "lib/net40/Microsoft.ReportViewer.Design.dll": {},
+          "lib/net40/Microsoft.ReportViewer.ProcessingObjectModel.dll": {},
+          "lib/net40/Microsoft.ReportViewer.WebDesign.dll": {},
+          "lib/net40/Microsoft.ReportViewer.WebForms.dll": {}
+        },
+        "resource": {
+          "lib/net40/de/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/de/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/es/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/fr/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/it/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ja/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ko/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/pt/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/ru/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHS/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.Common.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.DataVisualization.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.Design.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.WebDesign.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.WebForms.resources.dll": {
+            "locale": "zh-CHT"
+          },
+          "lib/net40/zh-CHT/Microsoft.ReportViewer.WinForms.resources.dll": {
+            "locale": "zh-CHT"
+          }
+        }
+      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "type": "package",
         "compile": {
@@ -1510,6 +2069,15 @@
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
             "related": ".pdb;.xml"
           }
+        }
+      },
+      "Microsoft.SqlServer.Types/14.0.314.76": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.SqlServer.Types.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.SqlServer.Types.dll": {}
         }
       },
       "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
@@ -1983,9 +2551,6 @@
             "related": ".xml"
           }
         }
-      },
-      "popper.js/1.16.1": {
-        "type": "package"
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
@@ -3799,6 +4364,298 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
+    "CrystalDecisions.CrystalReports.Engine/1.0.0": {
+      "sha512": "qr+XgfiEvAWXModuJy4IamWlkarFNL6c2ueA9PcZkLUkoz17L0rptDNzLzJkFaSP8hh+nAwfD2t3wvRLdbjFQw==",
+      "type": "package",
+      "path": "crystaldecisions.crystalreports.engine/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512",
+        "crystaldecisions.crystalreports.engine.nuspec",
+        "lib/CrystalDecisions.CrystalReports.Engine.dll"
+      ]
+    },
+    "CrystalDecisions.Shared/1.0.0": {
+      "sha512": "M3T2xrJ/oTrPUu3j0ODVhP981QTPdoHSly47IfrIWy7UUROpfF1p8jRTYzBoy2toQ2B5PKtnnkpAimp2mtnrdg==",
+      "type": "package",
+      "path": "crystaldecisions.shared/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "crystaldecisions.shared.1.0.0.nupkg.sha512",
+        "crystaldecisions.shared.nuspec",
+        "lib/CrystalDecisions.Shared.dll"
+      ]
+    },
+    "CrystalReports.Engine/13.0.4003": {
+      "sha512": "B3LM5SQdqaOHa5p0b9pO0+CNhXZOUA24R+wFJKyTwFNVgh1a9luTqdV8Jz8ygrRvB9DX/9UpYbMQwptLxpcYdA==",
+      "type": "package",
+      "path": "crystalreports.engine/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.engine.13.0.4003.nupkg.sha512",
+        "crystalreports.engine.nuspec",
+        "lib/net40/CrystalDecisions.CrystalReports.Engine.dll",
+        "lib/net40/cs/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/da/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/de/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/en/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/es/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/fi/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/fr/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/hu/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/it/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/ja/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/ko/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/nb-NO/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/nl/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/pl/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/pt/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/ru/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/sk/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/sv/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/th/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/tr/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/zh-CHS/CrystalDecisions.CrystalReports.Engine.resources.dll",
+        "lib/net40/zh-CHT/CrystalDecisions.CrystalReports.Engine.resources.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.ClientDoc/13.0.4003": {
+      "sha512": "NWqCFFTLTuPp2LqcN1HZqBQ7Vvu3dgqoKWESSt+Csbg6FfM1mhtupKWidnGxP02DccoqgOUa44H2fuih9veRbw==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.clientdoc/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.clientdoc.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.clientdoc.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.ClientDoc.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.CommLayer/13.0.4003": {
+      "sha512": "hBoIi0tS4i8UxM8q+QAP11QdhhR2fRURJb7nvAtPEWT4fSO9+1f9vl8EDkGUp3aletMetR5r+WjAQZRrHcLoyg==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.commlayer/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.commlayer.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.commlayer.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.CommLayer.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.CommonControls/13.0.4003": {
+      "sha512": "xqeaj6JuxI8TD0WwrP+VcvT/mghBvnEWZii2zlwgqd48E+eebr01MJnI0gRZrhg2LgQpcjBo90Xwc5iI9oH+tg==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.commoncontrols/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.commoncontrols.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.commoncontrols.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.CommonControls.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.CommonObjectModel/13.0.4003": {
+      "sha512": "dLSfzSNg+OxDTcqUFahhCLvMBxF7bKDxnh1EBKXoLl65SSHP8QBNAeI4CpKXtNimUOUJ/sW1McuGYX4CAgUmAw==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.commonobjectmodel/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.commonobjectmodel.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.commonobjectmodel.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.CommonObjectModel.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.Controllers/13.0.4003": {
+      "sha512": "60Tg65l9NCFX4u8MFX2QWAL7GmQhtmUXJaNhv9F/vXEmlFXHC76vbkwgBumKQcIPpoOhlZK/dqz6YcNP0sHkgA==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.controllers/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.controllers.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.controllers.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.Controllers.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.CubeDefModel/13.0.4003": {
+      "sha512": "ZBns1JhhuBrHudpZowKNRlhXY/GW5BWMoqyafM3eHxoZL1K4mSn/UYPEzNFseYio4abUs5Iw4+K8adCOtfinqw==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.cubedefmodel/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.cubedefmodel.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.cubedefmodel.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.CubeDefModel.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.DataDefModel/13.0.4003": {
+      "sha512": "8sSuETn80yMzW0Edjn6Y3Dyif85QKCf4771Q44Jk/soxTo8FcSG8VEm91M9d+CrFivFqlsH7ENPjjKhQ1kInsg==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.datadefmodel/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.datadefmodel.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.datadefmodel.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.DataDefModel.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.DataSetConversion/13.0.4003": {
+      "sha512": "daPXUF5uAxD94HTKemUs41exkPSwSPq9cqo5QdqaKslZR5AOZcXfgYmIXwyj9yC/h2LP4g/pC6JTS97c4GOc3w==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.datasetconversion/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.datasetconversion.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.datasetconversion.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.DataSetConversion.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.ObjectFactory/13.0.4003": {
+      "sha512": "D3/LsgwkMtVW7Utv7Kl0PM2IVhBPtf+yGgxo0KD++NY8RTsxot21ONXkAcZGOH9pB7Ly9YwAedC7wP/OxD1KJg==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.objectfactory/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.objectfactory.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.objectfactory.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.ObjectFactory.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.Prompting/13.0.4003": {
+      "sha512": "yjIja0uvk9VGxpQqm0Z2pC/KH7Sjp2IAwJpJMrdz2xNUyi2tOq8MO2NsQmMAZRTWgKm5Sep8J5kTvPYkSBfyqg==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.prompting/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.prompting.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.prompting.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.Prompting.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.ReportDefModel/13.0.4003": {
+      "sha512": "lEXNeJ9x2GVPL/+PmhTJrsY84uGwgj+Uum1CLBnphdpkORBwauETrU1dDSVaQbgYGahfDZgm0PtZEWVbU2MfjQ==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.reportdefmodel/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.reportdefmodel.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.reportdefmodel.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.ReportDefModel.dll"
+      ]
+    },
+    "CrystalReports.ReportAppServer.XmlSerialize/13.0.4003": {
+      "sha512": "O00VRtSZDN6rr+RrQ7JWNEDix/wAhf7hja947J2ws3M23rfO69hAD39qp/2nOJig3e5wBJ31wNjYWi80qSsm1g==",
+      "type": "package",
+      "path": "crystalreports.reportappserver.xmlserialize/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.reportappserver.xmlserialize.13.0.4003.nupkg.sha512",
+        "crystalreports.reportappserver.xmlserialize.nuspec",
+        "lib/net40/CrystalDecisions.ReportAppServer.XmlSerialize.dll"
+      ]
+    },
+    "CrystalReports.Shared/13.0.4003": {
+      "sha512": "s+7C/lUpICrZNjDxSiPZ4v6XZD30jnF1Uqx4hbTclZ8qxUBG4k5qungapL3Uijy5y8uC1P/ZkTT808fqU89fJw==",
+      "type": "package",
+      "path": "crystalreports.shared/13.0.4003",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md",
+        "crystalreports.shared.13.0.4003.nupkg.sha512",
+        "crystalreports.shared.nuspec",
+        "lib/net40/CrystalDecisions.Shared.dll",
+        "lib/net40/cs/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/da/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/de/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/en/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/es/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/fi/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/fr/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/hu/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/it/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/ja/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/ko/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/nb-NO/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/nl/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/pl/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/pt/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/ru/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/sk/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/sv/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/th/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/tr/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/zh-CHS/CrystalDecisions.Shared.resources.dll",
+        "lib/net40/zh-CHT/CrystalDecisions.Shared.resources.dll"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -3815,6 +4672,34 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "log4net/2.0.12": {
+      "sha512": "9P67BCftJ7KG+B7rNOM1A9KczUwyEDed6zbAddy5Cj/73xVkzi+rEAHeOgUnW5wDqy1JFlY8+oTP0m1PgJ03Tg==",
+      "type": "package",
+      "path": "log4net/2.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.12.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
       ]
     },
     "MessagePack/2.1.152": {
@@ -5480,6 +6365,95 @@
         "runtime.json"
       ]
     },
+    "Microsoft.ReportingServices.ReportViewerControl.WebForms/150.1576.0": {
+      "sha512": "JhBB1l03/zxRvDwjUEAAJLLz3eGWD4Fn+2jDYOrWx4aGrHZh4H38sq8hxMzRWYAGztv+MzOzu/1YxRtDcsK4pA==",
+      "type": "package",
+      "path": "microsoft.reportingservices.reportviewercontrol.webforms/150.1576.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/web.config.install.xdt",
+        "lib/net40/Microsoft.ReportViewer.Common.dll",
+        "lib/net40/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/Microsoft.ReportViewer.DataVisualization.dll",
+        "lib/net40/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/Microsoft.ReportViewer.Design.dll",
+        "lib/net40/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/Microsoft.ReportViewer.ProcessingObjectModel.dll",
+        "lib/net40/Microsoft.ReportViewer.WebDesign.dll",
+        "lib/net40/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/Microsoft.ReportViewer.WebForms.dll",
+        "lib/net40/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/Microsoft.ReportViewer.WinForms.dll",
+        "lib/net40/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/de/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/de/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/de/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/de/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/de/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/de/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/es/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/es/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/es/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/es/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/es/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/es/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/fr/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/fr/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/fr/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/fr/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/fr/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/fr/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/it/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/it/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/it/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/it/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/it/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/it/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/ja/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/ja/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/ja/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/ja/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/ja/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/ja/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/ko/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/ko/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/ko/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/ko/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/ko/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/ko/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/pt/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/pt/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/pt/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/pt/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/pt/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/pt/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/ru/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/ru/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/ru/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/ru/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/ru/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/ru/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/zh-CHS/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/zh-CHS/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/zh-CHS/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/zh-CHS/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/zh-CHS/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/zh-CHS/Microsoft.ReportViewer.WinForms.resources.dll",
+        "lib/net40/zh-CHT/Microsoft.ReportViewer.Common.resources.dll",
+        "lib/net40/zh-CHT/Microsoft.ReportViewer.DataVisualization.resources.dll",
+        "lib/net40/zh-CHT/Microsoft.ReportViewer.Design.resources.dll",
+        "lib/net40/zh-CHT/Microsoft.ReportViewer.WebDesign.resources.dll",
+        "lib/net40/zh-CHT/Microsoft.ReportViewer.WebForms.resources.dll",
+        "lib/net40/zh-CHT/Microsoft.ReportViewer.WinForms.resources.dll",
+        "license/License_ReportViewer.rtf",
+        "license/ThirdPartyNotices_ReportViewer.txt",
+        "microsoft.reportingservices.reportviewercontrol.webforms.150.1576.0.nupkg.sha512",
+        "microsoft.reportingservices.reportviewercontrol.webforms.nuspec",
+        "tools/install.ps1"
+      ]
+    },
     "Microsoft.SqlServer.Server/1.0.0": {
       "sha512": "N4KeF3cpcm1PUHym1RmakkzfkEv3GRMyofVv40uXsQhCQeglr2OHNcUk2WOG51AKpGO8ynGpo9M/kFXSzghwug==",
       "type": "package",
@@ -5496,6 +6470,28 @@
         "lib/netstandard2.0/Microsoft.SqlServer.Server.xml",
         "microsoft.sqlserver.server.1.0.0.nupkg.sha512",
         "microsoft.sqlserver.server.nuspec"
+      ]
+    },
+    "Microsoft.SqlServer.Types/14.0.314.76": {
+      "sha512": "gAekCmSfjtRBaiuuRIqJJV6cfEsEbYY5vI7Ssoc5sYI04JcyPrZ4C8RC3z7K9xfpr9ejQAQ1AtfvtgqEnjmwOw==",
+      "type": "package",
+      "path": "microsoft.sqlserver.types/14.0.314.76",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/SqlServerTypes/Loader.cs",
+        "content/SqlServerTypes/readme.htm",
+        "lib/net40/Microsoft.SqlServer.Types.dll",
+        "license/license_SysClrTypes.rtf",
+        "microsoft.sqlserver.types.14.0.314.76.nupkg.sha512",
+        "microsoft.sqlserver.types.nuspec",
+        "nativeBinaries/x64/SqlServerSpatial140.dll",
+        "nativeBinaries/x64/msvcr120.dll",
+        "nativeBinaries/x86/SqlServerSpatial140.dll",
+        "nativeBinaries/x86/msvcr120.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
@@ -6396,108 +7392,6 @@
         "lib/netstandard2.0/NuGet.Versioning.xml",
         "nuget.versioning.6.3.1.nupkg.sha512",
         "nuget.versioning.nuspec"
-      ]
-    },
-    "popper.js/1.16.1": {
-      "sha512": "6GiVZho0vwBnId7pK7NLTjMGq4F0/VE65I08CCeKlarVoUt1w8SGTtJmhNo/0pK38EGUP/xbT4+OkWB8UTMPBw==",
-      "type": "package",
-      "path": "popper.js/1.16.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "content/Scripts/README.md",
-        "content/Scripts/esm/popper-utils.js",
-        "content/Scripts/esm/popper-utils.js.map",
-        "content/Scripts/esm/popper-utils.min.js",
-        "content/Scripts/esm/popper-utils.min.js.map",
-        "content/Scripts/esm/popper.js",
-        "content/Scripts/esm/popper.js.map",
-        "content/Scripts/esm/popper.min.js",
-        "content/Scripts/esm/popper.min.js.map",
-        "content/Scripts/index.d.ts",
-        "content/Scripts/index.js.flow",
-        "content/Scripts/popper-utils.js",
-        "content/Scripts/popper-utils.js.map",
-        "content/Scripts/popper-utils.min.js",
-        "content/Scripts/popper-utils.min.js.map",
-        "content/Scripts/popper.js",
-        "content/Scripts/popper.js.map",
-        "content/Scripts/popper.min.js",
-        "content/Scripts/popper.min.js.map",
-        "content/Scripts/src/index.js",
-        "content/Scripts/src/methods/defaults.js",
-        "content/Scripts/src/methods/destroy.js",
-        "content/Scripts/src/methods/disableEventListeners.js",
-        "content/Scripts/src/methods/enableEventListeners.js",
-        "content/Scripts/src/methods/placements.js",
-        "content/Scripts/src/methods/update.js",
-        "content/Scripts/src/modifiers/applyStyle.js",
-        "content/Scripts/src/modifiers/arrow.js",
-        "content/Scripts/src/modifiers/computeStyle.js",
-        "content/Scripts/src/modifiers/flip.js",
-        "content/Scripts/src/modifiers/hide.js",
-        "content/Scripts/src/modifiers/index.js",
-        "content/Scripts/src/modifiers/inner.js",
-        "content/Scripts/src/modifiers/keepTogether.js",
-        "content/Scripts/src/modifiers/offset.js",
-        "content/Scripts/src/modifiers/preventOverflow.js",
-        "content/Scripts/src/modifiers/shift.js",
-        "content/Scripts/src/utils/clockwise.js",
-        "content/Scripts/src/utils/computeAutoPlacement.js",
-        "content/Scripts/src/utils/debounce.js",
-        "content/Scripts/src/utils/find.js",
-        "content/Scripts/src/utils/findCommonOffsetParent.js",
-        "content/Scripts/src/utils/findIndex.js",
-        "content/Scripts/src/utils/getBordersSize.js",
-        "content/Scripts/src/utils/getBoundaries.js",
-        "content/Scripts/src/utils/getBoundingClientRect.js",
-        "content/Scripts/src/utils/getClientRect.js",
-        "content/Scripts/src/utils/getFixedPositionOffsetParent.js",
-        "content/Scripts/src/utils/getOffsetParent.js",
-        "content/Scripts/src/utils/getOffsetRect.js",
-        "content/Scripts/src/utils/getOffsetRectRelativeToArbitraryNode.js",
-        "content/Scripts/src/utils/getOppositePlacement.js",
-        "content/Scripts/src/utils/getOppositeVariation.js",
-        "content/Scripts/src/utils/getOuterSizes.js",
-        "content/Scripts/src/utils/getParentNode.js",
-        "content/Scripts/src/utils/getPopperOffsets.js",
-        "content/Scripts/src/utils/getReferenceNode.js",
-        "content/Scripts/src/utils/getReferenceOffsets.js",
-        "content/Scripts/src/utils/getRoot.js",
-        "content/Scripts/src/utils/getRoundedOffsets.js",
-        "content/Scripts/src/utils/getScroll.js",
-        "content/Scripts/src/utils/getScrollParent.js",
-        "content/Scripts/src/utils/getStyleComputedProperty.js",
-        "content/Scripts/src/utils/getSupportedPropertyName.js",
-        "content/Scripts/src/utils/getViewportOffsetRectRelativeToArtbitraryNode.js",
-        "content/Scripts/src/utils/getWindow.js",
-        "content/Scripts/src/utils/getWindowSizes.js",
-        "content/Scripts/src/utils/includeScroll.js",
-        "content/Scripts/src/utils/index.js",
-        "content/Scripts/src/utils/isBrowser.js",
-        "content/Scripts/src/utils/isFixed.js",
-        "content/Scripts/src/utils/isFunction.js",
-        "content/Scripts/src/utils/isIE.js",
-        "content/Scripts/src/utils/isModifierEnabled.js",
-        "content/Scripts/src/utils/isModifierRequired.js",
-        "content/Scripts/src/utils/isNumeric.js",
-        "content/Scripts/src/utils/isOffsetContainer.js",
-        "content/Scripts/src/utils/removeEventListeners.js",
-        "content/Scripts/src/utils/runModifiers.js",
-        "content/Scripts/src/utils/setAttributes.js",
-        "content/Scripts/src/utils/setStyles.js",
-        "content/Scripts/src/utils/setupEventListeners.js",
-        "content/Scripts/umd/popper-utils.js",
-        "content/Scripts/umd/popper-utils.js.map",
-        "content/Scripts/umd/popper-utils.min.js",
-        "content/Scripts/umd/popper-utils.min.js.map",
-        "content/Scripts/umd/popper.js",
-        "content/Scripts/umd/popper.js.flow",
-        "content/Scripts/umd/popper.js.map",
-        "content/Scripts/umd/popper.min.js",
-        "content/Scripts/umd/popper.min.js.map",
-        "popper.js.1.16.1.nupkg.sha512",
-        "popper.js.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -10705,14 +11599,18 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CrystalDecisions.CrystalReports.Engine >= 1.0.0",
+      "CrystalDecisions.Shared >= 1.0.0",
+      "CrystalReports.Engine >= 13.0.4003",
+      "CrystalReports.Shared >= 13.0.4003",
       "Microsoft.Data.SqlClient >= 5.1.1",
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
+      "Microsoft.ReportingServices.ReportViewerControl.WebForms >= 150.1576.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.13",
       "Microsoft.Web.Administration >= 11.1.0",
-      "System.Configuration.ConfigurationManager >= 7.0.0",
-      "popper.js >= 1.16.1"
+      "System.Configuration.ConfigurationManager >= 7.0.0"
     ]
   },
   "packageFolders": {
@@ -10760,6 +11658,22 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "CrystalDecisions.CrystalReports.Engine": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "CrystalDecisions.Shared": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "CrystalReports.Engine": {
+            "target": "Package",
+            "version": "[13.0.4003, )"
+          },
+          "CrystalReports.Shared": {
+            "target": "Package",
+            "version": "[13.0.4003, )"
+          },
           "Microsoft.Data.SqlClient": {
             "target": "Package",
             "version": "[5.1.1, )"
@@ -10778,6 +11692,10 @@
             "target": "Package",
             "version": "[7.0.5, )"
           },
+          "Microsoft.ReportingServices.ReportViewerControl.WebForms": {
+            "target": "Package",
+            "version": "[150.1576.0, )"
+          },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.13, )"
@@ -10789,10 +11707,6 @@
           "System.Configuration.ConfigurationManager": {
             "target": "Package",
             "version": "[7.0.0, )"
-          },
-          "popper.js": {
-            "target": "Package",
-            "version": "[1.16.1, )"
           }
         },
         "imports": [
@@ -10817,5 +11731,197 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Microsoft.ReportingServices.ReportViewerControl.WebForms 150.1576.0 depends on Microsoft.SqlServer.Types (>= 14.0.0) but Microsoft.SqlServer.Types 14.0.0 was not found. An approximate best match of Microsoft.SqlServer.Types 14.0.314.76 was resolved.",
+      "libraryId": "Microsoft.SqlServer.Types",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalDecisions.CrystalReports.Engine 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalDecisions.CrystalReports.Engine",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalDecisions.Shared 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalDecisions.Shared",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.Engine 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.Engine",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.ClientDoc 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.ClientDoc",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.CommLayer 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.CommLayer",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.CommonControls 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.CommonControls",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.CommonObjectModel 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.CommonObjectModel",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.Controllers 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.Controllers",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.CubeDefModel 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.CubeDefModel",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.DataDefModel 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.DataDefModel",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.DataSetConversion 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.DataSetConversion",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.ObjectFactory 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.ObjectFactory",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.Prompting 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.Prompting",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.ReportDefModel 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.ReportDefModel",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.ReportAppServer.XmlSerialize 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.ReportAppServer.XmlSerialize",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalReports.Shared 13.0.4003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalReports.Shared",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.ReportingServices.ReportViewerControl.WebForms 150.1576.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.ReportingServices.ReportViewerControl.WebForms",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.SqlServer.Types 14.0.314.76' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.SqlServer.Types",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

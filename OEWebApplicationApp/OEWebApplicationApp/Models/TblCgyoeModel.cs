@@ -135,6 +135,8 @@ namespace OEWebApplicationApp.Models
                 return totalAmount; 
             }
         }//CalculateTotalValue
+
+        //TODO ADD NO GST
         public double? CalculateGST()
         {
             if (Gstincluded == false)

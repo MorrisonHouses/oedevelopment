@@ -162,7 +162,7 @@ namespace OEWebApplicationApp.Controllers
             return View(tblCgyoeModel);
         }
 
-        //Createnew: ==================================================================
+        //Create: ==================================================================
         [HttpPost]
         [ActionName("CreateNew")]
         [ValidateAntiForgeryToken]
@@ -260,8 +260,6 @@ namespace OEWebApplicationApp.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id, TblCgyoeModel tblCgyoe)
         {
-            //string result = tblCgyoeManager.Delete(id);
-            //return RedirectToAction("Index");
             try
             {
                 string result = tblCgyoeManager.Delete(id);
@@ -275,29 +273,6 @@ namespace OEWebApplicationApp.Controllers
             }
 
         }//Delete
-
-        // PRINT: =====================================================================
-        //[ActionName("Print")]
-        //public ActionResult Print(int id)
-        //{
-        //    string reportPath = "C:/Users/edoucett/Desktop/OperatingExpense/MorrisonOEPO.rpt";
-
-        //    //ReportDocument reportDocument = new();
-        //    //reportDocument.Load(reportPath);
-        //    //reportDocument.SetParameterValue("@RequestID", id);
-        //    //reportDocument.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "MorrisonOEPO");
-        //    ////Stream stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-        //    ////stream.Seek(0, SeekOrigin.Begin);
-        //    //reportDocument.Close();
-        //    //return View(stream);
-
-        //    //ReportDocument myDataReport = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-        //    //myDataReport.Load(reportPath);
-        //    //myDataReport.SetParameterValue("@RequestId", id);
-        //    //return View(myDataReport);
-        //}
-
-
 
         // TEST: =====================================================================
         public IActionResult apm()

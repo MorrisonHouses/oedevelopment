@@ -176,14 +176,18 @@
                         <a asp-controller="Request" asp-action="Edit" asp-route-id="@item.RequestId" class="text-black">Edit</a>
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
                         <a asp-controller="Request" asp-action="Delete" asp-route-id="@item.RequestId" class="text-black ">Delete</a>
-                            <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Image</a>
+                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Image</a>
                     }
                     else
                     {
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
-                        <a target="" href="C:/Users/edoucett/Desktop/OperatingExpense/MorrisonOEPO.rpt" class="text-black">Print</a>
                         <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Image</a>
 
+                        <a asp-controller="Report" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Print</a>
+
+@*                        <div class="form-group m-2">
+                            <input type="submit" value="Print" class="btn btn-primary" asp-action="Index" asp-controller="Report" asp-route-id="@ViewData["MyRequestId"]" />
+                        </div>*@
                         
                     }
                 </td>
@@ -200,4 +204,5 @@
         <div class="col-sm-4"><a href="#top"><h3 class="text-black">TOP</h3></a></div>
     </div>
 </div>
+
 
