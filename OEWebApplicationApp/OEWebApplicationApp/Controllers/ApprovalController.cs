@@ -41,13 +41,13 @@ namespace OEWebApplicationApp.Controllers
                 var OElist = tblCgyoeManager.GetViewApproverOERequest(id);
                 if (!OElist.Any() )
                 {
-                    OElist = tblCgyoeManager.GetViewApproverOERequest(id);
+                    OElist = tblCgyoeManager.GetViewApproverOERequest(id).OrderByDescending(x => x.RequestId).ToList();
                     TempData["Info Message"] = "-- Message Center: You do not have any approvals --";
                     return View(OElist);
                 }
                 else
                 {
-                    OElist = tblCgyoeManager.GetViewApproverOERequest(id);
+                    OElist = tblCgyoeManager.GetViewApproverOERequest(id).OrderByDescending(x => x.RequestId).ToList();
                     return View(OElist);
                 }
             }

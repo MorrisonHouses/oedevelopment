@@ -129,7 +129,7 @@ namespace OEWebApplicationApp.Models
                 double? totalAmount = Math.Round((double)((Amount * (Gstvalue / 100)) + Amount),2);
                 return totalAmount;
             }
-            else 
+            else
             {
                 double? totalAmount = Math.Round((double)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))), 2);
                 return totalAmount; 

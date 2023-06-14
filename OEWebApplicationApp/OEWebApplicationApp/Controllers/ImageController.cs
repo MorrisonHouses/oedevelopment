@@ -21,8 +21,9 @@ namespace OEWebApplicationApp.Controllers
         ManagerImage ManagerImage = new();
 
         //IMAGE pull by request id================================================================================================
-        public ActionResult Index(string id)
+        public ActionResult Index(string id, string page)
         {
+            ViewData["Page"] = page;
             ClassFunctions function = new();
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
@@ -53,8 +54,9 @@ namespace OEWebApplicationApp.Controllers
         }//Index
 
         //create image by id=====================================================================================================
-        public IActionResult Create(string id)
+        public IActionResult Create(string id, string page)
         {
+            ViewData["Page"] = page;
             ViewData["MyRequestId"] = id;
             ImageModel model = new();
             return View(model);

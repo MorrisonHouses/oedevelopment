@@ -7,6 +7,9 @@ using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using OEWebApplicationApp.Models;
+using System.Net.Mail;
+using System.Net;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace OEWebApplicationApp
 {
@@ -21,6 +24,22 @@ namespace OEWebApplicationApp
             return dateTime;
         }//datetime
 
+
+        //EMAIL===========================================================================================
+        public void SendEmail(string SentTo, string body, string subject)
+        {
+            SmtpClient smtp = new SmtpClient("10.0.0.26",25);
+            //smtp.Credentials = new NetworkCredential("or@morrisonhomes.ca", "");
+            smtp.UseDefaultCredentials = false;
+            smtp.EnableSsl = false;
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("oe@morrisonhomes.ca ");
+            mailMessage.To.Add(SentTo);
+            mailMessage.Subject = subject;
+            mailMessage.Body = body;
+
+            smtp.Send(mailMessage);
+        }
 
     }//class
 }//OEWebData

@@ -6,12 +6,13 @@
 }
 <div class="container-fluid boxShadow">
     <div class="row">
-        <div class="col-4 text-center"><h3>OERequest</h3></div>
-        <div class="col-4 text-center"></div>
+        <div class="col-4 "><h3>OERequest</h3></div>
+        <a asp-action="Create"><h4>Create New Operating Expense</h4></a>
+        <a asp-area="" asp-controller="Home" asp-action="Index"><h4>Back to Home Page</h4></a>
+        <div class="col-4 "></div>
         <div class="col-4 ">
             <p>
-                <a asp-action="Create"><h4>Create New Operating Expense</h4></a>
-                <a asp-area="" asp-controller="Home" asp-action="Index"><h4>Back to Index</h4></a>
+
             </p>
             </div>      
     </div>
@@ -31,7 +32,7 @@
 
 
 <div class="container-fluid boxShadow">
-    <div class="row justify-content-end">
+    <div class="row justify-content-center">
         <div class="col-1 text-center button"><a asp-controller="Request" asp-action="Index" asp-route-id="All" id="All">View All</a></div>
         <div class="col-1 text-center button"><a asp-controller="Request" asp-action="Index" asp-route-id="Approved" id="Approved">Approved</a></div>
         <div class="col-1 text-center button"><a asp-controller="Request" asp-action="Index" asp-route-id="notApproved">Not Approved</a></div>
@@ -176,18 +177,12 @@
                         <a asp-controller="Request" asp-action="Edit" asp-route-id="@item.RequestId" class="text-black">Edit</a>
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
                         <a asp-controller="Request" asp-action="Delete" asp-route-id="@item.RequestId" class="text-black ">Delete</a>
-                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Image</a>
+                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Image</a>
                     }
                     else
                     {
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
-                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Image</a>
-
-                        <a asp-controller="Report" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">Print</a>
-
-@*                        <div class="form-group m-2">
-                            <input type="submit" value="Print" class="btn btn-primary" asp-action="Index" asp-controller="Report" asp-route-id="@ViewData["MyRequestId"]" />
-                        </div>*@
+                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Image</a>
                         
                     }
                 </td>
@@ -199,9 +194,9 @@
 <hr />
 <div class="container">
     <div class="row">
-        <div class="col-sm-4"><h3 class="text-white"></h3></div>
-        <div class="col-sm-4"> </div>
         <div class="col-sm-4"><a href="#top"><h3 class="text-black">TOP</h3></a></div>
+        <div class="col-sm-4"> </div>
+        <div class="col-sm-4"> </div>
     </div>
 </div>
 

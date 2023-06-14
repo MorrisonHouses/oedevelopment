@@ -259,8 +259,10 @@ namespace OEWebApplicationApp.Models
             List<SelectListItem> gstInc = new List<SelectListItem>();
             SelectListItem gstInc1 = new SelectListItem() { Text = "GST Not Inc", Value = "false", Selected = true };
             SelectListItem gstInc2 = new SelectListItem() { Text = "GST Inc", Value = "true", Selected = false };
+
             gstInc.Add(gstInc1);
             gstInc.Add(gstInc2);
+
             return gstInc;
         }
 

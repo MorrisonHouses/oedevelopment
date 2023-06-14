@@ -22,7 +22,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Reflection.Emit;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -50,12 +50,12 @@ namespace OEWebApplicationApp.Controllers
                 if (!OElist.Any())
                 {
                     TempData["Info Message"] = "-- Message Center: You do not have any request --";
-                    OElist = tblCgyoeManager.GetViewOERequest(id);
+                    OElist = tblCgyoeManager.GetViewOERequest(id).OrderByDescending(x => x.RequestId).ToList();
                     return View(OElist);
                 }
                 else
                 {
-                    OElist = tblCgyoeManager.GetViewOERequest(id);
+                    OElist = tblCgyoeManager.GetViewOERequest(id).OrderByDescending(x => x.RequestId).ToList();
                     return View(OElist);
                 }
             }catch (Exception ex)
@@ -147,7 +147,6 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.gstamt = tblCgyoeModel.CalculateGST();
                 ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
                 ViewBag.newAmt = tblCgyoeModel.CalculateAmount();
-
             }
             else
             {
@@ -159,6 +158,7 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.vendName = "";
                 ViewBag.approverGK = "";
             }
+
             return View(tblCgyoeModel);
         }
 
@@ -176,6 +176,10 @@ namespace OEWebApplicationApp.Controllers
                     if (IsUpdated)
                     {
                         TempData["Info Message"] = "--Message Center: Creation Successfull--";
+                        string email = "evan.doucett@morrisonhomes.ca";
+                        string body = "Dear Recipient, Please be advised that you have an OE approval.";
+                        string subject = "-- OE Approval Notification.";
+                        function.SendEmail(email, body, subject);
                         return RedirectToAction("Index");
                     }
                     else
@@ -273,28 +277,6 @@ namespace OEWebApplicationApp.Controllers
             }
 
         }//Delete
-
-        // TEST: =====================================================================
-        public IActionResult apm()
-        {
-            ClassFunctions function = new();
-            ClassConfig configclass = new();
-            ViewBag.UserName = configclass.username();
-            ViewBag.DateTime = function.dateTime();
-            var OElist = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == "AC002");
-            //ViewBag.vendors = apmMasterVendorManager.GetViewVendor().ToList().Where(x => x.Vendor == "AC002");
-            return View(OElist);
-
-        }
-        public IActionResult gls()
-        {
-            TblCgyoeModel model = new TblCgyoeModel();
-            string ? threashold = model.GetGlAccount();
-            var OElist = viewGLaccountManager.GetAllGlAccounts();
-            return View(OElist);
-
-        }
-
 
     }//class
 }//namespace

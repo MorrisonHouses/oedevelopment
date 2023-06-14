@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ebTMgZwQlw9aqQN7630LLGTvrCp5932jmJWTX/8X2HM=",
+  "Hash": "ts1SSNqCZ07FR4WAQX3Gk+bjKtVY1xICwg1c6YAO1W8=",
   "Source": "OEWebApplicationApp",
   "BasePath": "_content/OEWebApplicationApp",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\Files\\12649CGY13062023114555.pdf"
     },
     {
+      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Files\\12649CGY14062023080944.pdf",
+      "SourceId": "OEWebApplicationApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\",
+      "BasePath": "_content/OEWebApplicationApp",
+      "RelativePath": "Files/12649CGY14062023080944.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\12649CGY14062023080944.pdf"
+    },
+    {
       "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Files\\12652CGY13062023013723.pdf",
       "SourceId": "OEWebApplicationApp",
       "SourceType": "Discovered",
@@ -136,23 +153,6 @@
       "OriginalItemSpec": "wwwroot\\Files\\12652CGY13062023014154.pdf"
     },
     {
-      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Files\\12652CGY13062023113645.pdf",
-      "SourceId": "OEWebApplicationApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\",
-      "BasePath": "_content/OEWebApplicationApp",
-      "RelativePath": "Files/12652CGY13062023113645.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\12652CGY13062023113645.pdf"
-    },
-    {
       "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Files\\12652CGY13062023114532.pdf",
       "SourceId": "OEWebApplicationApp",
       "SourceType": "Discovered",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Files\\12652CGY13062023114532.pdf"
+    },
+    {
+      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Images\\MH_Logo_BLACK.png",
+      "SourceId": "OEWebApplicationApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\",
+      "BasePath": "_content/OEWebApplicationApp",
+      "RelativePath": "Images/MH_Logo_BLACK.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MH_Logo_BLACK.png"
     },
     {
       "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\js\\site.js",

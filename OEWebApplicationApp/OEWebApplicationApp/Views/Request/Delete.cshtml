@@ -5,9 +5,11 @@
 }
 <div class="container-fluid boxShadow bg-danger">
     <div class="row">
+        <div class="col-4 "><h3 class=" text-white">Are you sure you want to DELETE @Html.DisplayFor(model => model.RequestId)</h3></div>
+        <a asp-action="Index" class="text-white"><h4>Back to Request</h4></a>
+        <div class="col-4 "></div>
         <div class="col-4"></div>
-        <div class="col-4 align-content-center text-center"><h3 class=" text-center text-white">Are you sure you want to DELETE @Html.DisplayFor(model => model.RequestId)</h3></div>
-        <div class="col-4 align-content-end"><a asp-action="Index"><h4>Back to List</h4></a></div>
+
     </div>
 </div>
 @if (TempData["Info Message"] != null)
@@ -150,15 +152,15 @@
 </div>
 <div class="container-flex m-2">
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4"></div>
-            <div class="col-4 align-content-end">
+        <div class="col-4 ">
             <form asp-action="Delete">
                 <input type="hidden" asp-for="RequestId" />
                 <input type="submit" value="Delete" class="btn btn-danger" />
-                    <div class="col-4 align-content-end"><a asp-action="Index"><h4>Back to List</h4></a></div>
             </form>
         </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+
     </div>
 </div>
 
