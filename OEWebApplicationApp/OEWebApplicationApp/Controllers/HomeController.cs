@@ -23,15 +23,23 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
-            //TODO: try catch for bool
-            ViewBag.ApproverBool = viewGLaccountManager.GetApprovalBool();
-            ViewBag.RequesterBool = viewGLaccountManager.GetRequestBool();
+            try
+            {
+                ViewBag.UserName = configclass.username();
+                ViewBag.ApproverBool = viewGLaccountManager.GetApprovalBool();
+                ViewBag.RequesterBool = viewGLaccountManager.GetRequestBool();
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+
             return View();
         }
 
         public IActionResult UnderConstruction()
         {
-            //TODO: better images
             return View();
         }
 

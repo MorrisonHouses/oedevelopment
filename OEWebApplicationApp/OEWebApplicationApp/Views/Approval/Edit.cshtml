@@ -24,7 +24,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RequestId" />
-                <div class="boxShadow m-2">
+                <div class=" m-2">
                     <div class="form-group-approve ">
                         <label asp-for="Vendor" class="control-label"></label>
                         <input asp-for="Vendor" class="form-control" readonly/>
@@ -36,7 +36,7 @@
                         <span asp-validation-for="VendorName" class="text-danger"></span>
                     </div>
                     </div>
-                <div class="boxShadow m-2">
+                <div class=" m-2">
                     <div class="form-group-approve">
                         <label asp-for="RequestedBy" class="control-label"></label>
                             <input asp-for="RequestedBy" class="form-control" readonly />
@@ -53,7 +53,7 @@
                     <input asp-for="AutoApproveThreshold" class="form-control" readonly />
                 <span asp-validation-for="AutoApproveThreshold" class="text-danger"></span>
             </div>*@
-                <div class="boxShadow m-2">
+                <div class=" m-2">
                     <div class="form-group-approve">
                         <label asp-for="Amount" class="control-label"></label>
                             <input asp-for="Amount" class="form-control" readonly />
@@ -70,7 +70,7 @@
                         <span asp-validation-for="Gstamount" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="boxShadow m-2">
+                <div class=" m-2">
                     <div class="form-group-approve">
                         <label asp-for="TotalAmount" class="control-label"></label>
                             <input asp-for="TotalAmount" class="form-control" readonly />
@@ -102,7 +102,7 @@
                     <input asp-for="Reason" class="form-control bg-yellow" />
                     <span asp-validation-for="Reason" class="text-danger"></span>
                 </div>
-                <div class="boxShadow m-2">
+                <div class=" m-2">
                     <div class="form-group-approve">
                     <label asp-for="PurchaseDate" class="control-label"></label>
                         <input asp-for="PurchaseDate" class="form-control" readonly />
@@ -124,10 +124,10 @@
                 <select asp-for="Status" asp-items=@ViewBag.status class="form-control"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>*@
-                <div class="boxShadow m-2">
+                <div class=" m-2">
                     <div class="form-group-approve">
                         <label asp-for="Status" class="control-label"></label>
-                        <input asp-for="Status" value="Approved" class="form-control text-danger" readonly></input>
+                        <input asp-for="Status" value="Approved" class="form-control text-danger" readonly/>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
                 </div>
@@ -141,6 +141,7 @@
                 </div>
         </form>
     </div>
-        <div class="col-md-3"></div>
+    </div>
+    <div class="col-md-3"></div>
     </div>
     <hr />

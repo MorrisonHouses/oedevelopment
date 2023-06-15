@@ -92,7 +92,8 @@ footer {
     background: linear-gradient(90deg, rgba(255,239,239,1) 0%, rgba(212,212,212,1) 99%);
 }
 header {
-    background: linear-gradient(90deg, rgba(0,41,62,1) 0%, rgba(255,255,255,1) 99%);
+/*    background: linear-gradient(90deg, rgba(0,41,62,1) 0%, rgba(255,255,255,1) 99%);*/
+    background: linear-gradient(90deg, rgba(255,255,255,1)25%, rgba(0,41,62,1) 99%);
 }
 .bg-yellow{
     background-color: lightyellow;

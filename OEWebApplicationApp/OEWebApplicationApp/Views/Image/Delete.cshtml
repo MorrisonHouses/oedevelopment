@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4 align-content-center text-center"><h3 class=" text-center text-white">Are you sure you want to DELETE This Image for @Html.DisplayFor(model => model.RequestId)</h3></div>
-        <div class="col-4 align-content-end"><a asp-action="Index" asp-route-id="@Model.RequestId"><h4>Back to List</h4></a></div>
+        <div class="col-4 align-content-end"><a asp-action="Index" asp-route-id="@Model.RequestId" asp-route-page="@ViewData["Page"]"><h4>Back to List</h4></a></div>
     </div>
 </div>
 @if (TempData["Info Message"] != null)
@@ -75,7 +75,6 @@
             <form asp-action="Delete">
                 <input type="hidden" asp-for="FileName" />
                 <input type="submit" value="Delete" asp-route-id="@Model.Path" class="btn btn-danger" />
-                <a asp-action="Index" asp-route-id="@Model.RequestId">Back to List</a>
             </form>
         </div>
     </div>

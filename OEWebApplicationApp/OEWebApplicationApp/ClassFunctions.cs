@@ -24,22 +24,22 @@ namespace OEWebApplicationApp
             return dateTime;
         }//datetime
 
-
         //EMAIL===========================================================================================
         public void SendEmail(string SentTo, string body, string subject)
         {
-            SmtpClient smtp = new SmtpClient("10.0.0.26",25);
-            //smtp.Credentials = new NetworkCredential("or@morrisonhomes.ca", "");
+            ClassConfig configclass = new();
+            int port = Convert.ToInt32(configclass.EmailPort());
+            SmtpClient smtp = new SmtpClient(configclass.EmailSMTP(), port);
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = false;
             MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("oe@morrisonhomes.ca ");
+            mailMessage.From = new MailAddress(configclass.EmailFrom());
             mailMessage.To.Add(SentTo);
             mailMessage.Subject = subject;
             mailMessage.Body = body;
-
             smtp.Send(mailMessage);
         }
+
 
     }//class
 }//OEWebData

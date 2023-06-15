@@ -4,11 +4,10 @@ using System.Data;
 
 namespace OEWebApplicationApp
 {
-    // TODO: insert proper connection string
     public class ManagerViewGLaccount
     {
-        ClassFunctions function = new();
-        ClassConfig configclass = new();
+        private ClassFunctions function = new();
+        private ClassConfig configclass = new();
 
         // insures that the person loggin in is a requester based on the GateKeeper field======================================================
         public  Boolean GetRequestBool()
@@ -33,12 +32,9 @@ namespace OEWebApplicationApp
         //GET ALL GLACCOUNTS ======================================================================
         public List<ViewGlaccountModel> GetAllGlAccounts()
         {
-            ClassConfig classConfig = new ClassConfig();
-
             List<ViewGlaccountModel> listOfGls = new List<ViewGlaccountModel>();
             string username = configclass.username();
-            
-            string config = @"Data Source=VMORTL\SQLEXPRESS;Initial Catalog=TimberlineLink;User ID=ITMain; Password=M0rr1s0n1961; TrustServerCertificate = True";
+            string config = configclass.vMortlSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();

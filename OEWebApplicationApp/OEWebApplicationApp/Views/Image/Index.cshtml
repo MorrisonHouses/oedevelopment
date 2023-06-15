@@ -7,7 +7,7 @@
 <div class="container-fluid boxShadow">
     <div class="row">
         <div class="col-4 "><h3>Images for @ViewData["MyRequestId"]</h3></div>
-        <a asp-action="Create" asp-route-id="@ViewData["MyRequestId"]" asp-route-page="@ViewData["Page"]"><h4>Upload an Image</h4></a>
+        <a asp-action="Create" asp-route-id="@ViewData["MyRequestId"]" asp-route-page="@ViewData["Page"]" ;><h4>Upload an Image</h4></a>
         @if (@ViewData["Page"].ToString() != "request")
         {
             <a class="" asp-action="Index" asp-controller="Approval"><h4>Back to Approval</h4></a>
@@ -74,7 +74,7 @@
                 @Html.DisplayFor(modelItem => item.Path)
             </td>*@
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.FileName" asp-route-page="@ViewData["Pagew"]">Delete</a>
+                    <a asp-action="Delete" asp-route-id="@item.FileName" asp-route-page="@ViewData["Page"]">Delete</a>
                 </td>
                 <td>
                     <a href="~/Files/@(item.FileName)" target="_blank">View File</a>

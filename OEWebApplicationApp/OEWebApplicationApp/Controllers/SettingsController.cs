@@ -15,7 +15,13 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.GST = configclass.ConfigGST();
             ViewBag.CONFLOC = configclass.ConfigLocation();
             ViewBag.EXPLOC = configclass.ExportLocation();
+            ViewBag.MorSQL = configclass.MorSQLConnections();
             ViewBag.DateTime = function.dateTime();
+            ViewBag.Vmortl = configclass.vMortlSQLConnections();
+            ViewBag.SMTP = configclass.EmailSMTP();
+            ViewBag.PORT = configclass.EmailPort();
+            ViewBag.FROM = configclass.EmailFrom();
+            ViewBag.test = configclass.MorSQLConnections();
 
             return View();
         }

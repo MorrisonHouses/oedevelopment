@@ -15,6 +15,8 @@ namespace OEWebApplicationApp
     /// </summary>
     public class ClassConfig
     {
+
+        private readonly string configAddress = "C:/Users/edoucett/Desktop/ConfigOEWebApp.txt";
         /// <summary>
         /// pulls the current user name
         /// </summary>
@@ -23,13 +25,11 @@ namespace OEWebApplicationApp
         {
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             string name = userName.Remove(0, 14);
-            name = "cpitre";
+            name = "yclement";
             return name;
         }//username
 
         // TODO: gnicholls name error
-
-
         /*=======================================================================================================================================*/
         /// <summary>
         /// pulls the current user address
@@ -49,9 +49,9 @@ namespace OEWebApplicationApp
         {
             string GST = "GST";
             StringBuilder sbText = new StringBuilder();
-            using (var reader = new System.IO.StreamReader("C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
+            using (var reader = new System.IO.StreamReader(configAddress))
             {
-                foreach (string line in File.ReadLines(@"C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
+                foreach (string line in File.ReadLines(configAddress))
                 {
                     if (line.Contains(GST))
                     {
@@ -70,9 +70,9 @@ namespace OEWebApplicationApp
         {
             string ConfigLocation = "CONFIG LOCATION";
             StringBuilder sbText = new StringBuilder();
-            using (var reader = new System.IO.StreamReader("C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
+            using (var reader = new System.IO.StreamReader(configAddress))
             {
-                foreach (string line in File.ReadLines(@"C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
+                foreach (string line in File.ReadLines(configAddress))
                 {
                     if (line.Contains(ConfigLocation))
                     {
@@ -91,9 +91,9 @@ namespace OEWebApplicationApp
         {
             string ConfigLocation = "FILE EXPORT LOCATION =";
             StringBuilder sbText = new StringBuilder();
-            using (var reader = new System.IO.StreamReader("C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
+            using (var reader = new System.IO.StreamReader(configAddress))
             {
-                foreach (string line in File.ReadLines(@"C:/Users/edoucett/Desktop/ConfigOEWebApp.txt"))
+                foreach (string line in File.ReadLines(configAddress))
                 {
                     if (line.Contains(ConfigLocation))
                     {
@@ -103,6 +103,99 @@ namespace OEWebApplicationApp
             }//using
             return Convert.ToString(sbText).Remove(0, 22);
         }//ExportLocation
-        /*=======================================================================================================================================*/
+        /*SQL STRING CONNECTIONS====================================================================================================================*/
+
+        public string MorSQLConnections()
+        {
+            string value = MorSQLConnection();
+            return value;
+        }
+        private string MorSQLConnection()
+        {
+            string value = "MORSQL CONNECTION STRING";
+            StringBuilder sbText = new StringBuilder();
+            using (var reader = new System.IO.StreamReader(configAddress))
+            {
+                foreach (string line in File.ReadLines(configAddress))
+                {
+                    if (line.Contains(value))
+                    {
+                        sbText.Append(line);
+                    }
+                }//foreach
+            }//using
+            return Convert.ToString(sbText).Remove(0, 25);
+        }//MorSQLConnection
+        public string vMortlSQLConnections()
+        {
+            string value = vMortlSQLConnection();
+            return value;
+        }
+        private string vMortlSQLConnection()
+        {
+            string value = "VMORTL CONNECTION STRING";
+            StringBuilder sbText = new StringBuilder();
+            using (var reader = new System.IO.StreamReader(configAddress))
+            {
+                foreach (string line in File.ReadLines(configAddress))
+                {
+                    if (line.Contains(value))
+                    {
+                        sbText.Append(line);
+                    }
+                }//foreach
+            }//using
+            return Convert.ToString(sbText).Remove(0, 25);
+        }//vMortlSQLConnection
+        /*EMAIL STRING CONNECTIONS===================================================================================================================*/
+        public string EmailSMTP()
+        {
+            string value = "EMAIL SMTP";
+            StringBuilder sbText = new StringBuilder();
+            using (var reader = new System.IO.StreamReader(configAddress))
+            {
+                foreach (string line in File.ReadLines(configAddress))
+                {
+                    if (line.Contains(value))
+                    {
+                        sbText.Append(line);
+                    }
+                }//foreach
+            }//using
+            return Convert.ToString(sbText).Remove(0, 11);
+        }//EmailSMTP
+        public string EmailPort()
+        {
+            string value = "EMAIL PORT";
+            StringBuilder sbText = new StringBuilder();
+            using (var reader = new System.IO.StreamReader(configAddress))
+            {
+                foreach (string line in File.ReadLines(configAddress))
+                {
+                    if (line.Contains(value))
+                    {
+                        sbText.Append(line);
+                    }
+                }//foreach
+            }//using
+            return Convert.ToString(sbText).Remove(0, 11);
+        }//EmailPort
+        public string EmailFrom()
+        {
+            string value = "EMAIL FROM";
+            StringBuilder sbText = new StringBuilder();
+            using (var reader = new System.IO.StreamReader(configAddress))
+            {
+                foreach (string line in File.ReadLines(configAddress))
+                {
+                    if (line.Contains(value))
+                    {
+                        sbText.Append(line);
+                    }
+                }//foreach
+            }//using
+            return Convert.ToString(sbText).Remove(0, 11);
+        }//EmailPort
+
     }//ConfigClass
 }//namespace

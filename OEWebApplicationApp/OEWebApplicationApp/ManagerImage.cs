@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CrystalDecisions.ReportAppServer.DataDefModel;
+using CrystalDecisions.ReportAppServer.Prompting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting.Internal;
+using Newtonsoft.Json.Linq;
 using OEWebApplicationApp.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
@@ -12,13 +17,13 @@ namespace OEWebApplicationApp
 {
     public class ManagerImage
     {
-        // TODO: insert proper connection string
+        private ClassConfig configclass = new();
 
         //GET ALL IMAGES PER REQUEST ID============================================================================================================
         public List<ImageModel> GetImages(string id)
         {
             List<ImageModel> listOfOERequest = new List<ImageModel>();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -45,11 +50,12 @@ namespace OEWebApplicationApp
             }//using
             return listOfOERequest;
         }//GetImages
-         //GET ONE IMAGES PER FILE NAME============================================================================================================
+        
+        //GET ONE IMAGES PER FILE NAME============================================================================================================
         public List<ImageModel> GetImage(string id)
         {
             List<ImageModel> listOfOERequest = new List<ImageModel>();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -81,7 +87,7 @@ namespace OEWebApplicationApp
         public bool UpdateImageTbl(string filename, string path, ImageModel model)
         {
 
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             int i = 0;
             using (SqlConnection connection = new SqlConnection(config))
             {
@@ -109,8 +115,7 @@ namespace OEWebApplicationApp
             }//using
         }//UpdateImageTbl
 
-        //DELETE IMAGE========================================================================================================================
-
+        //DELETE SINGLE IMAGE ========================================================================================================================
         public string DeleteImage(string filePath, ImageModel imageModel)
         {
             string value = "Success";
@@ -121,7 +126,7 @@ namespace OEWebApplicationApp
 
                 //DELETE FILE FROM INDEX====================================
                 string? result = "";
-                string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+                string config = configclass.MorSQLConnections();
                 using (SqlConnection connection = new SqlConnection(config))
                 {
                     SqlCommand command = connection.CreateCommand();
@@ -142,5 +147,69 @@ namespace OEWebApplicationApp
                 return value;
             }
         }
+
+        //DELETE MULIPLE IMAGES============================================================================================================
+        public void DeleteAllImages(int id, TblCgyoeModel tblCgyoe)
+        {
+            GetAllImageFilePaths(id);
+            DeleteImagesByRequestid(id, tblCgyoe);
+
+        }
+        
+        //DELETE: RETRIEVE IMAGES LIST FROM DATABASE AND DELETE FROM FILE.====================
+        private List<ImageModel> GetAllImageFilePaths(int id)
+        {
+            List<ImageModel> listOfOERequest = new List<ImageModel>();
+            string config = configclass.MorSQLConnections();
+            using (SqlConnection connection = new SqlConnection(config))
+            {
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spr_GetImages";
+                command.Parameters.AddWithValue("@RequestId", id);
+                SqlDataAdapter sqlda = new SqlDataAdapter(command);
+                DataTable dtOE = new DataTable();
+                connection.Open();
+                sqlda.Fill(dtOE);
+                connection.Close();
+                foreach (DataRow dr in dtOE.Rows)
+                {
+                    File.Delete((dr["Path"] is not DBNull) ? dr["Path"].ToString() : null);
+                }//foreach
+
+            }//using
+            return listOfOERequest;
+        }//GetImages
+         
+        //DELETE: REMOVE ALL IMAGES FROM DATABASE===========================================
+        private string DeleteImagesByRequestid(int id, TblCgyoeModel tblCgyoe)
+        {
+            string value = "Success";
+            if (id != null)
+            {
+                string? result = "";
+                string config = configclass.MorSQLConnections();
+                using (SqlConnection connection = new SqlConnection(config))
+            {
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spr_DeleteAllImage";
+                if (id != null) { command.Parameters.AddWithValue("@RequestId", tblCgyoe.RequestId); } else { command.Parameters.AddWithValue("@RequestId", DBNull.Value); };
+                command.Parameters.Add("@OutputMessage", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
+                connection.Open();
+                command.ExecuteNonQuery();
+                result = command.Parameters["@OutputMessage"].Value.ToString();
+                connection.Close();
+            }//using
+                return value;
+            }
+            else
+            {
+                value = "Failure";
+                return value;
+            }
+}
+
+
     }//class
 }//namespace

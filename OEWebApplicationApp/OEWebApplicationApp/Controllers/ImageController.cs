@@ -23,7 +23,7 @@ namespace OEWebApplicationApp.Controllers
         //IMAGE pull by request id================================================================================================
         public ActionResult Index(string id, string page)
         {
-            ViewData["Page"] = page;
+
             ClassFunctions function = new();
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
@@ -33,14 +33,16 @@ namespace OEWebApplicationApp.Controllers
                 var OElist = ManagerImage.GetImages(id);
                 if (!OElist.Any())
                 {
-                    TempData["Info Message"] = "-- Message Center: There are no images uploaded for this document " + id + " --";
+                    TempData["Info Message"] = "-- Message Center: There are no images uploaded for document " + id + " --";
                     OElist = ManagerImage.GetImages(id);
+                    ViewData["Page"] = page;
                     ViewData["MyRequestId"] = id;
                     return View(OElist);
                 }
                 else
                 {
                     OElist = ManagerImage.GetImages(id);
+                    ViewData["Page"] = page;
                     ViewData["MyRequestId"] = id;
                     return View(OElist);
                 }
@@ -48,6 +50,7 @@ namespace OEWebApplicationApp.Controllers
             catch (Exception ex)
             {
                 TempData["Info Message"] = ex.Message;
+                ViewData["Page"] = page;
                 ViewData["MyRequestId"] = id;
                 return View();
             }
@@ -64,8 +67,9 @@ namespace OEWebApplicationApp.Controllers
 
 
         [HttpPost]
-        public IActionResult Create(ImageModel model)
+        public IActionResult Create(ImageModel model, string page)
         {
+            ViewData["MyRequestId"] = page;
             model.IsResponse = true;
             //File Path============================================================================
             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
@@ -83,6 +87,7 @@ namespace OEWebApplicationApp.Controllers
                 string extentsion = fileInfo.Extension;
                 string fileName = model.RequestId + model.Location + dateTime  + fileInfo.Extension;
                 string fileNameWithPath = Path.Combine(path, fileName);
+                ViewData["Page"] = page;
                 ViewData["MyPath"] = fileNameWithPath;
             //Copy file to the local system and check for pdf=======================================
                 if(extentsion.ToLower() == ".pdf")
@@ -95,42 +100,44 @@ namespace OEWebApplicationApp.Controllers
                         model.IsSuccess = true;
                         //update the database with location=================================================
                         ManagerImage.UpdateImageTbl(fileName, fileNameWithPath, model);
-                        return RedirectToAction("Index", new { id = model.RequestId });
+                        return RedirectToAction("Index", new { id = model.RequestId, page = ViewData["MyRequestId"] });
                     }
                     else
                     {
                         TempData["Info Message"] = "-- Message Center: Upload Failed - PDF only --";
-                        return RedirectToAction("Index", new { id = model.RequestId });
+                        return RedirectToAction("Index", new { id = model.RequestId, page = ViewData["MyRequestId"] });
                     }
             }
             else
             {
                 TempData["Info Message"] = "-- Message Center: File upload NOT successfull --";
-                return View("Index", new { id = model.RequestId });
+                return View("Index", new { id = model.RequestId, page = ViewData["MyRequestId"] });
             }
         }//Create
 
         //DELETE====================================================================================
-        public IActionResult Delete(string id)
+        public IActionResult Delete(string id, string page)
         {
             var OElist = ManagerImage.GetImage(id).FirstOrDefault();
+            ViewData["Page"] = page;
             return View(OElist);
         }
         [HttpPost]
-        public IActionResult Delete(string id, ImageModel imageModel)
+        public IActionResult Delete(string id, ImageModel imageModel, string page)
         {
+            ViewData["Page"] = page;
             try
             {
                 string result = ManagerImage.DeleteImage(id, imageModel);
                 if (result == "Success")
                 {
                     TempData["Info Message"] = "-- Message Center: Image delete was Success --";
-                    return RedirectToAction("Index", "Request");
+                    return RedirectToAction("Index", "Request", new { id = imageModel.RequestId, page = ViewData["MyRequestId"] });
                 }
                 else
                 {
                     TempData["Info Message"] = "-- Message Center: Image Delete was NOT success --";
-                    return RedirectToAction("Index","Request");
+                    return RedirectToAction("Index","Request", new { id = imageModel.RequestId, page = ViewData["MyRequestId"] });
                 }
             }
             catch (Exception ex)

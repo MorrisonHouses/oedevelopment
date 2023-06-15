@@ -124,7 +124,7 @@ namespace OEWebApplicationApp.Models
         //calculation on the create page GST/AMOUNT/TOTAL AMOUNT=======================
         public double? CalculateTotalValue()
         {
-            if (Gstincluded == false)
+            if (Gstincluded == false )
             {
                 double? totalAmount = Math.Round((double)((Amount * (Gstvalue / 100)) + Amount),2);
                 return totalAmount;

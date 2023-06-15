@@ -18,7 +18,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OEWebApplicationApp.Models
 {
-    // TODO: insert proper connection string
     public partial class ManagerTblCgyoe
     {
         ClassFunctions function = new();
@@ -31,7 +30,8 @@ namespace OEWebApplicationApp.Models
                 List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
                 string username = configclass.username();
                 if (id == null) { id = "All"; };
-                string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+                string config = configclass.MorSQLConnections();
+            //string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
                 using (SqlConnection connection = new SqlConnection(config))
                 {
                     SqlCommand command = connection.CreateCommand();
@@ -81,7 +81,7 @@ namespace OEWebApplicationApp.Models
             ClassConfig classConfig = new ClassConfig();
             List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
             string username = configclass.username();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -134,7 +134,7 @@ namespace OEWebApplicationApp.Models
             ClassConfig classConfig = new ClassConfig();
             List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
             string username = configclass.username();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -164,7 +164,7 @@ namespace OEWebApplicationApp.Models
         public string Delete(int id)
         {
             string username = configclass.username();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             string ? result = "";
             using (SqlConnection connection = new SqlConnection(config))
             {
@@ -186,7 +186,7 @@ namespace OEWebApplicationApp.Models
         public bool createProduct(TblCgyoeModel request)
         {
             string username = configclass.username();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             int i = 0;
             using (SqlConnection connection = new SqlConnection(config))
             {
@@ -275,7 +275,7 @@ namespace OEWebApplicationApp.Models
             List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
             string username = configclass.username();
             if (id == null) { id = "All"; };
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -325,7 +325,7 @@ namespace OEWebApplicationApp.Models
             ClassConfig classConfig = new ClassConfig();
             List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
             string username = configclass.username();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -377,7 +377,7 @@ namespace OEWebApplicationApp.Models
             ClassConfig classConfig = new ClassConfig();
             List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
             string username = configclass.username();
-            string config = @"Data Source=MORSQL;Initial Catalog=MorrisonHomes;User Id=bpm_user;Password=resu_mpb1; TrustServerCertificate=True";
+            string config = configclass.MorSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();

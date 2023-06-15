@@ -5,19 +5,17 @@ using System.Data;
 
 namespace OEWebApplicationApp
 {
-    // TODO: insert proper connection string
     public class ManagerApmMasterVendor
     {
-        ClassFunctions function = new();
-        ClassConfig configclass = new();
+        private ClassFunctions function = new();
+        private ClassConfig configclass = new();
 
         //GET ALL VENDORS ======================================================================
         public List<VendorModel> GetViewVendor()
         {
-
             List<VendorModel> listOfVendors = new List<VendorModel>();
             string username = configclass.username();
-            string config = @"Data Source=VMORTL\SQLEXPRESS;Initial Catalog=TimberlineLink;User Id=ITMain;Password=M0rr1s0n1961; TrustServerCertificate=True";
+            string config = configclass.vMortlSQLConnections();
             using (SqlConnection connection = new SqlConnection(config))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -34,14 +32,12 @@ namespace OEWebApplicationApp
                     listOfVendors.Add(new VendorModel
                     {
                         Vendor = dr["Vendor"].ToString(),
-                        Name = dr["name"].ToString(),
-
+                        Name = (dr["name"] is not DBNull) ? dr["name"].ToString() : null,
                     }); //list
                 }//foreach
             }//using
             return listOfVendors;
             // return VendorModel;
         }//GetViewVendor
-
     }//class
 }//namespace

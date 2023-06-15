@@ -15,7 +15,7 @@ namespace OEWebApplicationApp.Models
 
         [StringLength(30)]
         [Unicode(false)]
-        public string Name { get; set; } = null!;
+        public string ? Name { get; set; } = null!;
 
         //public List<SelectListItem>? vendorsList { get; set; }
 

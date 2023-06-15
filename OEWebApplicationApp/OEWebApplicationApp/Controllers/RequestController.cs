@@ -34,7 +34,7 @@ namespace OEWebApplicationApp.Controllers
         ManagerTblCgyoe tblCgyoeManager = new();
         ManagerApmMasterVendor apmMasterVendorManager = new();
         ManagerViewGLaccount viewGLaccountManager = new();
-        private readonly TblCgyoeModel? tblCGYoe;
+        ManagerImage managerImage = new();
 
         // GET: =========================================================================
         [Route("RequestedItemUser")]
@@ -266,7 +266,10 @@ namespace OEWebApplicationApp.Controllers
         {
             try
             {
+                //remove oe request from db
                 string result = tblCgyoeManager.Delete(id);
+                //remove oe scanned images from db and file
+                managerImage.DeleteAllImages(id, tblCgyoe);
                 TempData["Info Message"] = "--Message Center: Delete was Success--";
                 return RedirectToAction("Index", new { id = "notApproved" });
             }
