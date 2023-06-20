@@ -28,6 +28,8 @@ namespace OEWebApplicationApp.Controllers
     {
         //instace of helper classes======================================================
         ManagerTblCgyoe tblCgyoeManager = new();
+        ClassFunctions function = new();
+        ClassConfig configclass = new();
 
         // GET: =========================================================================
         public ActionResult Index(string id)
@@ -114,14 +116,18 @@ namespace OEWebApplicationApp.Controllers
                     bool IsUpdated = tblCgyoeManager.ApproveRequest(id, TblCgyoeModel);
                     if (IsUpdated)
                     {
+                        string ? reason = TblCgyoeModel.Reason;
+                        string ? request = TblCgyoeModel.Request;
+                        double gst = Math.Round((double)TblCgyoeModel.Gstamount,2);
+                        double totalAmount = Math.Round((double)TblCgyoeModel.TotalAmount,2);
+                        string ? vendor = TblCgyoeModel.Vendor;
                         TempData["Info Message"] = "--Message Center: Approval Success--";
-                        //return RedirectToAction("Index", new { id = "notApproved" });
+                        function.WriteToFile( id, vendor, reason, request, gst,  totalAmount);
                         return RedirectToAction("Index");
                     }
                     else
                     {
                         TempData["Info Message"] = "--Message Center: Approval was NOT Success--";
-                        //return RedirectToAction("Index", new { id = "notApproved" });
                         return RedirectToAction("Index");
                     }
                 }
@@ -135,7 +141,7 @@ namespace OEWebApplicationApp.Controllers
             }
         }
 
-        // DELETE: =========================================================================
+        // DELETE/REJECT: =========================================================================
         public ActionResult Delete(int id)
         {
             return View();
@@ -158,6 +164,26 @@ namespace OEWebApplicationApp.Controllers
             }
         }
 
+        public ActionResult Reject(int id, string requestedby)
+        {
+            ViewData["Id"] = id;
+            ViewData["RequestedBy"] = requestedby;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Reject(int id, string RequestedBy, TblCgyoeModel tblCgyoeModel)
+        {
+            string email1 = RequestedBy + "@morrisonhomes.ca";
+            TempData["Info Message"] = "--Message Center: Creation Successfully send to " + email1 + " --";
+            string email = "evan.doucett@morrisonhomes.ca";
+            string body = "Dear Recipient, \n \n Please be advised that your OE request " + id +" has been REJECTED.\n Reason for rejection: " + tblCgyoeModel.RejectReason;
+            string subject = "-- OE Rejection Notification.";
+            function.SendEmail(email, body, subject);
+            return RedirectToAction(nameof(Index));
+        }
 
     }//CLASS
 }//NAMESPACE

@@ -32,5 +32,4 @@ public partial class MorrisonHomesContext : DbContext
     public DbSet<OEWebApplicationApp.Models.ViewGlaccountModel>? ViewGlaccountModel { get; set; }
     public DbSet<OEWebApplicationApp.Models.VendorModel>? VendorModel { get; set; }
     public DbSet<OEWebApplicationApp.Models.ImageModel>? ImageModel { get; set; }
-    public DbSet<OEWebApplicationApp.Models.ReportModel>? ReportModel { get; set; }
 }

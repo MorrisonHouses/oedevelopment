@@ -12,7 +12,6 @@ using System.Net.Mail;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,9 +53,9 @@ namespace OEWebApplicationApp.Models
                             RequestedBy = (dr["RequestedBy"] is not DBNull) ? dr["RequestedBy"].ToString() : null,
                             Glaccount = (dr["Glaccount"] is not DBNull) ? dr["Glaccount"].ToString() : null,
                             AutoApproveThreshold = (dr["AutoApproveThreshold"] is not DBNull) ? Convert.ToInt32(dr["AutoApproveThreshold"]) : null,
-                            Amount = (dr["Amount"] is not DBNull) ? Convert.ToInt32(dr["Amount"]) : null,
-                            Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToInt32(dr["Gstamount"]) : null,
-                            TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToInt32(dr["TotalAmount"]) : null,
+                            Amount = (dr["Amount"] is not DBNull) ? Convert.ToDouble(dr["Amount"]) : null,
+                            Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToDouble(dr["Gstamount"]) : null,
+                            TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToDecimal(dr["TotalAmount"]) : null,
                             Gstincluded = dr["GSTIncluded"] is DBNull ? (bool?) null: (bool)dr["GSTIncluded"],
                             //Budgeted = dr["Budgeted"] is DBNull ? (bool?) null: (bool)dr["Budgeted"],
                             //AutoApproved = dr["AutoApproved"] is DBNull ? (bool?) null: (bool)dr["AutoApproved"],
@@ -104,9 +103,9 @@ namespace OEWebApplicationApp.Models
                         RequestedBy = (dr["RequestedBy"] is not DBNull) ? dr["RequestedBy"].ToString() : null,
                         Glaccount = (dr["Glaccount"] is not DBNull) ? dr["Glaccount"].ToString() : null,
                         AutoApproveThreshold = (dr["AutoApproveThreshold"] is not DBNull) ? Convert.ToInt32(dr["AutoApproveThreshold"]) : null,
-                        Amount = (dr["Amount"] is not DBNull) ? Convert.ToInt32(dr["Amount"]) : null,
-                        Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToInt32(dr["Gstamount"]) : null,
-                        TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToInt32(dr["TotalAmount"]) : null,
+                        Amount = (dr["Amount"] is not DBNull) ? Convert.ToDouble(dr["Amount"]) : null,
+                        Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToDouble(dr["Gstamount"]) : null,
+                        TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToDecimal(dr["TotalAmount"]) : null,
                         Gstincluded = dr["GSTIncluded"] is DBNull ? (bool?)null : (bool)dr["GSTIncluded"],
                         Budgeted = dr["Budgeted"] is DBNull ? (bool?)null : (bool)dr["Budgeted"],
                         AutoApproved = dr["AutoApproved"] is DBNull ? (bool?)null : (bool)dr["AutoApproved"],
@@ -164,7 +163,7 @@ namespace OEWebApplicationApp.Models
         public string Delete(int id)
         {
             string username = configclass.username();
-            string config = configclass.MorSQLConnections();
+            string config = configclass.MorSQLConnection();
             string ? result = "";
             using (SqlConnection connection = new SqlConnection(config))
             {
@@ -203,12 +202,10 @@ namespace OEWebApplicationApp.Models
                 command.Parameters.AddWithValue("@GSTIncluded", request.Gstincluded);
                 command.Parameters.AddWithValue("@Budgeted", request.Budgeted);
                 command.Parameters.AddWithValue("@AutoApproved", request.AutoApproved);
-                //command.Parameters.AddWithValue("@Request", request.Request);
                 if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
                 command.Parameters.AddWithValue("@PurchaseDate", request.PurchaseDate);
                 command.Parameters.AddWithValue("@ApprovedBy", request.ApprovedBy);
                 command.Parameters.AddWithValue("@Status", request.Status);
-                //command.Parameters.AddWithValue("@Reason", request.Reason);
                 if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); } else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
                 connection.Open();
                 i = command.ExecuteNonQuery();
@@ -298,9 +295,9 @@ namespace OEWebApplicationApp.Models
                         RequestedBy = (dr["RequestedBy"] is not DBNull) ? dr["RequestedBy"].ToString() : null,
                         Glaccount = (dr["Glaccount"] is not DBNull) ? dr["Glaccount"].ToString() : null,
                         AutoApproveThreshold = (dr["AutoApproveThreshold"] is not DBNull) ? Convert.ToInt32(dr["AutoApproveThreshold"]) : null,
-                        Amount = (dr["Amount"] is not DBNull) ? Convert.ToInt32(dr["Amount"]) : null,
-                        Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToInt32(dr["Gstamount"]) : null,
-                        TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToInt32(dr["TotalAmount"]) : null,
+                        Amount = (dr["Amount"] is not DBNull) ? Convert.ToDouble(dr["Amount"]) : null,
+                        Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToDouble(dr["Gstamount"]) : null,
+                        TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToDecimal(dr["TotalAmount"]) : null,
                         Gstincluded = dr["GSTIncluded"] is DBNull ? (bool?)null : (bool)dr["GSTIncluded"],
                         //Budgeted = dr["Budgeted"] is DBNull ? (bool?) null: (bool)dr["Budgeted"],
                         //AutoApproved = dr["AutoApproved"] is DBNull ? (bool?) null: (bool)dr["AutoApproved"],
@@ -317,7 +314,7 @@ namespace OEWebApplicationApp.Models
                 }//foreach
             }//using
             return listOfOERequest;
-        }//GetViewOERequest
+        }//GetViewApproverOERequest
 
         /*GET REQUEST BY ID===========================================================================================================================*/
         public List<TblCgyoeModel> GetViewOEById(int id)
@@ -348,9 +345,9 @@ namespace OEWebApplicationApp.Models
                         RequestedBy = (dr["RequestedBy"] is not DBNull) ? dr["RequestedBy"].ToString() : null,
                         Glaccount = (dr["Glaccount"] is not DBNull) ? dr["Glaccount"].ToString() : null,
                         AutoApproveThreshold = (dr["AutoApproveThreshold"] is not DBNull) ? Convert.ToInt32(dr["AutoApproveThreshold"]) : null,
-                        Amount = (dr["Amount"] is not DBNull) ? Convert.ToInt32(dr["Amount"]) : null,
-                        Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToInt32(dr["Gstamount"]) : null,
-                        TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToInt32(dr["TotalAmount"]) : null,
+                        Amount = (dr["Amount"] is not DBNull) ? Convert.ToDouble(dr["Amount"]) : null,
+                        Gstamount = (dr["Gstamount"] is not DBNull) ? Convert.ToDouble(dr["Gstamount"]) : null,
+                        TotalAmount = (dr["TotalAmount"] is not DBNull) ? Convert.ToDecimal(dr["TotalAmount"]) : null,
                         Gstincluded = dr["GSTIncluded"] is DBNull ? (bool?)null : (bool)dr["GSTIncluded"],
                         Budgeted = dr["Budgeted"] is DBNull ? (bool?)null : (bool)dr["Budgeted"],
                         AutoApproved = dr["AutoApproved"] is DBNull ? (bool?)null : (bool)dr["AutoApproved"],
@@ -367,7 +364,7 @@ namespace OEWebApplicationApp.Models
                 }//foreach
             }//using
             return listOfOERequest;
-        }//GetViewOERequest
+        }//GetViewOEById
 
         /*APPROVE===========================================================================================================================*/
         public bool ApproveRequest(int id, TblCgyoeModel request)
@@ -402,7 +399,9 @@ namespace OEWebApplicationApp.Models
                     return false;
                 }
             }//using
-        }//UpdateRequest
+        }//ApproveRequest
+
+
 
     }//class
 }//namespace

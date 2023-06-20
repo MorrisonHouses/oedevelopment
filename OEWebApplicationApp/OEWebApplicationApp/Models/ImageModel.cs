@@ -14,7 +14,7 @@ namespace OEWebApplicationApp.Models
         [Key]
         public int Id { get; set; }
         [Column("RequestID")]
-        [DisplayName("ID")]
+        [DisplayName("OE")]
         public int? RequestId { get; set; }
         public DateTime InsertDate { get; set; }
         [DisplayName("Location")]

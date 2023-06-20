@@ -6,7 +6,7 @@
 
 <div class="container-fluid boxShadow">
     <div class="row">
-        <div class="col-sm-4"><h3>Approve </h3></div>
+        <div class="col-sm-4"><h3>Approve OE @Model.RequestId</h3></div>
         <a asp-area="" asp-controller="Approval" asp-action="Index" asp-route-id="notApproved"><h4>Back to Approve List</h4></a>
         <div class="col-sm-4"></div>   
         <div class="col-sm-4">
@@ -138,10 +138,30 @@
             </div>*@
                 <div class="form-group boxShadow m-2">
                     <input asp-controller="Approval" type="submit" value="Approve" class="btn btn-primary m-2" />
+                    <a asp-controller="Approval" asp-action="Reject" asp-route-id="@Model.RequestId" asp-route-requestedby="@Model.RequestedBy" class="text-black ">REJECT</a>
                 </div>
         </form>
     </div>
     </div>
     <div class="col-md-3"></div>
-    </div>
-    <hr />
+</div>
+
+@*<form asp-action="Reject">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <input type="submit" value="REJECT" class="btn btn-primary"  />
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+        <div class=" m-2">
+            <div class="form-group-approve">
+                <label asp-for="RejectReason" class="control-label"></label>
+                <input asp-for="RejectReason" value="Not Approved" class="form-control text-danger" />
+                <span asp-validation-for="RejectReason" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+*@

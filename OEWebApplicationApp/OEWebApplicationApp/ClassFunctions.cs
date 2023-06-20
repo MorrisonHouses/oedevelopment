@@ -33,13 +33,23 @@ namespace OEWebApplicationApp
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = false;
             MailMessage mailMessage = new MailMessage();
+            mailMessage.Priority = MailPriority.High;
             mailMessage.From = new MailAddress(configclass.EmailFrom());
             mailMessage.To.Add(SentTo);
             mailMessage.Subject = subject;
             mailMessage.Body = body;
             smtp.Send(mailMessage);
-        }
+        }//SendEmail
 
+        public void WriteToFile(int id, string vendor, string reason, string request, double gst, double totalAmount)
+        {
+            string[] lines = { "C,OE"+id+",1,\""+reason+ "\","+vendor+",,,,,\nCI, OE"+id+",1,\""+ request + "\",,,,,,,,GST5,"+gst+",,,,"+totalAmount };
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "FPO_Import.jcc"),true))
+            {
+                foreach (string line in lines) outputFile.WriteLine(line);
+            }
+        }
 
     }//class
 }//OEWebData

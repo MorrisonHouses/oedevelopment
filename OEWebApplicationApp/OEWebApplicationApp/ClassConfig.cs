@@ -23,13 +23,14 @@ namespace OEWebApplicationApp
         /// <returns>user name </returns>
         public string username()
         {
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Trim();
             string name = userName.Remove(0, 14);
             name = "yclement";
             return name;
         }//username
 
         // TODO: gnicholls name error
+        // TODO: cpitre / yclement
         /*=======================================================================================================================================*/
         /// <summary>
         /// pulls the current user address
@@ -110,7 +111,7 @@ namespace OEWebApplicationApp
             string value = MorSQLConnection();
             return value;
         }
-        private string MorSQLConnection()
+        public string MorSQLConnection()
         {
             string value = "MORSQL CONNECTION STRING";
             StringBuilder sbText = new StringBuilder();

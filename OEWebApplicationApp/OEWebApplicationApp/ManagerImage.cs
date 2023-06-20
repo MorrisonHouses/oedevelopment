@@ -1,16 +1,17 @@
-﻿using CrystalDecisions.ReportAppServer.DataDefModel;
-using CrystalDecisions.ReportAppServer.Prompting;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting.Internal;
 using Newtonsoft.Json.Linq;
 using OEWebApplicationApp.Models;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.IO;
+
+
+
+using System.Reflection.Metadata;
+
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OEWebApplicationApp
@@ -210,6 +211,16 @@ namespace OEWebApplicationApp
             }
 }
 
+        //public void WordProcessor()
+        //{
+        //    string docTemplatePath = @"~/wwwroot/Reports/";
+        //    string docOutputPath = @"~/wwwroot/Reports/";
+        //    File.Copy(docTemplatePath, docOutputPath);
+        //    var stream = new MemoryStream();
+        //    using (WordprocessingDocument doc = WordprocessingDocument.Open(docOutputPath, true))
+        //    {
 
+        //    }
+        //}
     }//class
 }//namespace

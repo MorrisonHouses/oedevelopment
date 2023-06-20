@@ -45,22 +45,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "CrystalDecisions.CrystalReports.Engine": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
-            "CrystalDecisions.Shared": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
-            "CrystalReports.Engine": {
-              "target": "Package",
-              "version": "[13.0.4003, )"
-            },
-            "CrystalReports.Shared": {
-              "target": "Package",
-              "version": "[13.0.4003, )"
-            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.1.1, )"
@@ -79,13 +63,9 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
-            "Microsoft.ReportingServices.ReportViewerControl.WebForms": {
-              "target": "Package",
-              "version": "[150.1576.0, )"
-            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.13, )"
+              "version": "[6.0.14, )"
             },
             "Microsoft.Web.Administration": {
               "target": "Package",

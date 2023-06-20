@@ -4,6 +4,7 @@
     ViewData["Title"] = "OERequest";
 
 }
+
 <div class="container-fluid boxShadow">
     <div class="row">
         <div class="col-4 "><h3>OERequest</h3></div>
@@ -159,6 +160,7 @@
                 </td>*@
                     <td class="text-danger text-center">
                     @Html.DisplayFor(modelItem => item.Status )
+                        @ViewBag.ImageCount
                 </td>
 
     @*            <td>
@@ -178,14 +180,16 @@
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
                         <a asp-controller="Request" asp-action="Delete" asp-route-id="@item.RequestId" class="text-black ">Delete</a>
                         <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Image</a>
+                        <a asp-controller="Request" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">print</a>
                     }
                     else
                     {
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
                         <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Image</a>
-                        
+                        <a asp-controller="Request" asp-action="Index" asp-route-id="@item.RequestId" class="text-black ">print</a>
                     }
                 </td>
+                    @ViewBag.ImageCount
             </tr>
     }
         </tbody>
@@ -201,3 +205,4 @@
 </div>
 
 
+                            

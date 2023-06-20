@@ -44,6 +44,7 @@ namespace OEWebApplicationApp.Controllers
             ClassConfig configclass = new();
             ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
+
             try
             {
                 var OElist = tblCgyoeManager.GetViewOERequest(id);
@@ -175,9 +176,10 @@ namespace OEWebApplicationApp.Controllers
                     bool IsUpdated = tblCgyoeManager.createProduct(tblCgyoe);
                     if (IsUpdated)
                     {
-                        TempData["Info Message"] = "--Message Center: Creation Successfull--";
+                        ViewData["SendToName"] = tblCgyoe.ApprovedBy + "@morrisonhomes.ca";
+                        TempData["Info Message"] = "--Message Center: Creation Successfully send to " + ViewData["SendToName"] +" --";
                         string email = "evan.doucett@morrisonhomes.ca";
-                        string body = "Dear Recipient, Please be advised that you have an OE approval.";
+                        string body = "Dear Recipient, \n \n Please be advised that you have an OE approval. ";
                         string subject = "-- OE Approval Notification.";
                         function.SendEmail(email, body, subject);
                         return RedirectToAction("Index");

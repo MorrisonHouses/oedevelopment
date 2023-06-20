@@ -13,7 +13,7 @@ namespace OEWebApplicationApp.Models
     {
         [Key]
         [Column("RequestID")]
-        [DisplayName("ID")]
+        [DisplayName("OE")]
         public int? RequestId { get; set; }
 
         [Required(ErrorMessage = "Please select a Vendor Id")]
@@ -33,18 +33,23 @@ namespace OEWebApplicationApp.Models
 
         [DisplayName("Amount")]
         [Required(ErrorMessage ="Please enter a value")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [Range(1,100000, ErrorMessage ="Enter a number between 1 and 100000")]
         public double? Amount { get; set; }
+
         [DisplayName("GST %")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [DataType(DataType.Currency)]
         public double? Gstvalue{get; set;}
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [DisplayName("GST Amt")]
         public double? Gstamount { get; set; }
-        //[UIHint("Currency")]
+
         [DataType(DataType.Currency)]
         [DisplayName("Total Amt")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        public decimal? TotalAmount { get; set; }
 
-        public double? TotalAmount { get; set; }
         [DisplayName("GST Included")]
         public bool? Gstincluded { get; set; }
         public bool? Budgeted { get; set; }
@@ -56,6 +61,7 @@ namespace OEWebApplicationApp.Models
 
         [Required(ErrorMessage = "Please enter a Purchase Date")]
         [DisplayName("Purchase Date")]
+        
         public DateTime? PurchaseDate { get; set; }
         [DisplayName("Approver")]
         public string? ApprovedBy { get; set; }
@@ -68,6 +74,12 @@ namespace OEWebApplicationApp.Models
 
         public byte[]? Attachment { get; set; }
         public DateTime? Timestamp { get; set; }
+
+        [NotMapped]
+        [RegularExpression("^[a-zA-Z0-9 ]+$", ErrorMessage = "Please remove all special characters: !@#$%^&*(),.<>?/:;")]
+        [DisplayName("Reject Reason")]
+        [StringLength(150)]
+        public string ? RejectReason { get; set; }
 
         //Create page var's =================================================================
         //get vendor name 
@@ -121,45 +133,50 @@ namespace OEWebApplicationApp.Models
         }//GetGlAccount
 
 
-        //calculation on the create page GST/AMOUNT/TOTAL AMOUNT=======================
-        public double? CalculateTotalValue()
+        //calculation on the create page GST/AMOUNT/TOTAL AMOUNT========================================================
+        public decimal? CalculateTotalValue()
         {
             if (Gstincluded == false )
             {
-                double? totalAmount = Math.Round((double)((Amount * (Gstvalue / 100)) + Amount),2);
+                //decimal? totalAmount = Math.Round((decimal)((Amount * (Gstvalue / 100)) + Amount),2);
+                decimal? totalAmount = (decimal)((Amount * (Gstvalue / 100)) + Amount);
                 return totalAmount;
             }
             else
             {
-                double? totalAmount = Math.Round((double)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))), 2);
+               // decimal? totalAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))), 2);
+                decimal? totalAmount = (decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100)));
                 return totalAmount; 
             }
         }//CalculateTotalValue
 
         //TODO ADD NO GST
-        public double? CalculateGST()
+        public decimal? CalculateGST()
         {
             if (Gstincluded == false)
             {
-                double? gstAmount = Math.Round((double)((Amount * Gstvalue) / 100)   ,2) ;
+               decimal? gstAmount = Math.Round((decimal)((Amount * Gstvalue) / 100)   ,2) ;
+
                 return gstAmount;
             }
             else 
             {
-                double? gstAmount = Math.Round((double)(Amount-(Amount / (Gstvalue + 100)*100) ),2);
+                decimal? gstAmount = Math.Round((decimal)(Amount-(Amount / (Gstvalue + 100)*100) ),2);
                 return gstAmount;
             }
         }//CalculateGST
-        public double? CalculateAmount()
+        public decimal? CalculateAmount()
         {
             if (Gstincluded == false)
             {
-                double? newAmount = Amount;
+                //decimal? newAmount = Math.Round((decimal)Amount,2);
+                decimal? newAmount = (decimal)Amount;
                 return newAmount;
             }
             else
             {
-                double? newAmount = Math.Round((double)((Amount / (Gstvalue + 100) * 100)) ,2)  ;
+               // decimal? newAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100)) ,2)  ;
+                decimal? newAmount = (decimal)((Amount / (Gstvalue + 100) * 100));
                 return newAmount;
             }
 
