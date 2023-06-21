@@ -268,3 +268,8 @@
 \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\zh-CN\Humanizer.resources.dll
 \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\zh-Hans\Humanizer.resources.dll
 \\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\bin\Debug\net6.0\zh-Hant\Humanizer.resources.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Word.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\OEWebApplicationApp.csproj.ResolveComReference.cache
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\Interop.LCC11.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\Interop.Microsoft.Office.Core.dll
+\\Morfsdc1\Users\edoucett\GitHub\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\Interop.otkloadr.dll

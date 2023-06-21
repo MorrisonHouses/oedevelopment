@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ts1SSNqCZ07FR4WAQX3Gk+bjKtVY1xICwg1c6YAO1W8=",
+  "Hash": "HVRihKP4SKJkQ9q8SEozl/Thih8byPH+EhI6Mzj5VfA=",
   "Source": "OEWebApplicationApp",
   "BasePath": "_content/OEWebApplicationApp",
   "Mode": "Default",
@@ -1173,12 +1173,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\MorrisonOEPO.rpt",
+      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\OEPrint.docx",
       "SourceId": "OEWebApplicationApp",
       "SourceType": "Discovered",
       "ContentRoot": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\",
       "BasePath": "_content/OEWebApplicationApp",
-      "RelativePath": "Report/MorrisonOEPO.rpt",
+      "RelativePath": "Report/OEPrint.docx",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1187,7 +1187,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Report\\MorrisonOEPO.rpt"
+      "OriginalItemSpec": "wwwroot\\Report\\OEPrint.docx"
     }
   ]
 }

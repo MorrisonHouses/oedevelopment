@@ -1,28 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Mvc;
 using OEWebApplicationApp.Models;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using ConfigurationManager = System.Configuration.ConfigurationManager;
-using Microsoft.EntityFrameworkCore.Update;
-using Microsoft.Identity.Client;
-using Azure.Core;
-using OEWebApplicationApp;
-using Microsoft.Web.Administration;
-using System.Security.Principal;
-using System.Drawing;
-using NuGet.Packaging.Signing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.VisualStudio.Web.CodeGeneration.Design;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using System.Reflection.Emit;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace OEWebApplicationApp.Controllers
 {
@@ -282,6 +261,25 @@ namespace OEWebApplicationApp.Controllers
             }
 
         }//Delete
+
+
+        // PRINT OE: =====================================================================
+
+        public IActionResult Print(string requestid, string vendor, string purchaseDate, string glAccount, string request, double amountAmt, double taxAmt, double totalAmt, string vendorName)
+        {
+            string RequestId = requestid;
+            string VendorId = vendor;
+            string PurchaseDate = purchaseDate;
+            string GlAccount = glAccount;
+            string Request = request;
+            string Amount = amountAmt.ToString("c");
+            string GstAmt = taxAmt.ToString("c");
+            string TotalAmt = totalAmt.ToString("c");
+            string VendorName = vendorName;
+
+            function.CreateWordDocument(RequestId, VendorId, PurchaseDate, GlAccount, Request, Amount, GstAmt, TotalAmt, vendorName);
+            return View();
+        }
 
     }//class
 }//namespace

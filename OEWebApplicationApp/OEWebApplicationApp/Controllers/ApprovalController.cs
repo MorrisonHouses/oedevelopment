@@ -1,26 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Mvc;
 using OEWebApplicationApp.Models;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using ConfigurationManager = System.Configuration.ConfigurationManager;
-using Microsoft.EntityFrameworkCore.Update;
-using Microsoft.Identity.Client;
-using Azure.Core;
-using OEWebApplicationApp;
-using Microsoft.Web.Administration;
-using System.Security.Principal;
-using System.Drawing;
-using NuGet.Packaging.Signing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.VisualStudio.Web.CodeGeneration.Design;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 
 namespace OEWebApplicationApp.Controllers
 {
