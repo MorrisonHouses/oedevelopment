@@ -139,13 +139,13 @@ namespace OEWebApplicationApp.Models
             if (Gstincluded == false )
             {
                 //decimal? totalAmount = Math.Round((decimal)((Amount * (Gstvalue / 100)) + Amount),2);
-                decimal? totalAmount = (decimal)((Amount * (Gstvalue / 100)) + Amount);
+                decimal? totalAmount = Math.Round((decimal)((Amount * (Gstvalue / 100)) + Amount),2);
                 return totalAmount;
             }
             else
             {
                // decimal? totalAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))), 2);
-                decimal? totalAmount = (decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100)));
+                decimal? totalAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))),2);
                 return totalAmount; 
             }
         }//CalculateTotalValue
@@ -170,13 +170,13 @@ namespace OEWebApplicationApp.Models
             if (Gstincluded == false)
             {
                 //decimal? newAmount = Math.Round((decimal)Amount,2);
-                decimal? newAmount = (decimal)Amount;
+                decimal? newAmount = Math.Round((decimal)Amount,2);
                 return newAmount;
             }
             else
             {
                // decimal? newAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100)) ,2)  ;
-                decimal? newAmount = (decimal)((Amount / (Gstvalue + 100) * 100));
+                decimal? newAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100)), 2);
                 return newAmount;
             }
 

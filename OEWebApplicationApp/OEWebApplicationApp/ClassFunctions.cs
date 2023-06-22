@@ -1,20 +1,14 @@
-﻿using Microsoft.Office.Interop.Word;
-using System.IO;
-using System.Reflection;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Office.Interop.Word;
+using System.Data;
 using System.Net.Mail;
 using MailMessage = System.Net.Mail.MailMessage;
-using System.Diagnostics;
-using Azure;
-using Microsoft.Office.Core;
-//using worddocument.Models;
-
-
 
 namespace OEWebApplicationApp
 {
-
     public class ClassFunctions
     {
+        ClassConfig configclass = new();
         //==========================pulls the current date time===========================================
         public string dateTime()
         {
@@ -43,11 +37,37 @@ namespace OEWebApplicationApp
         //EXPORT FILE=====================================================================================
         public void WriteToFile(int id, string vendor, string reason, string request, double gst, double totalAmount)
         {
-            string[] lines = { "C,OE"+id+",1,\""+reason+ "\","+vendor+",,,,,\nCI, OE"+id+",1,\""+ request + "\",,,,,,,,GST5,"+gst+",,,,"+totalAmount };
+            string config = configclass.MorSQLConnection();
+            string? result1 = "";
+            string? result2 = "";
+            using (SqlConnection connection = new SqlConnection(config))
+            {
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spr_CGYOECSVExport";
+                command.Parameters.AddWithValue("@RequestId", id);
+                command.Parameters.Add("@OutputMessage", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("@OutputMessage2", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                result1 = command.Parameters["@OutputMessage"].Value.ToString();
+                result2 = command.Parameters["@OutputMessage2"].Value.ToString();
+                connection.Close();
+            }//using
+
+            string lines = result1;
+            string line2 = result2;
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "FPO_Import.jcc"),true))
             {
-                foreach (string line in lines) outputFile.WriteLine(line);
+                //foreach (string line in lines) outputFile.WriteLine(line);
+                outputFile.WriteLine(lines);
+            }
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "FPO_Import.jcc"), true))
+            {
+                //foreach (string line in lines) outputFile.WriteLine(line);
+                outputFile.WriteLine(line2);
             }
         }
 
@@ -58,7 +78,11 @@ namespace OEWebApplicationApp
             object missing = System.Reflection.Missing.Value;
             object replaceAll = WdReplace.wdReplaceAll;
 
-            applicationWord.Documents.Open(@"C:\Users\edoucett\Desktop\MorrisonOEPO.docx" );
+            string LocalPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Report/MorrisonOEPO.docx");
+            string LocalPathPDF = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Report/MorrisonOEPO.pdf");
+
+            //applicationWord.Documents.Open(@"C:\Users\edoucett\Desktop\MorrisonOEPO.docx" );
+            applicationWord.Documents.Open(LocalPath);
             applicationWord.Visible = false;
 
             Find findObject = applicationWord.Selection.Find;
@@ -151,14 +175,14 @@ namespace OEWebApplicationApp
             ref missing, ref missing, ref missing, ref replaceAll, ref missing, ref missing,
             ref missing, ref missing);
 
-            var path = @"C:\Users\edoucett\Desktop\MorrisonOEPO.docx";
-            var outpath = Path.ChangeExtension(path, "pdf");
-            dynamic doc = applicationWord.Documents.Open(path);
+            //var path = @"C:\Users\edoucett\Desktop\MorrisonOEPO.docx";
+            var outpath = Path.ChangeExtension(LocalPath, "pdf");
+            dynamic doc = applicationWord.Documents.Open(LocalPath);
             doc.ExportAsFixedFormat(outpath, ExportFormat: 17/*pdf*/);
             doc.Close(0/*DoNotSaveChanges*/);
             applicationWord.Quit();
 
-        }
+    }
 
     }//class
 }//OEWebData

@@ -202,11 +202,15 @@ namespace OEWebApplicationApp.Models
                 command.Parameters.AddWithValue("@GSTIncluded", request.Gstincluded);
                 command.Parameters.AddWithValue("@Budgeted", request.Budgeted);
                 command.Parameters.AddWithValue("@AutoApproved", request.AutoApproved);
-                if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
+                if (request.AutoApproveThreshold != null) { command.Parameters.AddWithValue("@AutoApproveThreshold", request.AutoApproveThreshold); } 
+                            else { command.Parameters.AddWithValue("@AutoApproveThreshold", 0); };
+                if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } 
+                            else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
                 command.Parameters.AddWithValue("@PurchaseDate", request.PurchaseDate);
                 command.Parameters.AddWithValue("@ApprovedBy", request.ApprovedBy);
                 command.Parameters.AddWithValue("@Status", request.Status);
-                if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); } else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
+                if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); }
+                            else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
                 connection.Open();
                 i = command.ExecuteNonQuery();
                 connection.Close();
@@ -220,8 +224,6 @@ namespace OEWebApplicationApp.Models
                 }
             }//using
         }//createProduct
-
-
 
         /*DROP DOWN LISTS ===========================================================================================================================*/
         public List<SelectListItem> BudgetList()

@@ -23,7 +23,7 @@
             <form method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 @*//date box name===============================================================================================*@
-                <div class="boxShadow">
+                <div class="">
                     <div class="form-group-create ">
                         <label asp-for="RequestedBy" class="control-label"></label>
                         <input asp-for="RequestedBy" class="form-control" value="@ViewBag.UserName" readonly />
@@ -32,28 +32,28 @@
 
                     <div class="form-group-create ">
                         <label asp-for="PurchaseDate" class="control-label"></label>
-                        <input asp-for="PurchaseDate" class="form-control" />
+                        <input asp-for="PurchaseDate" class="form-control bg-yellow" />
                         <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                     </div>
                 </div>
                 @*//select box================================================================================================*@
-                <div class="boxShadow">
+                <div class="">
                     <div class="form-group-create ">
                         <div class="form-group-create">
                             <label asp-for="Vendor" class="control-label"></label>
-                            <select asp-for="Vendor" name="Vendor" class="form-control">
+                            <select asp-for="Vendor" name="Vendor" class="form-control bg-yellow">
                                 @*                        <option value"">--Select a Vendor--</option>"*@
                                 @foreach (VendorModel a in ViewBag.vendors)
                                 {
                                     <option value="@a.Vendor" id="@a.Name">@a.Vendor / @a.Name</option>
                                 }
                             </select>
-                            <span asp-validation-for="Vendor" class="text-danger"></span>
+                            <span asp-validation-for="Vendor" class="text-danger bg-yellow"></span>
                         </div>
 
                         <div class="form-group-create">
                             <label asp-for="Glaccount" class="control-label"></label>
-                            <select asp-for="Glaccount" class="form-control">
+                            <select asp-for="Glaccount" class="form-control bg-yellow">
                                 @*                    <option value"">--Select a GL Account--</option>"*@
                                 @foreach (ViewGlaccountModel a in ViewBag.glAccounts)
                                 {
@@ -65,15 +65,15 @@
                 </div>
                 <hr />
                 @*//request reason=============================================================================================*@
-                <div class="form-group boxShadow">
+                <div class="form-group ">
                     <label asp-for="Request" class="control-label"></label>
-                    <input asp-for="Request" class="form-control" />
+                    <input asp-for="Request" class="form-control bg-yellow" />
                     <span asp-validation-for="Request" class="text-danger"></span>
                 </div>
 
-                <div class="form-group boxShadow">
+                <div class="form-group ">
                     <label asp-for="Reason" class="control-label"></label>
-                    <input asp-for="Reason" class="form-control" />
+                    <input asp-for="Reason" class="form-control bg-yellow" />
                     <span asp-validation-for="Reason" class="text-danger"></span>
 
                 </div>
@@ -82,16 +82,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="boxShadow">
+                            <div class="">
                                 <div class="form-group-create ">
                                     <div class="form-group-create">
                                         <label asp-for="Amount" class="control-label"></label>
-                                        <input asp-for="Amount" class="form-control" id="Amount" value="@ViewBag.newAmt" />
+                                        <input asp-for="Amount" class="form-control bg-yellow" id="Amount" value="@ViewBag.newAmt" />
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group-create">
                                         <label asp-for="Gstincluded" class="control-label"></label>
-                                        <select asp-for="Gstincluded" asp-items=@ViewBag.gstInc class="form-control"></select>
+                                        <select asp-for="Gstincluded" asp-items=@ViewBag.gstInc class="form-control bg-yellow"></select>
                                         <span asp-validation-for="Gstincluded" class="text-danger"></span>
                                     </div>
                                     <div class="form-group-create">
@@ -118,12 +118,12 @@
                                 <div class="form-group-create ">
                                     <div class="form-group-create ">
                                         <label asp-for="TotalAmount" class="control-label"></label>
-                                        <input asp-for="TotalAmount" class="form-control" value="@ViewBag.ttlamt.ToString()" readonly />
+                                        <input asp-for="TotalAmount" class="form-control" value="@ViewBag.ttlamt" readonly />
                                         <span asp-validation-for="TotalAmount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group-create ">
                                         <label asp-for="Budgeted" class="control-label">Budgeted Option</label>
-                                        <select asp-for="Budgeted" asp-items=@ViewBag.Budgeted class="form-control"></select>
+                                        <select asp-for="Budgeted" asp-items=@ViewBag.Budgeted class="form-control bg-yellow"></select>
                                         <span asp-validation-for="Budgeted" class="text-danger"></span>
                                     </div>
                                 </div>

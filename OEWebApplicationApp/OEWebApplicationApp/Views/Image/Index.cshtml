@@ -10,7 +10,7 @@
         <a asp-action="Create" asp-route-id="@ViewData["MyRequestId"]" asp-route-page="@ViewData["Page"]" ;><h4>Upload an Image</h4></a>
         @if (@ViewData["Page"].ToString() != "request")
         {
-            <a class="" asp-action="Index" asp-controller="Approval"><h4>Back to Approval</h4></a>
+            <a class="" asp-action="Index" asp-controller="Approval"><h4>Back to Approvals</h4></a>
         }else
         {
             <a class="" asp-action="Index" asp-controller="Request" ><h4>Back to Requests</h4></a>
@@ -73,14 +73,14 @@
 @*            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Path)
             </td>*@
-                <td>
+                <td class="text-center">
                     <a asp-action="Delete" asp-route-id="@item.FileName" asp-route-page="@ViewData["Page"]">Delete</a>
                 </td>
-                <td>
+                <td class="text-center">
                     <a href="~/Files/@(item.FileName)" target="_blank">View File</a>
                 </td>
             <td>
-                <iframe src="~/Files/@(item.FileName)" class="" width="1000"></iframe>
+                    <iframe src="~/Files/@(item.FileName)" class="w-100 mh-100 embed-responsive-item modal-lg" width="1000"></iframe>
             </td>
         </tr>
 }

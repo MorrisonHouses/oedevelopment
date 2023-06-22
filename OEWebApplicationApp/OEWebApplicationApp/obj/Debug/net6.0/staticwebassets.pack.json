@@ -29,8 +29,12 @@
       "PackagePath": "staticwebassets\\Images\\MH_Logo_BLACK.png"
     },
     {
-      "Id": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\OEPrint.docx",
-      "PackagePath": "staticwebassets\\Report\\OEPrint.docx"
+      "Id": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\MorrisonOEPO.docx",
+      "PackagePath": "staticwebassets\\Report\\MorrisonOEPO.docx"
+    },
+    {
+      "Id": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\MorrisonOEPO.pdf",
+      "PackagePath": "staticwebassets\\Report\\MorrisonOEPO.pdf"
     },
     {
       "Id": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\css\\site.css",

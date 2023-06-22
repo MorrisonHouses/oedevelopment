@@ -159,7 +159,7 @@ namespace OEWebApplicationApp.Controllers
                         TempData["Info Message"] = "--Message Center: Creation Successfully send to " + ViewData["SendToName"] +" --";
                         string email = "evan.doucett@morrisonhomes.ca";
                         string body = "Dear Recipient, \n \n Please be advised that you have an OE approval. ";
-                        string subject = "-- OE Approval Notification.";
+                        string subject = "-- OE Request Notification.";
                         function.SendEmail(email, body, subject);
                         return RedirectToAction("Index");
                     }
@@ -265,8 +265,9 @@ namespace OEWebApplicationApp.Controllers
 
         // PRINT OE: =====================================================================
 
-        public IActionResult Print(string requestid, string vendor, string purchaseDate, string glAccount, string request, double amountAmt, double taxAmt, double totalAmt, string vendorName)
+        public IActionResult Print(string requestid, string vendor, string purchaseDate, string glAccount, string request, double amountAmt, double taxAmt, double totalAmt, string vendorName, string page)
         {
+            ViewData["Page"] = page;
             string RequestId = requestid;
             string VendorId = vendor;
             string PurchaseDate = purchaseDate;
@@ -276,9 +277,17 @@ namespace OEWebApplicationApp.Controllers
             string GstAmt = taxAmt.ToString("c");
             string TotalAmt = totalAmt.ToString("c");
             string VendorName = vendorName;
+            try
+            {
+                function.CreateWordDocument(RequestId, VendorId, PurchaseDate, GlAccount, Request, Amount, GstAmt, TotalAmt, vendorName);
+                return View();
+            }
+            catch (Exception ex) 
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
 
-            function.CreateWordDocument(RequestId, VendorId, PurchaseDate, GlAccount, Request, Amount, GstAmt, TotalAmt, vendorName);
-            return View();
         }
 
     }//class

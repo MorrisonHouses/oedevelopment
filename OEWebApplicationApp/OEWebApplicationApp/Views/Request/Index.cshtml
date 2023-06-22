@@ -179,8 +179,9 @@
                         <a asp-controller="Request" asp-action="Edit" asp-route-id="@item.RequestId" class="text-black">Edit</a>
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
                         <a asp-controller="Request" asp-action="Delete" asp-route-id="@item.RequestId" class="text-black ">Delete</a>
-                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Image</a>
+                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Images</a>
                         <a asp-controller="Request" asp-action="Print"
+                            asp-route-page="request"
                             asp-route-Requestid="@item.RequestId"
                             asp-route-vendor="@item.Vendor"
                             asp-route-purchaseDate="@item.PurchaseDate"
@@ -190,13 +191,14 @@
                             asp-route-taxAmt="@item.Gstamount"
                             asp-route-totalAmt="@item.TotalAmount"
                             asp-route-vendorname="@item.VendorName"
-                            class="text-black ">Print</a>
+                               class="text-black ">OEPrint</a>
                     }
                     else
                     {
                         <a asp-controller="Request" asp-action="Details" asp-route-id="@item.RequestId" class="text-black">Details</a>
-                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Image</a>
-                        <a asp-controller="Request" asp-action="Print" 
+                        <a asp-controller="Image" asp-action="Index" asp-route-id="@item.RequestId" asp-route-page="request" class="text-black ">Images</a>
+                        <a asp-controller="Request" asp-action="Print"
+                            asp-route-page="request"
                             asp-route-Requestid="@item.RequestId" 
                             asp-route-vendor="@item.Vendor"
                             asp-route-purchaseDate="@item.PurchaseDate"
@@ -206,7 +208,7 @@
                             asp-route-taxAmt="@item.Gstamount"
                             asp-route-totalAmt="@item.TotalAmount"
                             asp-route-vendorName="@item.VendorName"
-                        class="text-black ">Print</a>
+                        class="text-black ">OEPrint</a>
                     }
                 </td>
                     @ViewBag.ImageCount

@@ -97,13 +97,18 @@ namespace OEWebApplicationApp.Controllers
                     bool IsUpdated = tblCgyoeManager.ApproveRequest(id, TblCgyoeModel);
                     if (IsUpdated)
                     {
+                        ViewData["SendToName"] = TblCgyoeModel.RequestedBy + "@morrisonhomes.ca";
                         string ? reason = TblCgyoeModel.Reason;
                         string ? request = TblCgyoeModel.Request;
                         double gst = Math.Round((double)TblCgyoeModel.Gstamount,2);
                         double totalAmount = Math.Round((double)TblCgyoeModel.TotalAmount,2);
                         string ? vendor = TblCgyoeModel.Vendor;
-                        TempData["Info Message"] = "--Message Center: Approval Success--";
                         function.WriteToFile( id, vendor, reason, request, gst,  totalAmount);
+                        TempData["Info Message"] = "--Message Center: Approval Notification Sent to " + ViewData["SendToName"] + " --";
+                        string email = "evan.doucett@morrisonhomes.ca";
+                        string body = "Dear Recipient, \n \n Please be advised that your OE "+ TblCgyoeModel.RequestId + " has been approved. ";
+                        string subject = "-- OE Approval Notification.";
+                        function.SendEmail(email, body, subject);
                         return RedirectToAction("Index");
                     }
                     else

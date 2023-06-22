@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HVRihKP4SKJkQ9q8SEozl/Thih8byPH+EhI6Mzj5VfA=",
+  "Hash": "9eRWR7cCEX80dKAxLN32qVk1KLUvlzGInUOlzL3AIaA=",
   "Source": "OEWebApplicationApp",
   "BasePath": "_content/OEWebApplicationApp",
   "Mode": "Default",
@@ -1173,12 +1173,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\OEPrint.docx",
+      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\MorrisonOEPO.docx",
       "SourceId": "OEWebApplicationApp",
       "SourceType": "Discovered",
       "ContentRoot": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\",
       "BasePath": "_content/OEWebApplicationApp",
-      "RelativePath": "Report/OEPrint.docx",
+      "RelativePath": "Report/MorrisonOEPO.docx",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1187,7 +1187,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Report\\OEPrint.docx"
+      "OriginalItemSpec": "wwwroot\\Report\\MorrisonOEPO.docx"
+    },
+    {
+      "Identity": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\Report\\MorrisonOEPO.pdf",
+      "SourceId": "OEWebApplicationApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\wwwroot\\",
+      "BasePath": "_content/OEWebApplicationApp",
+      "RelativePath": "Report/MorrisonOEPO.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Report\\MorrisonOEPO.pdf"
     }
   ]
 }
