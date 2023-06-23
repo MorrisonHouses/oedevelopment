@@ -2,18 +2,17 @@
 using OEWebApplicationApp.Models;
 using System.Data;
 
-
 namespace OEWebApplicationApp.Controllers
 {
     public class RequestController : Controller
     {
         //instace of helper classes======================================================
-        ClassFunctions function = new();
-        ClassConfig configclass = new();
-        ManagerTblCgyoe tblCgyoeManager = new();
-        ManagerApmMasterVendor apmMasterVendorManager = new();
-        ManagerViewGLaccount viewGLaccountManager = new();
-        ManagerImage managerImage = new();
+        private ClassFunctions function = new();
+        private ClassConfig configclass = new();
+        private ManagerTblCgyoe tblCgyoeManager = new();
+        private ManagerApmMasterVendor apmMasterVendorManager = new();
+        private ManagerViewGLaccount viewGLaccountManager = new();
+        private ManagerImage managerImage = new();
 
         // GET: =========================================================================
         [Route("RequestedItemUser")]
@@ -101,6 +100,7 @@ namespace OEWebApplicationApp.Controllers
 
         //Calculations: ===============================================================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ActionName("Create")]
         public IActionResult Createcalc(TblCgyoeModel tblCgyoeModel)
         {
@@ -181,6 +181,7 @@ namespace OEWebApplicationApp.Controllers
 
         // edit: =====================================================================
         //[Route("EditItem/{id}")]
+
         public ActionResult Edit(int id)
         {
             ClassFunctions function = new();
@@ -192,6 +193,7 @@ namespace OEWebApplicationApp.Controllers
         }//Edit
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ActionName("Edit")]
         public ActionResult Edit(int id, TblCgyoeModel tblCgyoeModel)
         {
@@ -226,7 +228,7 @@ namespace OEWebApplicationApp.Controllers
             }
         }//Edit
 
-        // Delete: =====================================================================
+        // Delete: REMOVE REQUEST AND IMAGES=====================================================================
         // [Route("DeleteItem/{id}")]
         public ActionResult Delete(int id)
         {
@@ -240,8 +242,8 @@ namespace OEWebApplicationApp.Controllers
             return View(OElist);
         }//Delete
 
-        // POST: RequestController/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ActionName("Delete")]
         public ActionResult Delete(int id, TblCgyoeModel tblCgyoe)
         {
@@ -251,7 +253,7 @@ namespace OEWebApplicationApp.Controllers
                 string result = tblCgyoeManager.Delete(id);
                 //remove oe scanned images from db and file
                 managerImage.DeleteAllImages(id, tblCgyoe);
-                TempData["Info Message"] = "--Message Center: Delete was Success--";
+                TempData["Info Message"] = "--Message Center: Deleting of OE and Images was Success--";
                 return RedirectToAction("Index", new { id = "notApproved" });
             }
             catch (Exception ex)
@@ -263,8 +265,7 @@ namespace OEWebApplicationApp.Controllers
         }//Delete
 
 
-        // PRINT OE: =====================================================================
-
+        // PRINT OE: INVOKE WORD FILE AND CREATE PDF FOR VIEWING=====================================================================
         public IActionResult Print(string requestid, string vendor, string purchaseDate, string glAccount, string request, double amountAmt, double taxAmt, double totalAmt, string vendorName, string page)
         {
             ViewData["Page"] = page;

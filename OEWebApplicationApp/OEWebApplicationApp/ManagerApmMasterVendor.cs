@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using OEWebApplicationApp.Models;
 using System.Data;
 
@@ -11,6 +10,7 @@ namespace OEWebApplicationApp
         private ClassConfig configclass = new();
 
         //GET ALL VENDORS ======================================================================
+        //GET VENDORS FROM VMORT TABLE
         public List<VendorModel> GetViewVendor()
         {
             List<VendorModel> listOfVendors = new List<VendorModel>();

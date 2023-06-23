@@ -8,7 +8,7 @@ namespace OEWebApplicationApp
 {
     public class ClassFunctions
     {
-        ClassConfig configclass = new();
+        private ClassConfig configclass = new();
         //==========================pulls the current date time===========================================
         public string dateTime()
         {
@@ -38,6 +38,7 @@ namespace OEWebApplicationApp
         public void WriteToFile(int id, string vendor, string reason, string request, double gst, double totalAmount)
         {
             string config = configclass.MorSQLConnection();
+            string location = configclass.ExportLocation();
             string? result1 = "";
             string? result2 = "";
             using (SqlConnection connection = new SqlConnection(config))
@@ -58,7 +59,8 @@ namespace OEWebApplicationApp
 
             string lines = result1;
             string line2 = result2;
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string docPath = location;
+            //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "FPO_Import.jcc"),true))
             {
                 //foreach (string line in lines) outputFile.WriteLine(line);

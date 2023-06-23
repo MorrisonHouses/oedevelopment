@@ -30,6 +30,7 @@ namespace OEWebApplicationApp
         }//GetApprovalBool
 
         //GET ALL GLACCOUNTS ======================================================================
+        //RETRIEVED FROM THE VMORTL DATABASE=======================================================
         public List<ViewGlaccountModel> GetAllGlAccounts()
         {
             List<ViewGlaccountModel> listOfGls = new List<ViewGlaccountModel>();

@@ -43,12 +43,12 @@
                     <dd class = "col-sm-10">
                         @Html.DisplayFor(model => model.Location)
                     </dd>
-                    <dt class = "col-sm-2">
+@*                    <dt class = "col-sm-2">
                         @Html.DisplayNameFor(model => model.Path)
                     </dt>
                     <dd class = "col-sm-10">
                         @Html.DisplayFor(model => model.Path)
-                    </dd>
+                    </dd>*@
                     <dt class = "col-sm-2">
                         @Html.DisplayNameFor(model => model.FileName)
                     </dt>
@@ -72,11 +72,10 @@
         <div class="col-4"></div>
         <div class="col-4"></div>
         <div class="col-4 align-content-end">
-            <form asp-action="Delete">
+            <form asp-action="Delete" asp-antiforgery="true">
                 <input type="hidden" asp-for="FileName" />
                 <input type="submit" value="Delete" asp-route-id="@Model.Path" class="btn btn-danger" />
             </form>
         </div>
     </div>
 </div>
-

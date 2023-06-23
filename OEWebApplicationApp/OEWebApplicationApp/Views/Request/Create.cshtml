@@ -20,8 +20,8 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8 boxShadow">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form method="post" asp-antiforgery="true">
+                <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
                 @*//date box name===============================================================================================*@
                 <div class="">
                     <div class="form-group-create ">
@@ -32,7 +32,7 @@
 
                     <div class="form-group-create ">
                         <label asp-for="PurchaseDate" class="control-label"></label>
-                        <input asp-for="PurchaseDate" class="form-control bg-yellow" />
+                        <input asp-for="PurchaseDate" class="form-control bg-yellow" required />
                         <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 @*//request reason=============================================================================================*@
                 <div class="form-group ">
                     <label asp-for="Request" class="control-label"></label>
-                    <input asp-for="Request" class="form-control bg-yellow" />
+                    <input asp-for="Request" class="form-control bg-yellow" required />
                     <span asp-validation-for="Request" class="text-danger"></span>
                 </div>
 
@@ -86,7 +86,7 @@
                                 <div class="form-group-create ">
                                     <div class="form-group-create">
                                         <label asp-for="Amount" class="control-label"></label>
-                                        <input asp-for="Amount" class="form-control bg-yellow" id="Amount" value="@ViewBag.newAmt" />
+                                        <input asp-for="Amount" class="form-control bg-yellow" id="Amount" value="@ViewBag.newAmt" required />
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group-create">
@@ -139,29 +139,7 @@
                     <div class="col-3"></div>
                     <div class="col-4"></div>
                 </div>
-                @*//totals==================================================================================================*@
-                @*                    <div class="container">
-                <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                <div class="boxShadow">
-                <div class="form-group-create ">
-                <div class="form-group ">
-                <label asp-for="TotalAmount" class="control-label"></label>
-                <input asp-for="TotalAmount" class="form-control" value="@ViewBag.ttlamt.ToString()" readonly />
-                <span asp-validation-for="TotalAmount" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                <label asp-for="Budgeted" class="control-label">Budgeted Option</label>
-                <select asp-for="Budgeted" asp-items=@ViewBag.Budgeted class="form-control"></select>
-                <span asp-validation-for="Budgeted" class="text-danger"></span>
-                </div>
-                </div>
-                </div>
-                </div>
-                <div class="col-sm-4"></div>
-                </div>
-                </div>*@
+
                 <hr />
                 @*//create button disabled if amount 0==========================================================================*@
                 @if (ViewBag.ttlamt >= 1)
@@ -244,20 +222,6 @@
                             <select asp-for="Status" asp-items=@ViewBag.status class="form-control" hidden></select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                         </div>
-
-                        @*                            <div class="form-group">
-                        <label asp-for="Attachment" class="control-label"></label>
-                        <input asp-for="Attachment" class="form-control" />
-                        <span asp-validation-for="Attachment" class="text-danger"></span>
-                        </div>*@
-                        @*            <div class="form-group">
-                        <label asp-for="Timestamp" class="control-label"></label>
-                        <input asp-for="Timestamp" class="form-control" />
-                        <span asp-validation-for="Timestamp" class="text-danger"></span>
-                        </div>*@
-                        @*            <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" asp-action="CreateNew" />
-                        </div>*@
                     </div>
                 </div>
             </form>
@@ -265,4 +229,3 @@
     </div>
 </div>
 <div class="container"><div class="col-2"></div></div>
-

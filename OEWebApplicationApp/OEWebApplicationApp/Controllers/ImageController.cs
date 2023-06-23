@@ -1,24 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OEWebApplicationApp.Models;
-using System.IO.Compression;
-using System.IO;
-using System.Web;
-using Microsoft.Extensions.Hosting.Internal;
-using Microsoft.AspNetCore.Hosting.Server;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
-using Microsoft.Data.SqlClient;
-using System.Data;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OEWebApplicationApp.Controllers
 {
     public class ImageController : Controller
     {
-        ClassFunctions function = new();
-        ClassConfig configclass = new();
-        ManagerImage ManagerImage = new();
+        private ClassFunctions function = new();
+        private ClassConfig configclass = new();
+        private ManagerImage ManagerImage = new();
 
         //IMAGE pull by request id================================================================================================
         public ActionResult Index(string id, string page)
@@ -63,10 +52,11 @@ namespace OEWebApplicationApp.Controllers
             ViewData["MyRequestId"] = id;
             ImageModel model = new();
             return View(model);
-        }
+        }//Create
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(ImageModel model, string page)
         {
             ViewData["MyRequestId"] = page;
@@ -121,8 +111,10 @@ namespace OEWebApplicationApp.Controllers
             var OElist = ManagerImage.GetImage(id).FirstOrDefault();
             ViewData["Page"] = page;
             return View(OElist);
-        }
+        }//Delete
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(string id, ImageModel imageModel, string page)
         {
             ViewData["Page"] = page;
@@ -147,6 +139,7 @@ namespace OEWebApplicationApp.Controllers
             }
 
 
-        }
+        }//Delete
+
     }//class
 }//namespace

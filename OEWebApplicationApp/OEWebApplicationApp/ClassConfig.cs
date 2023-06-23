@@ -90,7 +90,7 @@ namespace OEWebApplicationApp
         /// <returns>Line 3 </returns>
         public string ExportLocation()
         {
-            string ConfigLocation = "FILE EXPORT LOCATION =";
+            string ConfigLocation = "FILE EXPORT LOCATION=";
             StringBuilder sbText = new StringBuilder();
             using (var reader = new System.IO.StreamReader(configAddress))
             {
@@ -102,7 +102,7 @@ namespace OEWebApplicationApp
                     }
                 }//foreach
             }//using
-            return Convert.ToString(sbText).Remove(0, 22);
+            return Convert.ToString(sbText).Remove(0, 21);
         }//ExportLocation
         /*SQL STRING CONNECTIONS====================================================================================================================*/
 

@@ -2,15 +2,14 @@
 using OEWebApplicationApp.Models;
 using System.Data;
 
-
 namespace OEWebApplicationApp.Controllers
 {
     public class ApprovalController : Controller
     {
         //instace of helper classes======================================================
-        ManagerTblCgyoe tblCgyoeManager = new();
-        ClassFunctions function = new();
-        ClassConfig configclass = new();
+        private ManagerTblCgyoe tblCgyoeManager = new();
+        private ClassFunctions function = new();
+        private ClassConfig configclass = new();
 
         // GET: =========================================================================
         public ActionResult Index(string id)
@@ -159,16 +158,23 @@ namespace OEWebApplicationApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Reject(int id, string RequestedBy, TblCgyoeModel tblCgyoeModel)
         {
-            string email1 = RequestedBy + "@morrisonhomes.ca";
-            TempData["Info Message"] = "--Message Center: Creation Successfully send to " + email1 + " --";
-            string email = "evan.doucett@morrisonhomes.ca";
-            string body = "Dear Recipient, \n \n Please be advised that your OE request " + id +" has been REJECTED.\n Reason for rejection: " + tblCgyoeModel.RejectReason;
-            string subject = "-- OE Rejection Notification.";
-            function.SendEmail(email, body, subject);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                string email1 = RequestedBy + "@morrisonhomes.ca";
+                string email = "evan.doucett@morrisonhomes.ca";
+                string body = "Dear Recipient, \n \n Please be advised that your OE request " + id + " has been REJECTED.\n Reason for rejection: " + tblCgyoeModel.RejectReason;
+                string subject = "-- OE Rejection Notification.";
+                TempData["Info Message"] = "--Message Center: Approval Rejection Sent to " + email1 + " --";
+                function.SendEmail(email, body, subject);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                TempData["Info Message"] = "--Message Center: Reject was NOT success--";
+                return View();
+            }
         }
 
     }//CLASS

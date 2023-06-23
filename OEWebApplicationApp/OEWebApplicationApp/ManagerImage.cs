@@ -1,18 +1,6 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Hosting.Internal;
-using Newtonsoft.Json.Linq;
+﻿using Microsoft.Data.SqlClient;
 using OEWebApplicationApp.Models;
 using System.Data;
-
-
-
-using System.Reflection.Metadata;
-
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OEWebApplicationApp
 {
@@ -21,6 +9,7 @@ namespace OEWebApplicationApp
         private ClassConfig configclass = new();
 
         //GET ALL IMAGES PER REQUEST ID============================================================================================================
+        //FOR THE INDEX============================================================================================================================
         public List<ImageModel> GetImages(string id)
         {
             List<ImageModel> listOfOERequest = new List<ImageModel>();
@@ -53,6 +42,7 @@ namespace OEWebApplicationApp
         }//GetImages
         
         //GET ONE IMAGES PER FILE NAME============================================================================================================
+        //CREATED FOR DELETE SPECIFIC=============================================================================================================
         public List<ImageModel> GetImage(string id)
         {
             List<ImageModel> listOfOERequest = new List<ImageModel>();
@@ -85,6 +75,7 @@ namespace OEWebApplicationApp
         }//GetImages
 
         //UPDATE IMAGE===========================================================================================================================
+        //update the database with location=================================================
         public bool UpdateImageTbl(string filename, string path, ImageModel model)
         {
 
@@ -117,6 +108,7 @@ namespace OEWebApplicationApp
         }//UpdateImageTbl
 
         //DELETE SINGLE IMAGE ========================================================================================================================
+        //REMOVE THE IMAGE FROM DATABASE LOCATION AND LOCAL REPOSITORY=================================================
         public string DeleteImage(string filePath, ImageModel imageModel)
         {
             string value = "Success";
@@ -150,13 +142,14 @@ namespace OEWebApplicationApp
         }
 
         //DELETE MULIPLE IMAGES============================================================================================================
+        //REMOVE IMAGES FROM THE REPOSITORY AND THE DATABASE===============================================================================
         public void DeleteAllImages(int id, TblCgyoeModel tblCgyoe)
         {
             GetAllImageFilePaths(id);
             DeleteImagesByRequestid(id, tblCgyoe);
 
-        }
-        
+        }//DeleteAllImages
+
         //DELETE: RETRIEVE IMAGES LIST FROM DATABASE AND DELETE FROM FILE.====================
         private List<ImageModel> GetAllImageFilePaths(int id)
         {
@@ -180,8 +173,8 @@ namespace OEWebApplicationApp
 
             }//using
             return listOfOERequest;
-        }//GetImages
-         
+        }//GetAllImageFilePaths
+
         //DELETE: REMOVE ALL IMAGES FROM DATABASE===========================================
         private string DeleteImagesByRequestid(int id, TblCgyoeModel tblCgyoe)
         {
@@ -209,18 +202,7 @@ namespace OEWebApplicationApp
                 value = "Failure";
                 return value;
             }
-}
+        }//DeleteImagesByRequestid
 
-        //public void WordProcessor()
-        //{
-        //    string docTemplatePath = @"~/wwwroot/Reports/";
-        //    string docOutputPath = @"~/wwwroot/Reports/";
-        //    File.Copy(docTemplatePath, docOutputPath);
-        //    var stream = new MemoryStream();
-        //    using (WordprocessingDocument doc = WordprocessingDocument.Open(docOutputPath, true))
-        //    {
-
-        //    }
-        //}
     }//class
 }//namespace

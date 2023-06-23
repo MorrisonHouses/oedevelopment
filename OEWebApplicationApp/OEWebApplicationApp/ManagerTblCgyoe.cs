@@ -1,26 +1,13 @@
 ﻿using Microsoft.Data.SqlClient;
-using OEWebApplicationApp.Models;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using Microsoft.Extensions.Configuration;
-using ConfigurationManager = System.Configuration.ConfigurationManager;
-using Microsoft.Web.Administration;
-using Configuration = System.Configuration.Configuration;
-using Microsoft.EntityFrameworkCore;
-using System.Net.Mail;
-using System.Linq;
-using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc;
 
 namespace OEWebApplicationApp.Models
 {
     public partial class ManagerTblCgyoe
     {
-        ClassFunctions function = new();
-        ClassConfig configclass = new();
+        private ClassFunctions function = new();
+        private ClassConfig configclass = new();
 
         /*GET REQUEST=================================================================================================================*/
         public List<TblCgyoeModel> GetViewOERequest(string id)
@@ -268,6 +255,7 @@ namespace OEWebApplicationApp.Models
 
         //APPROVAL SECTION=======================================================================================================================
         /*GET APPROVAL REQUEST=================================================================================================================*/
+        //GET THE LIST BASED ON THE APPROVED BY AND STATUS
         public List<TblCgyoeModel> GetViewApproverOERequest(string id)
         {
             ClassConfig classConfig = new ClassConfig();
@@ -369,6 +357,7 @@ namespace OEWebApplicationApp.Models
         }//GetViewOEById
 
         /*APPROVE===========================================================================================================================*/
+        //GET APPROVE REQUEST BY ID ONLY EDITABLE ACTION WILL BE THE REQUEST REASON AND STATUS==============================================
         public bool ApproveRequest(int id, TblCgyoeModel request)
         {
             ClassConfig configclass = new();
@@ -386,7 +375,6 @@ namespace OEWebApplicationApp.Models
                 command.Parameters.AddWithValue("@RequestId", request.RequestId);
                 if (request.Request != null) { command.Parameters.AddWithValue("@Request", request.Request); } else { command.Parameters.AddWithValue("@Request", DBNull.Value); };
                 if (request.Reason != null) { command.Parameters.AddWithValue("@Reason", request.Reason); } else { command.Parameters.AddWithValue("@Reason", DBNull.Value); };
-                //if (request.ApprovedDate != null) { command.Parameters.AddWithValue("@ApprovedDate", request.ApprovedDate); } else { command.Parameters.AddWithValue("@ApprovedDate", DBNull.Value); };
                 if (request.Status != null) { command.Parameters.AddWithValue("@Status", request.Status); } else { command.Parameters.AddWithValue("@Status", DBNull.Value); };
                 
                 connection.Open();
