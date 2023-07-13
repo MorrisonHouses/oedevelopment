@@ -45,7 +45,7 @@
                                 @*                        <option value"">--Select a Vendor--</option>"*@
                                 @foreach (VendorModel a in ViewBag.vendors)
                                 {
-                                    <option value="@a.Vendor" id="@a.Name">@a.Vendor / @a.Name</option>
+                                    <option value="@a.Vendor" id="@a.Name">@a.Name</option>
                                 }
                             </select>
                             <span asp-validation-for="Vendor" class="text-danger bg-yellow"></span>
@@ -127,10 +127,18 @@
                                         <span asp-validation-for="Budgeted" class="text-danger"></span>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group-create">
+                        <label asp-for="AutoApproveThreshold" class="control-label"></label>
+                        <select asp-for="AutoApproveThreshold" class="form-control" readonly>
+                            @foreach (ViewGlaccountModel a in ViewBag.approverGK)
+                            {
+                                <option value="@a.ApprovalThreshold" readonly>@a.ApprovalThreshold</option>
+
+                            }
+                        </select>
                     </div>
                 </div>
                 @*//calculate================================================================================================*@
@@ -204,6 +212,9 @@
                     <div class="text-danger">*** Selecting AutoApprove will bypass the approval request system. ***</div>
                     <div class="container">
                         <div class="row">
+                            <div class="col-8">
+@*                    <div class="container">
+                        <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group-create">
                                     <div class="form-group-create">
@@ -216,15 +227,19 @@
                                             }
                                         </select>
                                     </div>
-@*                                    <div class="form-group-create">
+                                    <div class="form-group-create">
                                         <label asp-for="AutoApproved" class="control-label ">Auto-Approve</label>
                                         <select asp-for="AutoApproved" asp-items=@ViewBag.autoApproved value=""class="form-control"></select>
                                         <span asp-validation-for="AutoApproved" class="text-danger"></span>
-                                    </div>*@
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <input type="submit" value="Auto Approve" class="btn btn-primary m-3" asp-action="AutoApprove"/>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-2"></div>
+                    </div>
                     </div>
                 }
                     <hr />
