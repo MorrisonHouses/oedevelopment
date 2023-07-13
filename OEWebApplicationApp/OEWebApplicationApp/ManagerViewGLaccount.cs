@@ -62,6 +62,11 @@ namespace OEWebApplicationApp
             return listOfGls;
         }//GetAllGlAccounts
 
+        public double GetThreshold(string gl)
+        {
+            double value = Convert.ToDouble(GetAllGlAccounts().FirstOrDefault().ApprovalThreshold);
+            return value;
+        }
 
     }//class
 }//namespace

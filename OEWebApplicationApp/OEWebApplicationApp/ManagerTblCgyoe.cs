@@ -391,7 +391,61 @@ namespace OEWebApplicationApp.Models
             }//using
         }//ApproveRequest
 
+        /*Auto APPROVE======================================================================================================================*/
+        //GET APPROVE REQUEST BY ID ONLY EDITABLE ACTION WILL BE THE REQUEST REASON AND STATUS==============================================
+        public bool AutoApproveRequest(int id)
+        {
+            ClassConfig configclass = new();
+            int i = 0;
+            ClassConfig classConfig = new ClassConfig();
+            List<TblCgyoeModel> listOfOERequest = new List<TblCgyoeModel>();
+            string username = configclass.username();
+            string config = configclass.MorSQLConnections();
+            var approvedStatus = "Approved";
+            var autoApproved = true;
+            using (SqlConnection connection = new SqlConnection(config))
+            {
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spr_CGYAutoApproveOE";
 
+                command.Parameters.AddWithValue("@RequestId", id);         
+                command.Parameters.AddWithValue("@Status", approvedStatus);
+                command.Parameters.AddWithValue("@AutoApproved", autoApproved);
+
+                connection.Open();
+                i = command.ExecuteNonQuery();
+                connection.Close();
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }//using
+        }//ApproveRequest
+
+        public string GetLastEntryByUser()
+        {
+            string username = configclass.username();
+            string config = configclass.MorSQLConnection();
+            string ? result = "";
+            using (SqlConnection connection = new SqlConnection(config))
+            {
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spr_CGYLastEntry";
+                command.Parameters.AddWithValue("@RequestedBy", username);
+                command.Parameters.Add("@OutputMessage", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
+                connection.Open();
+                command.ExecuteNonQuery();
+                result = command.Parameters["@OutputMessage"].Value.ToString();
+                connection.Close();
+            }//using
+            return result;
+        }//delete
 
     }//class
 }//namespace

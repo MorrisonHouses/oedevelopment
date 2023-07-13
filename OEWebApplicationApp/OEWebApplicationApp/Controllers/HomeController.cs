@@ -6,7 +6,6 @@ namespace OEWebApplicationApp.Controllers
 {
     public class HomeController : Controller
     {
-        //TODO: remove extra boxes
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

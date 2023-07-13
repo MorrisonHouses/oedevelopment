@@ -138,19 +138,15 @@ namespace OEWebApplicationApp.Models
         {
             if (Gstincluded == false )
             {
-                //decimal? totalAmount = Math.Round((decimal)((Amount * (Gstvalue / 100)) + Amount),2);
                 decimal? totalAmount = Math.Round((decimal)((Amount * (Gstvalue / 100)) + Amount),2);
                 return totalAmount;
             }
             else
             {
-               // decimal? totalAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))), 2);
                 decimal? totalAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100) + (Amount - (Amount / (Gstvalue + 100) * 100))),2);
                 return totalAmount; 
             }
         }//CalculateTotalValue
-
-        //TODO ADD NO GST
         public decimal? CalculateGST()
         {
             if (Gstincluded == false)
@@ -169,13 +165,11 @@ namespace OEWebApplicationApp.Models
         {
             if (Gstincluded == false)
             {
-                //decimal? newAmount = Math.Round((decimal)Amount,2);
                 decimal? newAmount = Math.Round((decimal)Amount,2);
                 return newAmount;
             }
             else
             {
-               // decimal? newAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100)) ,2)  ;
                 decimal? newAmount = Math.Round((decimal)((Amount / (Gstvalue + 100) * 100)), 2);
                 return newAmount;
             }

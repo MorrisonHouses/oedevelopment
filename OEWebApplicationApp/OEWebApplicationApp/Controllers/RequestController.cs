@@ -113,7 +113,7 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.autoApproved = tblCgyoeManager.AutoApproveList();
             ViewBag.status = tblCgyoeManager.StatusList();
             ViewBag.gstInc = tblCgyoeManager.GstList();
-
+            ViewBag.newthreshold = "False";
             string ? name = tblCgyoeModel.GetVendorName();
             string ? threashold = tblCgyoeModel.GetGlAccount();
 
@@ -127,6 +127,8 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.gstamt = tblCgyoeModel.CalculateGST();
                 ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
                 ViewBag.newAmt = tblCgyoeModel.CalculateAmount();
+                //ViewBag.newthreshold = viewGLaccountManager.GetThreshold(tblCgyoeModel.Glaccount);
+                ViewBag.newthreshold = ((double)viewGLaccountManager.GetThreshold(tblCgyoeModel.Glaccount) >= (double)tblCgyoeModel.CalculateTotalValue()) ;
             }
             else
             {
@@ -137,6 +139,7 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
                 ViewBag.vendName = "";
                 ViewBag.approverGK = "";
+                ViewBag.newthreshold = "False";
             }
 
             return View(tblCgyoeModel);
@@ -157,6 +160,7 @@ namespace OEWebApplicationApp.Controllers
                     {
                         ViewData["SendToName"] = tblCgyoe.ApprovedBy + "@morrisonhomes.ca";
                         TempData["Info Message"] = "--Message Center: Creation Successfully send to " + ViewData["SendToName"] +" --";
+                        //TODO CHANGE EMAIL NAME TO APPROVER
                         string email = "evan.doucett@morrisonhomes.ca";
                         string body = "Dear Recipient, \n \n Please be advised that you have an OE approval. ";
                         string subject = "-- OE Request Notification.";
@@ -205,18 +209,18 @@ namespace OEWebApplicationApp.Controllers
                         if (IsUpdated)
                         {
                             TempData["Info Message"] = "--Message Center: Edit successful--";
-                            return RedirectToAction("Index", new { id = "notApproved" });
+                            return RedirectToAction("Index");
                         }
                         else
                         {
                             TempData["Info Message"] = "--Message Center: Edit was NOT successful, remove all special characters--";
-                            return RedirectToAction("Edit", new { id = id });
+                            return RedirectToAction("Edit");
                         }
                     }
                     else
                     {
                     TempData["Info Message"] = "--Message Center: Edit was NOT successful, remove all special characters--";
-                    return RedirectToAction("Edit", new { id = id });
+                    return RedirectToAction("Edit");
                     }
                 //return RedirectToAction("Index", new { id = "notApproved" });
             }
@@ -291,5 +295,49 @@ namespace OEWebApplicationApp.Controllers
 
         }
 
+        // AutoApprove =====================================================================
+        [HttpPost]
+        [ActionName("AutoApprove")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AutoApprove(TblCgyoeModel tblCgyoe)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    bool IsUpdated = tblCgyoeManager.createProduct(tblCgyoe);
+                    if (IsUpdated)
+                    {
+                        //approval request
+                        string idLastEntry = tblCgyoeManager.GetLastEntryByUser();
+                        tblCgyoeManager.AutoApproveRequest(Convert.ToInt32(idLastEntry));
+                        //table values
+                        int requestId = Convert.ToInt32(idLastEntry);
+                        string? reason = tblCgyoe.Reason;
+                        string? request = tblCgyoe.Request;
+                        double gst = Math.Round((double)tblCgyoe.Gstamount, 2);
+                        double totalAmount = Math.Round((double)tblCgyoe.TotalAmount, 2);
+                        string? vendor = tblCgyoe.Vendor;
+                        //write to file
+                        function.WriteToFile(requestId, vendor, reason, request, gst, totalAmount);
+                        //message to user
+                        TempData["Info Message"] = "--Message Center: Approval has been approved --";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["Info Message"] = "--Message Center: Auto Approval not Successfull--";
+                        return RedirectToAction("Index");
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Info Message"] = ex.Message;
+                return View();
+            }
+
+        }//Createupdate
     }//class
 }//namespace

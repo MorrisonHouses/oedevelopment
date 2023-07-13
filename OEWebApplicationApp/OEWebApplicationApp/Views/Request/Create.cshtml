@@ -139,15 +139,41 @@
                     <div class="col-3"></div>
                     <div class="col-4"></div>
                 </div>
-
+                @*//auto approve=============================================================================================*@
                 <hr />
-                @*//create button disabled if amount 0==========================================================================*@
+@*
+                <div class="text-danger">*** Selecting AutoApprove will bypass the approval system. ***</div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <div class="form-group-create">
+                                <div class="form-group-create">
+                                    <label asp-for="AutoApproveThreshold" class="control-label" ></label>
+                                    <select asp-for="AutoApproveThreshold" class="form-control" readonly>
+                                        @foreach (ViewGlaccountModel a in ViewBag.approverGK)
+                                        {
+                                            <option value="@a.ApprovalThreshold" readonly>@a.ApprovalThreshold</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            <div class="form-group-create">
+                                    <label asp-for="AutoApproved" class="control-label">Auto-Approve</label>
+                                    <select asp-for="AutoApproved" asp-items=@ViewBag.autoApproved class="form-control bg-yellow"></select>
+                                    <span asp-validation-for="AutoApproved" class="text-danger"></span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                @*//create button disabled if amount 0=======================================================================*@
                 @if (ViewBag.ttlamt >= 1)
                 {
                     <div class="container">
                         <div class="row">
                             <div class="col-3">
-                                <input type="submit" value="Create" class="btn btn-primary" asp-action="CreateNew" />
+                                <input type="submit" value="Submit to Approver" class="btn btn-primary m-3" asp-action="CreateNew" />
                             </div>
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4"></div>
@@ -158,16 +184,50 @@
                 {
                     <div class="container">
                         <div class="row">
-                            <div class="col-4">
-                                <input type="submit" value="Create" class="btn btn-primary" disabled asp-action="CreateNew" />
+                            <div class="col-8">
+                                <input type="submit" value="Submit to Approver" class="btn btn-primary" disabled asp-action="CreateNew" />
                                 <p class="text-danger">The total amount must be greater than $0.00 to continue.</p>
                             </div>
-                            <div class="col-3"></div>
-                            <div class="col-3"></div>
+                            <div class="col-2"></div>
+                            <div class="col-2"></div>
                         </div>
                     </div>
                 }
-                <hr />
+                @ViewBag.lastentry
+                @*//auto approve area, if value is greater than total amount options appear=======================================================================*@
+                @if (ViewBag.newthreshold != true)
+                {
+                    <div class="text-danger">*** Auto Approve option is not available ***</div>
+                }
+                else
+                {
+                    <div class="text-danger">*** Selecting AutoApprove will bypass the approval request system. ***</div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group-create">
+                                    <div class="form-group-create">
+                                        <label asp-for="AutoApproveThreshold" class="control-label"></label>
+                                        <select asp-for="AutoApproveThreshold" class="form-control" readonly>
+                                            @foreach (ViewGlaccountModel a in ViewBag.approverGK)
+                                            {
+                                                <option value="@a.ApprovalThreshold" readonly>@a.ApprovalThreshold</option>
+
+                                            }
+                                        </select>
+                                    </div>
+@*                                    <div class="form-group-create">
+                                        <label asp-for="AutoApproved" class="control-label ">Auto-Approve</label>
+                                        <select asp-for="AutoApproved" asp-items=@ViewBag.autoApproved value=""class="form-control"></select>
+                                        <span asp-validation-for="AutoApproved" class="text-danger"></span>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Auto Approve" class="btn btn-primary m-3" asp-action="AutoApprove"/>
+                    </div>
+                }
+                    <hr />
                 @*//main container ends here================================================================================
                 ========================================================================================================
                 *@
@@ -187,32 +247,29 @@
 
                         <div class="form-group">
                             <label asp-for="AutoApproveThreshold" class="control-label" hidden></label>
-                            <select asp-for="AutoApproveThreshold" class="form-control" readonly hidden>
+                            <select asp-for="AutoApproveThreshold" class="form-control" hidden>
                                 @foreach (ViewGlaccountModel a in ViewBag.approverGK)
                                 {
                                     <option value="@a.ApprovalThreshold" hidden>@a.ApprovalThreshold</option>
                                 }
                             </select>
                         </div>
-
-
                         <div class="form-group">
-                            <label asp-for="AutoApproved" class="control-label " hidden></label>
+                            <label asp-for="AutoApproved" class="control-label " hidden>Auto-Approve</label>
                             <select asp-for="AutoApproved" asp-items=@ViewBag.autoApproved class="form-control" hidden></select>
                             <span asp-validation-for="AutoApproved" class="text-danger"></span>
                         </div>
 
-                                                    <div class="form-group">
+                        <div class="form-group">
                             <label asp-for="ApprovedBy" class="control-label" hidden></label>
-                            <select asp-for="ApprovedBy" class="form-control" readonly hidden>
+                            <select asp-for="ApprovedBy" class="form-control" hidden readonly >
                         @foreach (ViewGlaccountModel a in ViewBag.approverGK)
                         {
                         <option value="@a.ApprovalGateKeeper">@a.ApprovalGateKeeper</option>
                         }
                         </select>
                         </div>
-
-                                                    <div class="form-group">
+                        <div class="form-group">
                             <label asp-for="ApprovedDate" class="control-label" hidden></label>
                         <input asp-for="ApprovedDate" class="form-control" readonly hidden/>
                         <span asp-validation-for="ApprovedDate" class="text-danger"></span>
