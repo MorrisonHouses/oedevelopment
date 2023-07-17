@@ -202,8 +202,9 @@
                     </div>
                 }
                 @ViewBag.lastentry
+                @ViewBag.newthreshold
                 @*//auto approve area, if value is greater than total amount options appear=======================================================================*@
-                @if (ViewBag.newthreshold != true)
+                @if (ViewBag.newthreshold <= 1)
                 {
                     <div class="text-danger"></div>
                 }

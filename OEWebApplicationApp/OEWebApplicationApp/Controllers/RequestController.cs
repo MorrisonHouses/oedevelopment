@@ -85,6 +85,7 @@ namespace OEWebApplicationApp.Controllers
             ViewBag.ttlamt = 0;
             ViewBag.amount = 0;
             ViewBag.gstamt = 0;
+            ViewBag.newthreshold = 0;
             //select database lists==========================================
             TblCgyoeModel tblCgyoeModel = new TblCgyoeModel();
             string ? name = tblCgyoeModel.GetVendorName();
@@ -128,7 +129,7 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.ttlamt = tblCgyoeModel.CalculateTotalValue();
                 ViewBag.newAmt = tblCgyoeModel.CalculateAmount();
                 //ViewBag.newthreshold = viewGLaccountManager.GetThreshold(tblCgyoeModel.Glaccount);
-                ViewBag.newthreshold = ((double)viewGLaccountManager.GetThreshold(tblCgyoeModel.Glaccount) >= (double)tblCgyoeModel.CalculateTotalValue()) ;
+                ViewBag.newthreshold = ((double)viewGLaccountManager.GetThreshold(tblCgyoeModel.Glaccount) - (double)tblCgyoeModel.CalculateTotalValue()) ;
             }
             else
             {
@@ -139,7 +140,7 @@ namespace OEWebApplicationApp.Controllers
                 ViewBag.glAccounts = viewGLaccountManager.GetAllGlAccounts();
                 ViewBag.vendName = "";
                 ViewBag.approverGK = "";
-                ViewBag.newthreshold = "False";
+                ViewBag.newthreshold = 0;
             }
 
             return View(tblCgyoeModel);
