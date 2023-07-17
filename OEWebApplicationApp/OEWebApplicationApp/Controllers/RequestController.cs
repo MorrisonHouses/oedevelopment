@@ -169,7 +169,7 @@ namespace OEWebApplicationApp.Controllers
                     }
                     else
                     {
-                        TempData["Info Message"] = "--Message Center: Creation NOT Successfull--";
+                        TempData["Info Message"] = "--Message Center: Creation NOT Successful--";
                         return RedirectToAction("Index");
                     }
                 }
@@ -257,7 +257,7 @@ namespace OEWebApplicationApp.Controllers
                 string result = tblCgyoeManager.Delete(id);
                 //remove oe scanned images from db and file
                 managerImage.DeleteAllImages(id, tblCgyoe);
-                TempData["Info Message"] = "--Message Center: Deleting of OE and Images was Success--";
+                TempData["Info Message"] = "--Message Center: Deleting of OE and Images was Successful--";
                 return RedirectToAction("Index", new { id = "notApproved" });
             }
             catch (Exception ex)
