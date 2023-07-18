@@ -108,6 +108,7 @@ namespace OEWebApplicationApp.Controllers
                         //notification message
                         TempData["Info Message"] = "--Message Center: Approval Notification Sent to " + ViewData["SendToName"] + " --";
                         //email system
+                        //TODO CHANGE EMAIL NAME TO APPROVER
                         string email = "evan.doucett@morrisonhomes.ca";
                         string body = "Dear Recipient, \n \n Please be advised that your OE "+ TblCgyoeModel.RequestId + " has been approved. ";
                         string subject = "-- OE Approval Notification.";
@@ -167,6 +168,7 @@ namespace OEWebApplicationApp.Controllers
         {
             try
             {
+                //TODO CHANGE EMAIL NAME TO RequestedBy
                 string email1 = RequestedBy + "@morrisonhomes.ca";
                 string email = "evan.doucett@morrisonhomes.ca";
                 string body = "Dear Recipient, \n \n Please be advised that your OE request " + id + " has been REJECTED.\n Reason for rejection: " + tblCgyoeModel.RejectReason;
