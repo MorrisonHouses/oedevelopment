@@ -166,12 +166,12 @@ namespace OEWebApplicationApp.Controllers
                         string body = "Dear Recipient, \n \n Please be advised that you have an OE approval. ";
                         string subject = "-- OE Request Notification.";
                         function.SendEmail(email, body, subject);
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { id = "notApproved" });
                     }
                     else
                     {
                         TempData["Info Message"] = "--Message Center: Creation NOT Successful--";
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { id = "notApproved" });
                     }
                 }
                 return RedirectToAction("Index");
