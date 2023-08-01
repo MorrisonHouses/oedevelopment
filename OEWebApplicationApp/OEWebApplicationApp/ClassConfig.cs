@@ -5,6 +5,10 @@ using System.Text.Json.Serialization;
 using System;
 using System.IO;
 using System.Text;
+using System.Net;
+using Microsoft.Web.Administration;
+using NuGet.Protocol;
+using OEWebApplicationApp.Controllers;
 
 namespace OEWebApplicationApp
 {
@@ -15,19 +19,31 @@ namespace OEWebApplicationApp
     /// </summary>
     public class ClassConfig
     {
-
-        private readonly string configAddress = "C:/Users/edoucett/Desktop/ConfigOEWebApp.txt";
+        //private IHttpContextAccessor Accessor;
+        //public string NewUserName()
+        //{
+        //    string value;
+        //    value = Accessor.HttpContext.User.Identity.Name;
+        //    return value;
+        //}
+        private readonly string configAddress = "C:/inetpub/wwwroot/ConfigOECGYWebApp.txt";
         /// <summary>
         /// pulls the current user name
         /// </summary>
         /// <returns>user name </returns>
-        public string username()
-        {
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Trim();
-            string name = userName.Remove(0, 14);
-            name = "cpitre";
-            return name;
-        }//username
+        HomeController homeController = new();
+        //public string username()
+        //{
+        //    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Trim();
+        //    //string userName = NewUserName();
+        //    //string userName = GetComputerName().ToString();
+        //    //string name = userName.Remove(0, 14);
+        //    //string userName = Environment.GetEnvironmentVariable("USERNAME").ToString();
+        //    //string userName = Environment.UserName;
+        //    string name = userName;
+        //    //name = "cpitre";
+        //    return name;
+        //}//username
 
         // TODO: gnicholls name error
         // TODO: cpitre / yclement
