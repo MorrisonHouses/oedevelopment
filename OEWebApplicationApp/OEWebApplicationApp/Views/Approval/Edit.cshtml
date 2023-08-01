@@ -16,18 +16,6 @@
         </div>
     </div>
 </div>
-@if (TempData["Info Message"] != null)
-{
-    <hr />
-    <div class="container d-flex justify-content-center">
-        <div class="row">
-            <div class="" id="top">
-                <h2 class="bg-info"><strong>@TempData["Info Message"]</strong></h2>
-            </div>
-        </div>
-    </div>
-    <hr />
-}
 <hr />
 <div class="container-fluid ">
 <div class="row">
@@ -149,7 +137,7 @@
                 <span asp-validation-for="Timestamp" class="text-danger"></span>
             </div>*@
                 <div class="form-group  m-2">
-                    <input asp-controller="Approval" type="submit" value="Approve" class="btn btn-primary m-2 fw-bold" />
+                    <input asp-controller="Approval" type="submit" value="Approve" class="btn btn-primary m-2" />
                     <a asp-controller="Approval" asp-action="Reject" asp-route-id="@Model.RequestId" asp-route-requestedby="@Model.RequestedBy" class="text-danger fw-bold">REJECT</a>
                 </div>
         </form>
