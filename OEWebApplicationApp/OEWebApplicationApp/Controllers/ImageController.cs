@@ -5,6 +5,15 @@ namespace OEWebApplicationApp.Controllers
 {
     public class ImageController : Controller
     {
+        private IHttpContextAccessor Accessor;
+        public string NewUserName()
+        {
+            string value;
+            value = HttpContext.User.Identity.Name.Remove(0, 14);
+            //value = "cpitre";
+
+            return value;
+        }
         private ClassFunctions function = new();
         private ClassConfig configclass = new();
         private ManagerImage ManagerImage = new();
@@ -15,7 +24,8 @@ namespace OEWebApplicationApp.Controllers
 
             ClassFunctions function = new();
             ClassConfig configclass = new();
-            ViewBag.UserName = configclass.username();
+            //ViewBag.UserName = configclass.username();
+            ViewBag.UserName = NewUserName();
             ViewBag.DateTime = function.dateTime();
             try
             {
