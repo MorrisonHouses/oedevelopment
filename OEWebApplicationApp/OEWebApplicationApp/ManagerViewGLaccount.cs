@@ -13,7 +13,7 @@ namespace OEWebApplicationApp
         {
             ClassConfig classConfig = new ClassConfig();
             //int count = GetAllGlAccounts().Where(x => x.GateKeeper.Trim() == classConfig.username().Trim()).Count();
-            int count = GetAllGlAccounts(username1).Where(x => x.GateKeeper.Trim() == username1.Trim()).Count();
+            int count = GetAllGlAccounts(username1).Where(x => x.GateKeeper.Trim().ToLower() == username1.Trim()).Count();
             bool check = false;
             if (count > 0) { check = true; } else { check = false; };
             return check;
@@ -24,7 +24,7 @@ namespace OEWebApplicationApp
         {
             ClassConfig classConfig = new ClassConfig();
             //int count = GetAllGlAccounts().Where(x => x.ApprovalGateKeeper.Trim() == classConfig.username().Trim()).Count();
-            int count = GetAllGlAccounts(username1).Where(x => x.ApprovalGateKeeper.Trim() == username1.Trim()).Count();
+            int count = GetAllGlAccounts(username1).Where(x => x.ApprovalGateKeeper.Trim().ToLower() == username1.Trim()).Count();
             bool check = false;
             if (count > 0) { check = true; } else { check = false; };
             return check;

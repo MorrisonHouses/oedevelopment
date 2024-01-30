@@ -32,18 +32,18 @@ namespace OEWebApplicationApp
         /// </summary>
         /// <returns>user name </returns>
         HomeController homeController = new();
-        //public string username()
-        //{
-        //    string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Trim();
-        //    //string userName = NewUserName();
-        //    //string userName = GetComputerName().ToString();
-        //    //string name = userName.Remove(0, 14);
-        //    //string userName = Environment.GetEnvironmentVariable("USERNAME").ToString();
-        //    //string userName = Environment.UserName;
-        //    string name = userName;
-        //    //name = "cpitre";
-        //    return name;
-        //}//username
+        public string ServerUsername()
+        {
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToLower().Trim();
+            //string userName = NewUserName();
+            //string userName = GetComputerName().ToString();
+            //string name = userName.Remove(0, 14);
+            //string userName = Environment.GetEnvironmentVariable("USERNAME").ToString();
+            //string userName = Environment.UserName;
+            string name = userName;
+            //name = "cpitre";
+            return name;
+        }//username
 
         // TODO: gnicholls name error
         // TODO: cpitre / yclement

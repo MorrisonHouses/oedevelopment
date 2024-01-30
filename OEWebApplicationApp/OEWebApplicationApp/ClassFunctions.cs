@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Office.Interop.Word;
 using System.Data;
+using System.Net;
 using System.Net.Mail;
 using MailMessage = System.Net.Mail.MailMessage;
 
@@ -80,9 +81,13 @@ namespace OEWebApplicationApp
             object missing = System.Reflection.Missing.Value;
             object replaceAll = WdReplace.wdReplaceAll;
 
+            WebClient webClient = new WebClient();
+
+
             string LocalPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Report/MorrisonOEPO.docx");
             string LocalPathPDF = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Report/MorrisonOEPO.pdf");
-
+            //string DesktopPath = "\\\\Morfsdc1\\Users\\edoucett\\MorrisonOEPO.docx";
+            //File.Copy(LocalPath, DesktopPath, true);
             //applicationWord.Documents.Open(@"C:\Users\edoucett\Desktop\MorrisonOEPO.docx" );
             applicationWord.Documents.Open(LocalPath);
             applicationWord.Visible = false;

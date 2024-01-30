@@ -147,6 +147,7 @@ namespace OEWebApplicationApp.Models
                 return totalAmount; 
             }
         }//CalculateTotalValue
+
         public decimal? CalculateGST()
         {
             if (Gstincluded == false)

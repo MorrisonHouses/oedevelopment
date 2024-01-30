@@ -10,8 +10,8 @@ namespace OEWebApplicationApp.Controllers
         public string NewUserName()
         {
             string value;
-            value = HttpContext.User.Identity.Name.Remove(0, 14);
-            //value = "cpitre";
+            value = HttpContext.User.Identity.Name.Remove(0, 14).ToLower();
+            //value = "CSaguez";
 
             return value;
         }

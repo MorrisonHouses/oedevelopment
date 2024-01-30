@@ -14,21 +14,23 @@ namespace OEWebApplicationApp.Controllers
         public string NewUserName()
         {
             string value;
-            value = HttpContext.User.Identity.Name.Remove(0, 14);
-            //value = "cpitre";
-
+            value = HttpContext.User.Identity.Name.Remove(0, 14).ToLower();
+            //value = "CSaguez";
+            //value = "edoucett";
             return value;
         }
         public IActionResult Index()
         {
             //string userName = HttpContext.User.Identity.Name;
             string userName = NewUserName();
+
             //userName = userName.Remove(0, 14);
             /*calls username*/
             ManagerViewGLaccount viewGLaccountManager = new ManagerViewGLaccount();
             ClassFunctions function = new();
             ClassConfig configclass = new();
             ManagerViewGLaccount managerViewGLaccount = new();
+            ViewBag.Servername = configclass.ServerUsername();
             //ViewBag.UserName = configclass.username();
             ViewBag.DateTime = function.dateTime();
             ViewBag.UserName = userName;

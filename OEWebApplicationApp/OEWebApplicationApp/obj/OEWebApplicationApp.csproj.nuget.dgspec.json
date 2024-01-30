@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj": {}
+    "C:\\inetpub\\wwwroot\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj": {}
   },
   "projects": {
-    "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj": {
+    "C:\\inetpub\\wwwroot\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj",
+        "projectUniqueName": "C:\\inetpub\\wwwroot\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj",
         "projectName": "OEWebApplicationApp",
-        "projectPath": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj",
+        "projectPath": "C:\\inetpub\\wwwroot\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj",
         "packagesPath": "C:\\Users\\edoucett\\.nuget\\packages\\",
-        "outputPath": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\obj\\",
+        "outputPath": "C:\\inetpub\\wwwroot\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -95,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

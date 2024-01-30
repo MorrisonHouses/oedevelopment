@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gMTik6W1uL2NM7wmizfCibvPITFhDrlokcieXiDZVvxC9uGOtgyBKK62rzHM6tj+Wf6aj42tBClevy8FGeR8og==",
+  "dgSpecHash": "NpLkXlXNjSxUTnz0W51hDjU0d+pI+BErz9Y5MoknQU5Z3ZeMlQjtFpYgLpgov/3lXHsP3GULRf6R/TAuXtohqQ==",
   "success": true,
-  "projectFilePath": "\\\\Morfsdc1\\Users\\edoucett\\GitHub\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj",
+  "projectFilePath": "C:\\inetpub\\wwwroot\\oedevelopment\\OEWebApplicationApp\\OEWebApplicationApp\\OEWebApplicationApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\edoucett\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\edoucett\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -232,5 +232,16 @@
     "C:\\Users\\edoucett\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\edoucett\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Data.SqlClient' 5.1.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "Microsoft.Data.SqlClient",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

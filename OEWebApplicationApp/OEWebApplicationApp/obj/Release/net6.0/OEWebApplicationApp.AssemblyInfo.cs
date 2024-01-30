@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OEWebApplicationApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f428ffc3d9e6fd47cdccde6c3653129939810dad")]
 [assembly: System.Reflection.AssemblyProductAttribute("OEWebApplicationApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OEWebApplicationApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
