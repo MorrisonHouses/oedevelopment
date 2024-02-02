@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
     ViewData["Title"] = "Details";
 }
+<div id="ObjectToPrint">
+
+
 <div class="">
 <div class="container-fluid" >
     <div class="row">
@@ -19,7 +22,7 @@
         <div class="col-6 bg-white">
             @foreach (var item in Model) {
                     <div class="text-center text-back fw-bold">Purchase Order</div>
-                <div class="text-center border">Request Date: @Html.DisplayNameFor(model => model.RequestId)@Html.DisplayFor(modelItem => item.RequestId)</div>
+                <div class="text-center border" id="InvoiceId">Request: @Html.DisplayNameFor(model => model.RequestId)@Html.DisplayFor(modelItem => item.RequestId)</div>
                 <div class="text-center">Purchase Date: @Html.DisplayFor(modelItem => item.PurchaseDate)</div>
                 <div class="text-center">GL-Account: @Html.DisplayFor(modelItem => item.Glaccount)</div>
                     }
@@ -107,9 +110,28 @@
     </div>
 </div>
 </div>
+</div>
 
     <script>
-    function printscreen() {
-        window.print();
+    function generatePDF() {
+
+        // Choose the element id which you want to export.
+        var element = document.getElementById('ObjectToPrint');
+        var invoiceId = document.getElementById('InvoiceId').outerHTML;
+        // element.style.width = '816px';
+        // element.style.height = '1054px';
+        var opt = {
+            margin: 0.25,
+            filename: invoiceId+'myfile.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { scale: 1 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait', precision: '12' }
+        };
+
+        // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
+        html2pdf().set(opt).from(element).save();
     }
     </script>
+<span class="float-end pt-2">
+    <button type="button" onclick="generatePDF()" class="btn-sm btn-danger pull-right print-job">Export to PDF to Downloads</button>
+</span>

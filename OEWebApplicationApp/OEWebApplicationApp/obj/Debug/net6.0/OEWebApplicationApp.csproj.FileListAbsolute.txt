@@ -277,3 +277,7 @@ C:\inetpub\wwwroot\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Deb
 C:\inetpub\wwwroot\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\OEWebApplicationApp.dll
 C:\inetpub\wwwroot\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\refint\OEWebApplicationApp.dll
 C:\inetpub\wwwroot\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\OEWebApplicationApp.pdb
+C:\Github Repository\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\OEWebApplicationApp.csproj.AssemblyReference.cache
+C:\Github Repository\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\OEWebApplicationApp.dll
+C:\Github Repository\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\refint\OEWebApplicationApp.dll
+C:\Github Repository\oedevelopment\OEWebApplicationApp\OEWebApplicationApp\obj\Debug\net6.0\OEWebApplicationApp.pdb
